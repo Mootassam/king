@@ -241,7 +241,7 @@ function Profile() {
             Other
           </label>
           <div className="detail__section">
-            <Link to="/online" className="remove__ligne">
+            <Link to="/online-service" className="remove__ligne">
               <div className="line__section border__">
                 <div className="titre__section">
                   <img
