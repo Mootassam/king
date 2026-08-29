@@ -23,4 +23,8 @@ export default (app, io) => {
     `/tenant/:tenantId/chat/conversations/:id/reopen`,
     require("./chatReopenConversation").default(io)
   );
+  app.delete(
+    `/tenant/:tenantId/chat/conversations/:id`,
+    require("./chatDeleteConversation").default(io)
+  );
 };

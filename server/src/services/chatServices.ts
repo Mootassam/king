@@ -195,4 +195,27 @@ export default class ChatServices {
 
     return conversation;
   }
+
+  async deleteConversation(conversationId, io?) {
+    if (!this.isAdmin) {
+      throw new Error403(this.options.language);
+    }
+
+    const conversation = await ChatRepository.deleteConversation(
+      conversationId,
+      this.options
+    );
+
+    if (io) {
+      const customerId = String(
+        conversation.customer.id || conversation.customer
+      );
+      // The customer's own conversation is gone — their widget resets to a
+      // clean slate; the next message they send creates a brand new one.
+      io.to(`user:${customerId}`).emit("chat:deleted", { conversationId });
+      io.to("admins").emit("chat:deleted", { conversationId });
+    }
+
+    return { conversationId };
+  }
 }

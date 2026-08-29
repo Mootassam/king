@@ -70,6 +70,8 @@ function CustomerSupportPage() {
   const [showEmoji, setShowEmoji] = useState(false);
   const [agentOnline, setAgentOnline] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   const selectedIdRef = useRef<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -142,14 +144,25 @@ function CustomerSupportPage() {
       );
     };
 
+    const onDeleted = (payload) => {
+      setConversations((prev) =>
+        prev.filter((c) => c.id !== payload.conversationId),
+      );
+      if (selectedIdRef.current === payload.conversationId) {
+        setSelectedId(null);
+      }
+    };
+
     socket?.on('chat:message', onMessage);
     socket?.on('chat:closed', onClosed);
     socket?.on('chat:reopened', onReopened);
+    socket?.on('chat:deleted', onDeleted);
 
     return () => {
       socket?.off('chat:message', onMessage);
       socket?.off('chat:closed', onClosed);
       socket?.off('chat:reopened', onReopened);
+      socket?.off('chat:deleted', onDeleted);
     };
   }, [currentUser?.id]);
 
@@ -231,8 +244,7 @@ function CustomerSupportPage() {
 
   const handlePickImage = () => fileInputRef.current?.click();
 
-  const handleImageChange = async (e) => {
-    const file = e.target.files?.[0];
+  const sendImageFile = async (file: File) => {
     if (!file || !selected) return;
 
     setUploading(true);
@@ -253,7 +265,31 @@ function CustomerSupportPage() {
       console.error('Image upload error:', error);
     } finally {
       setUploading(false);
-      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
+  };
+
+  const handleImageChange = async (e) => {
+    const file = e.target.files?.[0];
+    if (file) await sendImageFile(file);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
+  // Paste an image straight from the clipboard (screenshot, copied image, etc.)
+  const handlePaste = (e) => {
+    if (!selected || selected.status === 'closed') return;
+    const items = e.clipboardData?.items;
+    if (!items) return;
+
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      if (item.type.startsWith('image/')) {
+        const file = item.getAsFile();
+        if (file) {
+          e.preventDefault();
+          sendImageFile(file);
+        }
+        break;
+      }
     }
   };
 
@@ -278,6 +314,21 @@ function CustomerSupportPage() {
       );
     } catch (error) {
       console.error('Reopen chat error:', error);
+    }
+  };
+
+  const handleDeleteChat = async () => {
+    if (!selected) return;
+    setDeleting(true);
+    try {
+      await ChatService.deleteConversation(selected.id);
+      setConversations((prev) => prev.filter((c) => c.id !== selected.id));
+      setSelectedId(null);
+      setShowDeleteConfirm(false);
+    } catch (error) {
+      console.error('Delete chat error:', error);
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -419,6 +470,16 @@ function CustomerSupportPage() {
                     Session #{String(selected.id).slice(-8)}
                   </div>
                 </div>
+                <button
+                  type="button"
+                  className="cs-delete-chat-btn"
+                  onClick={() => setShowDeleteConfirm(true)}
+                  aria-label="Delete chat history"
+                  title="Delete chat history"
+                >
+                  <i className="fas fa-trash-alt" />
+                </button>
+
                 {selected.status === 'open' ? (
                   <button
                     type="button"
@@ -521,10 +582,11 @@ function CustomerSupportPage() {
                 <input
                   type="text"
                   className="cs-composer-input"
-                  placeholder="Type your reply..."
+                  placeholder="Type your reply... (you can paste an image)"
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                   onKeyDown={handleKeyDown}
+                  onPaste={handlePaste}
                   disabled={selected.status === 'closed'}
                 />
 
@@ -681,6 +743,13 @@ function CustomerSupportPage() {
         }
         .cs-reopen-chat-btn:hover { background: #eef4ff; }
 
+        .cs-delete-chat-btn {
+          width: 34px; height: 34px; flex-shrink: 0; border: 1px solid #e2e6ee; background: #fff;
+          color: #9aa2b1; border-radius: 8px; cursor: pointer; display: flex; align-items: center;
+          justify-content: center; font-size: 13px;
+        }
+        .cs-delete-chat-btn:hover { background: #fff5f5; color: #e5484d; border-color: #f0c3c3; }
+
         .cs-thread-body {
           flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 12px;
           background: #fafbfd; min-height: 0;
@@ -750,6 +819,69 @@ function CustomerSupportPage() {
 
       {showSettings && (
         <ChatSettingsModal onClose={() => setShowSettings(false)} />
+      )}
+
+      {showDeleteConfirm && selected && (
+        <div className="cs-confirm-overlay" onClick={() => !deleting && setShowDeleteConfirm(false)}>
+          <div className="cs-confirm-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="cs-confirm-icon">
+              <i className="fas fa-trash-alt" />
+            </div>
+            <h5>Delete this chat?</h5>
+            <p>
+              This permanently deletes the entire message history with{' '}
+              <strong>{labelOf(selected)}</strong>. This can't be undone.
+            </p>
+            <div className="cs-confirm-actions">
+              <button
+                type="button"
+                className="cs-confirm-cancel"
+                onClick={() => setShowDeleteConfirm(false)}
+                disabled={deleting}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="cs-confirm-delete"
+                onClick={handleDeleteChat}
+                disabled={deleting}
+              >
+                {deleting ? <i className="fas fa-spinner fa-spin" /> : 'Delete Chat'}
+              </button>
+            </div>
+          </div>
+
+          <style>{`
+            .cs-confirm-overlay {
+              position: fixed; inset: 0; background: rgba(15, 20, 30, 0.45);
+              display: flex; align-items: center; justify-content: center; z-index: 10001;
+            }
+            .cs-confirm-modal {
+              width: 380px; max-width: calc(100vw - 32px); background: #fff; border-radius: 12px;
+              box-shadow: 0 16px 48px rgba(0,0,0,0.25); padding: 24px; text-align: center;
+            }
+            .cs-confirm-icon {
+              width: 48px; height: 48px; border-radius: 50%; background: #fff5f5; color: #e5484d;
+              display: flex; align-items: center; justify-content: center; font-size: 18px;
+              margin: 0 auto 14px;
+            }
+            .cs-confirm-modal h5 { margin: 0 0 8px; font-size: 15px; font-weight: 700; color: #1a1f2b; }
+            .cs-confirm-modal p { margin: 0 0 20px; font-size: 13px; color: #5b6472; line-height: 1.5; }
+            .cs-confirm-actions { display: flex; gap: 8px; }
+            .cs-confirm-cancel {
+              flex: 1; border: 1px solid #e2e6ee; background: #fff; color: #5b6472; border-radius: 8px;
+              padding: 10px; font-size: 13px; font-weight: 600; cursor: pointer;
+            }
+            .cs-confirm-cancel:hover { background: #f4f5f8; }
+            .cs-confirm-delete {
+              flex: 1; border: none; background: #e5484d; color: #fff; border-radius: 8px;
+              padding: 10px; font-size: 13px; font-weight: 700; cursor: pointer;
+            }
+            .cs-confirm-delete:hover { background: #cc3f44; }
+            .cs-confirm-cancel:disabled, .cs-confirm-delete:disabled { opacity: 0.6; cursor: not-allowed; }
+          `}</style>
+        </div>
       )}
     </div>
   );

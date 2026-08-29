@@ -45,6 +45,14 @@ export default class ChatService {
     return response.data;
   }
 
+  static async deleteConversation(conversationId) {
+    const tenantId = AuthCurrentTenant.get();
+    const response = await authAxios.delete(
+      `/tenant/${tenantId}/chat/conversations/${conversationId}`,
+    );
+    return response.data;
+  }
+
   static async getSettings() {
     const tenantId = AuthCurrentTenant.get();
     const response = await authAxios.get(`/tenant/${tenantId}/settings`);

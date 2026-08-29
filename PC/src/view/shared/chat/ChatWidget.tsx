@@ -109,15 +109,31 @@ function ChatWidget() {
       setConversation((prev) => (prev ? { ...prev, status: 'open' } : prev));
     };
 
+    const onDeleted = async (payload) => {
+      const currentConv = conversationRef.current;
+      if (!currentConv || payload.conversationId !== currentConv.id) return;
+      // An agent wiped the history — start clean with a brand new conversation.
+      setMessages([]);
+      try {
+        const conv = await ChatService.myConversation();
+        setConversation(conv);
+      } catch (error) {
+        console.error('Recreate conversation error:', error);
+        setConversation(null);
+      }
+    };
+
     socket?.on('chat:message', onMessage);
     socket?.on('chat:closed', onClosed);
     socket?.on('chat:reopened', onReopened);
+    socket?.on('chat:deleted', onDeleted);
 
     return () => {
       cancelled = true;
       socket?.off('chat:message', onMessage);
       socket?.off('chat:closed', onClosed);
       socket?.off('chat:reopened', onReopened);
+      socket?.off('chat:deleted', onDeleted);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [signedIn, currentUser?.id]);
@@ -190,8 +206,7 @@ function ChatWidget() {
     fileInputRef.current?.click();
   };
 
-  const handleImageChange = async (e) => {
-    const file = e.target.files?.[0];
+  const sendImageFile = async (file) => {
     if (!file || !conversation) return;
 
     setUploading(true);
@@ -210,7 +225,31 @@ function ChatWidget() {
       console.error('Image upload error:', error);
     } finally {
       setUploading(false);
-      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
+  };
+
+  const handleImageChange = async (e) => {
+    const file = e.target.files?.[0];
+    if (file) await sendImageFile(file);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
+  // Paste an image straight from the clipboard (screenshot, copied image, etc.)
+  const handlePaste = (e) => {
+    if (!conversation || (conversation.status === 'closed' && !allowReopen)) return;
+    const items = e.clipboardData?.items;
+    if (!items) return;
+
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      if (item.type.startsWith('image/')) {
+        const file = item.getAsFile();
+        if (file) {
+          e.preventDefault();
+          sendImageFile(file);
+        }
+        break;
+      }
     }
   };
 
@@ -350,6 +389,7 @@ function ChatWidget() {
               value={text}
               onChange={(e) => setText(e.target.value)}
               onKeyDown={handleKeyDown}
+              onPaste={handlePaste}
               disabled={!conversation || composerDisabled}
             />
             <button

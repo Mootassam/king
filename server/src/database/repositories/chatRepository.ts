@@ -245,6 +245,25 @@ class ChatRepository {
     return this.findConversationById(conversationId, options);
   }
 
+  static async deleteConversation(conversationId, options: IRepositoryOptions) {
+    const conversation = await this.findConversationById(
+      conversationId,
+      options
+    );
+
+    await chatMessage(options.database).deleteMany(
+      { conversation: conversation.id },
+      options
+    );
+
+    await chatConversation(options.database).deleteOne(
+      { _id: conversation.id },
+      options
+    );
+
+    return conversation;
+  }
+
   static async markRead(
     conversationId,
     side: "admin" | "customer",
