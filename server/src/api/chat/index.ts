@@ -1,0 +1,26 @@
+export default (app, io) => {
+  app.get(
+    `/tenant/:tenantId/chat/conversation`,
+    require("./chatMyConversation").default
+  );
+  app.get(
+    `/tenant/:tenantId/chat/conversations`,
+    require("./chatListConversations").default(io)
+  );
+  app.get(
+    `/tenant/:tenantId/chat/conversations/:id/messages`,
+    require("./chatListMessages").default(io)
+  );
+  app.post(
+    `/tenant/:tenantId/chat/conversations/:id/messages`,
+    require("./chatSendMessage").default(io)
+  );
+  app.put(
+    `/tenant/:tenantId/chat/conversations/:id/close`,
+    require("./chatCloseConversation").default(io)
+  );
+  app.put(
+    `/tenant/:tenantId/chat/conversations/:id/reopen`,
+    require("./chatReopenConversation").default(io)
+  );
+};
