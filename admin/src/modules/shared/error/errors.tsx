@@ -15,6 +15,14 @@ function selectErrorKeyOrMessage(error) {
       return data.error.message;
     }
 
+    if (Array.isArray(data.errors) && data.errors[0] && data.errors[0].message) {
+      return data.errors[0].message;
+    }
+
+    if (typeof data === 'string') {
+      return data;
+    }
+
     return String(data);
   }
 
