@@ -138,6 +138,9 @@ export default function PcProfileModal({ onClose }: Props) {
               {(currentUser?.firstName || currentUser?.email || 'U').charAt(0).toUpperCase()}
             </div>
             <div className="pc-profile-email">{currentUser?.email || '—'}</div>
+            {currentUser?.uid && (
+              <div className="pc-profile-uid">UID: {currentUser.uid}</div>
+            )}
             <div className="pc-kyc-badge" style={{ color: kycColor, borderColor: kycColor }}>
               <i className={kycStatus === 'success' ? 'fas fa-check-circle' : kycStatus === 'pending' ? 'fas fa-clock' : 'fas fa-exclamation-circle'} />
               {kycLabel}
@@ -209,7 +212,8 @@ export default function PcProfileModal({ onClose }: Props) {
           width: 56px; height: 56px; border-radius: 50%; background: #0064FA; color: #fff;
           font-size: 24px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;
         }
-        .pc-profile-email { font-size: 12px; color: #6b7280; word-break: break-all; margin-bottom: 8px; }
+        .pc-profile-email { font-size: 12px; color: #6b7280; word-break: break-all; margin-bottom: 4px; }
+        .pc-profile-uid { font-size: 11.5px; color: #9ca3af; margin-bottom: 8px; }
         .pc-kyc-badge {
           display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700;
           border: 1.5px solid; border-radius: 20px; padding: 3px 12px;

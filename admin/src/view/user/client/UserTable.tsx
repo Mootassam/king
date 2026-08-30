@@ -109,6 +109,7 @@ function UserTable() {
                     </div>
                   )}
                 </th>
+                <th className="sortable-header">UID</th>
                 <th
                   className="sortable-header"
                   onClick={() => doChangeSort('email')}
@@ -183,6 +184,9 @@ function UserTable() {
                           }
                         />
                       </div>
+                    </td>
+                    <td className="table-cell">
+                      {row.uid}
                     </td>
                     <td className="table-cell">
                       {row.email}

@@ -41,6 +41,7 @@ export default class UserRepository {
           passportPhoto: data.passportPhoto || null,
           passportDocument: data.passportDocument || null,
           avatars: data.avatars || [],
+          uid: await this.createUniqueUid(options),
           createdBy: currentUser.id,
           updatedBy: currentUser.id,
         },
@@ -154,6 +155,7 @@ export default class UserRepository {
           fullName: normalizedAddress,
           invitationcode: await this.createUniqueRefCode(options),
           refcode: await this.createUniqueRefCode(options),
+          uid: await this.createUniqueUid(options),
         }
       ],
       options
@@ -417,6 +419,23 @@ export default class UserRepository {
     return code;
   }
 
+  static generateUid() {
+    // 8 digits, first digit never 0 so it always renders as 8 characters.
+    return String(Math.floor(10000000 + Math.random() * 90000000));
+  }
+
+  static async createUniqueUid(options: IRepositoryOptions) {
+    let uid;
+    let exists = true;
+
+    while (exists) {
+      uid = this.generateUid();
+      exists = await User(options.database).exists({ uid });
+    }
+
+    return uid;
+  }
+
   static async UpdatehasDeposited(data, options: IRepositoryOptions) {
     const record = await User(options.database).updateOne(
       { _id: data.id }, // filter by the user’s _id
@@ -537,6 +556,7 @@ export default class UserRepository {
            withdrawPassword: data.withdrawPassword,
            invitationcode: data.invitationcode,
            refcode: await this.createUniqueRefCode(options),
+           uid: await this.createUniqueUid(options),
            accountType: data.accountType || "real", // Default to "real"
          },
        ],
@@ -609,6 +629,7 @@ export default class UserRepository {
            firstName: data.firstName,
            fullName: data.fullName,
            refcode: await this.createUniqueRefCode(options),
+           uid: await this.createUniqueUid(options),
            accountType: data.accountType || "real",
            emailVerified: isDemo, // Auto-verify demo accounts
          },
@@ -1682,7 +1703,7 @@ export default class UserRepository {
     lastName,
     options
   ) {
-    let data = {
+    let data: any = {
       email,
       emailVerified,
       providerId,
@@ -1692,6 +1713,7 @@ export default class UserRepository {
     };
 
     data = this._preSave(data);
+    data.uid = await this.createUniqueUid(options);
 
     let [user] = await User(options.database).create([data], options);
 

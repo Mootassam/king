@@ -15,6 +15,7 @@ export default (database) => {
     {
       fullName: { type: String, maxlength: 255 },
       username: { type: String },
+      uid: { type: String, maxlength: 8 },
       refcode: { type: String, unique: true },
 
       invitationcode: {
@@ -98,6 +99,16 @@ export default (database) => {
       unique: true,
       partialFilterExpression: {
         importHash: { $type: "string" },
+      },
+    }
+  );
+
+  UserSchema.index(
+    { uid: 1 },
+    {
+      unique: true,
+      partialFilterExpression: {
+        uid: { $type: "string" },
       },
     }
   );
