@@ -26,12 +26,12 @@ interface MarketData {
 
 
 const availableCoins = [
-  { symbol: "XAUUSD", name: "Gold" },
+  { symbol: "XAUUSD", name: "XAUUSD" },
   { symbol: "EURUSD", name: "EUR / USD" },
   { symbol: "GBPUSD", name: "GBP / USD" },
   { symbol: "BTCUSD", name: "Bitcoin" },
   { symbol: "ETHUSD", name: "Ethereum" },
-  { symbol: "XAGUSD", name: "Silver" },
+  { symbol: "XAGUSD", name: "XAGUSD" },
   { symbol: "AUDUSD", name: "AUD / USD" },
   { symbol: "USDJPY", name: "USD / JPY" },
   { symbol: "NZDUSD", name: "NZD / USD" },

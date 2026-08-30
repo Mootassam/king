@@ -16,8 +16,8 @@ export interface Pair {
 
 export const PAIRS: Pair[] = [
   // Metals
-  { symbol: 'XAUUSD', name: 'Gold',         badgeColor: '#d4af37', badgeLetter: 'Au' },
-  { symbol: 'XAGUSD', name: 'Silver',        badgeColor: '#9ea3a8', badgeLetter: 'Ag' },
+  { symbol: 'XAUUSD', name: 'XAUUSD',        badgeColor: '#d4af37', badgeLetter: 'Au' },
+  { symbol: 'XAGUSD', name: 'XAGUSD',        badgeColor: '#9ea3a8', badgeLetter: 'Ag' },
   // Forex majors
   { symbol: 'EURUSD', name: 'EUR / USD',     baseFlag: 'eu', quoteFlag: 'us' },
   { symbol: 'GBPUSD', name: 'GBP / USD',     baseFlag: 'gb', quoteFlag: 'us' },
