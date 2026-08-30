@@ -8,8 +8,6 @@ import Storage from 'src/security/storage';
 import chatWidgetBus from './chatWidgetBus';
 
 const DEFAULT_TITLE = 'FXCC Support';
-const DEFAULT_WELCOME_TEXT =
-  'Hello! You are now connected to FXCC Capitals Support. Please type a message to begin.';
 
 function formatTime(date) {
   if (!date) return '';
@@ -37,10 +35,10 @@ function ChatWidget() {
   const [unread, setUnread] = useState(0);
   const [widgetTitle, setWidgetTitle] = useState(DEFAULT_TITLE);
   const [allowReopen, setAllowReopen] = useState(true);
-  const [welcomeText, setWelcomeText] = useState(DEFAULT_WELCOME_TEXT);
 
   const conversationRef = useRef<any>(null);
   const openRef = useRef(false);
+  const bootstrappedRef = useRef(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -59,30 +57,10 @@ function ChatWidget() {
     });
   };
 
-  // Bootstrap: get/create the conversation + load history + connect socket.
+  // Connect the socket as soon as the customer is signed in, so live
+  // updates work the moment a conversation exists (created on first open).
   useEffect(() => {
     if (!signedIn || !currentUser?.id) return;
-
-    let cancelled = false;
-
-    (async () => {
-      setLoading(true);
-      try {
-        const conv = await ChatService.myConversation();
-        if (cancelled) return;
-        setConversation(conv);
-
-        const history = await ChatService.listMessages(conv.id, {
-          limit: 200,
-        });
-        if (cancelled) return;
-        setMessages(history.rows || []);
-      } catch (error) {
-        console.error('Chat bootstrap error:', error);
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
-    })();
 
     const socket = getSocket(currentUser.id, false);
 
@@ -130,7 +108,6 @@ function ChatWidget() {
     socket?.on('chat:deleted', onDeleted);
 
     return () => {
-      cancelled = true;
       socket?.off('chat:message', onMessage);
       socket?.off('chat:closed', onClosed);
       socket?.off('chat:reopened', onReopened);
@@ -138,6 +115,43 @@ function ChatWidget() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [signedIn, currentUser?.id]);
+
+  // Get/create the conversation + load history the moment the customer
+  // actually opens the widget — this is also when the backend logs the
+  // greeting as a real message, so admins see the chat was opened even if
+  // the customer never types anything.
+  useEffect(() => {
+    if (!open || !signedIn || !currentUser?.id || bootstrappedRef.current) {
+      return;
+    }
+    bootstrappedRef.current = true;
+
+    let cancelled = false;
+
+    (async () => {
+      setLoading(true);
+      try {
+        const conv = await ChatService.myConversation();
+        if (cancelled) return;
+        setConversation(conv);
+
+        const history = await ChatService.listMessages(conv.id, {
+          limit: 200,
+        });
+        if (cancelled) return;
+        setMessages(history.rows || []);
+      } catch (error) {
+        console.error('Chat bootstrap error:', error);
+        bootstrappedRef.current = false;
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [open, signedIn, currentUser?.id]);
 
   // Open the widget when navigated to /online-service.
   useEffect(() => {
@@ -156,7 +170,6 @@ function ChatWidget() {
         if (cancelled) return;
         setWidgetTitle(settings?.chatWidgetTitle || DEFAULT_TITLE);
         setAllowReopen(settings?.chatAllowReopenClosed !== false);
-        setWelcomeText(settings?.chatWelcomeMessage || DEFAULT_WELCOME_TEXT);
       } catch (error) {
         console.error('Load chat settings error:', error);
       }
@@ -304,13 +317,6 @@ function ChatWidget() {
           </div>
 
           <div className="kc-chat-body" ref={bodyRef}>
-            <div className="kc-chat-message kc-chat-message-admin">
-              <div className="kc-chat-avatar">
-                <i className="fas fa-headset" />
-              </div>
-              <div className="kc-chat-bubble">{welcomeText}</div>
-            </div>
-
             {loading && (
               <div className="kc-chat-loading">
                 <i className="fas fa-spinner fa-spin" /> Loading conversation…
@@ -545,6 +551,7 @@ function ChatWidget() {
           font-size: 13.5px;
           line-height: 1.4;
           word-break: break-word;
+          white-space: pre-wrap;
         }
         .kc-chat-message-admin .kc-chat-bubble { border-top-left-radius: 4px; }
         .kc-chat-message-customer .kc-chat-bubble {

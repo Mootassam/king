@@ -32,8 +32,56 @@ export default class ChatServices {
     }
   }
 
-  async myConversation() {
-    return ChatRepository.findOrCreateForCustomer(this.options);
+  async myConversation(io?) {
+    const { record, created } = await ChatRepository.findOrCreateForCustomer(
+      this.options
+    );
+
+    if (!created) {
+      return record;
+    }
+
+    // Log the greeting the customer sees as a real message, as soon as their
+    // conversation is created, so admins can see the chat was opened even if
+    // the customer never types anything.
+    const currentTenant = MongooseRepository.getCurrentTenant(this.options);
+    const settingsRecord = await settings(this.options.database).findOne({
+      tenant: currentTenant.id,
+    });
+    const welcomeText =
+      settingsRecord?.chatWelcomeMessage?.trim() ||
+      "Hello! You are now connected to FXCC Capitals Support. Please type a message to begin.";
+
+    const session = await MongooseRepository.createSession(
+      this.options.database
+    );
+
+    try {
+      const { message, conversation: updated } =
+        await ChatRepository.createMessage(
+          record.id,
+          { senderType: "admin", type: "text", text: welcomeText },
+          { ...this.options, session }
+        );
+
+      await MongooseRepository.commitTransaction(session);
+
+      if (io) {
+        const customerId = String(updated.customer.id || updated.customer);
+        const payload = { message, conversation: updated };
+        io.to(`user:${customerId}`).emit("chat:message", payload);
+        io.to("admins").emit("chat:message", payload);
+        io.emit("admin", "customerSupport");
+      }
+
+      return updated;
+    } catch (error) {
+      await MongooseRepository.abortTransaction(session);
+      // The conversation itself was created fine; a greeting-logging hiccup
+      // shouldn't block the customer from opening the widget.
+      console.error("Chat welcome-message error:", error);
+      return record;
+    }
   }
 
   async _isReopenAllowed() {

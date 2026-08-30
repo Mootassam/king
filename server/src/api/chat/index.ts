@@ -1,7 +1,7 @@
 export default (app, io) => {
   app.get(
     `/tenant/:tenantId/chat/conversation`,
-    require("./chatMyConversation").default
+    require("./chatMyConversation").default(io)
   );
   app.get(
     `/tenant/:tenantId/chat/conversations`,

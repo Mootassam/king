@@ -761,7 +761,7 @@ function CustomerSupportPage() {
 
         .cs-message-bubble {
           padding: 10px 14px; border-radius: 12px; font-size: 13.5px; line-height: 1.45;
-          background: #eef0f4; color: #1a1f2b; word-break: break-word;
+          background: #eef0f4; color: #1a1f2b; word-break: break-word; white-space: pre-wrap;
         }
         .cs-message.is-admin .cs-message-bubble {
           background: #2f6fed; color: #fff; border-bottom-right-radius: 4px;

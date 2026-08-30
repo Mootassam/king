@@ -21,8 +21,10 @@ class ChatRepository {
       options
     );
 
+    let created = false;
+
     if (!record) {
-      const [created] = await chatConversation(options.database).create(
+      const [createdDoc] = await chatConversation(options.database).create(
         [
           {
             tenant: currentTenant.id,
@@ -36,11 +38,12 @@ class ChatRepository {
       );
 
       record = await chatConversation(options.database)
-        .findById(created._id)
+        .findById(createdDoc._id)
         .populate("customer");
+      created = true;
     }
 
-    return record;
+    return { record, created };
   }
 
   static async findConversationById(id, options: IRepositoryOptions) {
