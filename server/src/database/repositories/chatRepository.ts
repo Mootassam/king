@@ -215,6 +215,30 @@ class ChatRepository {
     return { message, conversation: updatedConversation };
   }
 
+  static async createAutoReplyMessage(
+    conversationId,
+    text: string,
+    options: IRepositoryOptions
+  ) {
+    // Atomically claim the conversation so a race between two rapid
+    // customer messages can't send the auto-reply twice.
+    const claimed = await chatConversation(options.database).findOneAndUpdate(
+      { _id: conversationId, autoReplySent: { $ne: true } },
+      { $set: { autoReplySent: true } },
+      options
+    );
+
+    if (!claimed) {
+      return null;
+    }
+
+    return this.createMessage(
+      conversationId,
+      { senderType: "admin", type: "text", text },
+      options
+    );
+  }
+
   static async closeConversation(conversationId, options: IRepositoryOptions) {
     const conversation = await this.findConversationById(
       conversationId,

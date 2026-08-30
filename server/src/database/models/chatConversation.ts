@@ -40,6 +40,8 @@ export default (database) => {
       unreadByAdmin: { type: Number, default: 0 },
       unreadByCustomer: { type: Number, default: 0 },
 
+      autoReplySent: { type: Boolean, default: false },
+
       createdBy: {
         type: Schema.Types.ObjectId,
         ref: "user",

@@ -16,6 +16,13 @@ export default (database) => {
       logos: [FileSchema],
       chatWidgetTitle: { type: String, default: 'FXCC Support' },
       chatAllowReopenClosed: { type: Boolean, default: true },
+      chatWelcomeMessage: {
+        type: String,
+        default:
+          'Hello! You are now connected to FXCC Capitals Support. Please type a message to begin.',
+      },
+      chatAutoReplyEnabled: { type: Boolean, default: false },
+      chatAutoReplyMessage: { type: String, default: '' },
       tenant: {
         type: Schema.Types.ObjectId,
         ref: 'tenant',

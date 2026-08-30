@@ -117,37 +117,92 @@ export default class ChatServices {
       this.options.database
     );
 
+    let message, updated;
+
     try {
-      const { message, conversation: updated } =
+      ({ message, conversation: updated } =
         await ChatRepository.createMessage(
           conversationId,
           { ...data, senderType },
           { ...this.options, session }
-        );
+        ));
+
+      await MongooseRepository.commitTransaction(session);
+    } catch (error) {
+      await MongooseRepository.abortTransaction(session);
+      throw error;
+    }
+
+    if (io) {
+      const customerId = String(
+        updated.customer.id || updated.customer
+      );
+      const payload = { message, conversation: updated };
+
+      // Broadcast to the customer (their other tabs/devices included)
+      // and to every admin/agent watching the inbox, so a reply from one
+      // agent shows up live for colleagues too.
+      io.to(`user:${customerId}`).emit("chat:message", payload);
+      io.to("admins").emit("chat:message", payload);
+
+      // Refresh the sidebar/topbar unread badge for every connected admin,
+      // even ones not currently on the Customer Support page — reuses the
+      // same "admin" broadcast the rest of the app already listens to.
+      if (senderType === "customer") {
+        io.emit("admin", "customerSupport");
+      }
+    }
+
+    if (senderType === "customer") {
+      // Best-effort: an auto-reply hiccup shouldn't fail the customer's
+      // own message send.
+      this._maybeSendAutoReply(updated, io).catch((error) => {
+        console.error("Chat auto-reply error:", error);
+      });
+    }
+
+    return message;
+  }
+
+  async _maybeSendAutoReply(conversation, io?) {
+    if (conversation.autoReplySent) {
+      return;
+    }
+
+    const currentTenant = MongooseRepository.getCurrentTenant(this.options);
+    const record = await settings(this.options.database).findOne({
+      tenant: currentTenant.id,
+    });
+
+    const autoReplyText = record?.chatAutoReplyMessage?.trim();
+    if (!record?.chatAutoReplyEnabled || !autoReplyText) {
+      return;
+    }
+
+    const session = await MongooseRepository.createSession(
+      this.options.database
+    );
+
+    try {
+      const result = await ChatRepository.createAutoReplyMessage(
+        conversation.id,
+        autoReplyText,
+        { ...this.options, session }
+      );
 
       await MongooseRepository.commitTransaction(session);
 
-      if (io) {
+      if (result && io) {
         const customerId = String(
-          updated.customer.id || updated.customer
+          result.conversation.customer.id || result.conversation.customer
         );
-        const payload = { message, conversation: updated };
-
-        // Broadcast to the customer (their other tabs/devices included)
-        // and to every admin/agent watching the inbox, so a reply from one
-        // agent shows up live for colleagues too.
+        const payload = {
+          message: result.message,
+          conversation: result.conversation,
+        };
         io.to(`user:${customerId}`).emit("chat:message", payload);
         io.to("admins").emit("chat:message", payload);
-
-        // Refresh the sidebar/topbar unread badge for every connected admin,
-        // even ones not currently on the Customer Support page — reuses the
-        // same "admin" broadcast the rest of the app already listens to.
-        if (senderType === "customer") {
-          io.emit("admin", "customerSupport");
-        }
       }
-
-      return message;
     } catch (error) {
       await MongooseRepository.abortTransaction(session);
       throw error;

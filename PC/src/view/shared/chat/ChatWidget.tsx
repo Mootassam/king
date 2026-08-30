@@ -8,7 +8,7 @@ import Storage from 'src/security/storage';
 import chatWidgetBus from './chatWidgetBus';
 
 const DEFAULT_TITLE = 'FXCC Support';
-const WELCOME_TEXT =
+const DEFAULT_WELCOME_TEXT =
   'Hello! You are now connected to FXCC Capitals Support. Please type a message to begin.';
 
 function formatTime(date) {
@@ -37,6 +37,7 @@ function ChatWidget() {
   const [unread, setUnread] = useState(0);
   const [widgetTitle, setWidgetTitle] = useState(DEFAULT_TITLE);
   const [allowReopen, setAllowReopen] = useState(true);
+  const [welcomeText, setWelcomeText] = useState(DEFAULT_WELCOME_TEXT);
 
   const conversationRef = useRef<any>(null);
   const openRef = useRef(false);
@@ -155,6 +156,7 @@ function ChatWidget() {
         if (cancelled) return;
         setWidgetTitle(settings?.chatWidgetTitle || DEFAULT_TITLE);
         setAllowReopen(settings?.chatAllowReopenClosed !== false);
+        setWelcomeText(settings?.chatWelcomeMessage || DEFAULT_WELCOME_TEXT);
       } catch (error) {
         console.error('Load chat settings error:', error);
       }
@@ -280,13 +282,6 @@ function ChatWidget() {
             </div>
             <div className="kc-chat-header-text">
               <div className="kc-chat-title">{widgetTitle}</div>
-              <div className="kc-chat-subtitle">
-                {isClosed
-                  ? composerDisabled
-                    ? 'Chat closed'
-                    : 'Chat closed - send a message to reconnect'
-                  : 'Online - Typically replies in minutes'}
-              </div>
             </div>
             <div className="kc-chat-header-actions">
               <button
@@ -313,7 +308,7 @@ function ChatWidget() {
               <div className="kc-chat-avatar">
                 <i className="fas fa-headset" />
               </div>
-              <div className="kc-chat-bubble">{WELCOME_TEXT}</div>
+              <div className="kc-chat-bubble">{welcomeText}</div>
             </div>
 
             {loading && (

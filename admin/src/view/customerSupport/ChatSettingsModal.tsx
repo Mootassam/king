@@ -1,10 +1,16 @@
 import { useEffect, useState } from 'react';
 import ChatService from 'src/modules/chat/chatService';
 
+const DEFAULT_WELCOME_MESSAGE =
+  'Hello! You are now connected to FXCC Capitals Support. Please type a message to begin.';
+
 function ChatSettingsModal({ onClose }: { onClose: () => void }) {
   const [settings, setSettings] = useState<any>(null);
   const [title, setTitle] = useState('');
   const [allowReopen, setAllowReopen] = useState(true);
+  const [welcomeMessage, setWelcomeMessage] = useState('');
+  const [autoReplyEnabled, setAutoReplyEnabled] = useState(false);
+  const [autoReplyMessage, setAutoReplyMessage] = useState('');
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
@@ -19,6 +25,9 @@ function ChatSettingsModal({ onClose }: { onClose: () => void }) {
         setSettings(data);
         setTitle(data?.chatWidgetTitle || 'FXCC Support');
         setAllowReopen(data?.chatAllowReopenClosed !== false);
+        setWelcomeMessage(data?.chatWelcomeMessage || DEFAULT_WELCOME_MESSAGE);
+        setAutoReplyEnabled(data?.chatAutoReplyEnabled === true);
+        setAutoReplyMessage(data?.chatAutoReplyMessage || '');
       } catch (err) {
         console.error('Load chat settings error:', err);
         if (!cancelled) setError('Could not load settings.');
@@ -40,6 +49,9 @@ function ChatSettingsModal({ onClose }: { onClose: () => void }) {
         ...settings,
         chatWidgetTitle: title.trim() || 'FXCC Support',
         chatAllowReopenClosed: allowReopen,
+        chatWelcomeMessage: welcomeMessage.trim() || DEFAULT_WELCOME_MESSAGE,
+        chatAutoReplyEnabled: autoReplyEnabled,
+        chatAutoReplyMessage: autoReplyMessage.trim(),
       });
       onClose();
     } catch (err) {
@@ -100,6 +112,55 @@ function ChatSettingsModal({ onClose }: { onClose: () => void }) {
               </span>
             </label>
 
+            <label className="csm-field">
+              <span className="csm-label">First message</span>
+              <textarea
+                className="csm-input csm-textarea"
+                value={welcomeMessage}
+                onChange={(e) => setWelcomeMessage(e.target.value)}
+                placeholder={DEFAULT_WELCOME_MESSAGE}
+                maxLength={500}
+                rows={3}
+              />
+              <span className="csm-hint">
+                Shown automatically the moment a customer opens the live chat
+                widget, before they've sent anything.
+              </span>
+            </label>
+
+            <label className="csm-toggle-row">
+              <span>
+                <span className="csm-label">Automatic second message</span>
+                <span className="csm-hint">
+                  When on, this message is sent automatically right after the
+                  customer's first message in a conversation, as if an agent
+                  replied instantly. It's sent once per conversation.
+                </span>
+              </span>
+              <span
+                className={`csm-switch ${autoReplyEnabled ? 'is-on' : ''}`}
+                onClick={() => setAutoReplyEnabled((v) => !v)}
+                role="switch"
+                aria-checked={autoReplyEnabled}
+              >
+                <span className="csm-switch-knob" />
+              </span>
+            </label>
+
+            {autoReplyEnabled && (
+              <label className="csm-field">
+                <span className="csm-label">Automatic reply text</span>
+                <textarea
+                  className="csm-input csm-textarea"
+                  value={autoReplyMessage}
+                  onChange={(e) => setAutoReplyMessage(e.target.value)}
+                  placeholder="Thanks for reaching out! An agent will be with you shortly."
+                  maxLength={500}
+                  rows={3}
+                />
+              </label>
+            )}
+
             {error && <div className="csm-error">{error}</div>}
           </div>
         )}
@@ -152,6 +213,7 @@ function ChatSettingsModal({ onClose }: { onClose: () => void }) {
           font-size: 13.5px; outline: none; color: #1a1f2b;
         }
         .csm-input:focus { border-color: #2f6fed; }
+        .csm-textarea { resize: vertical; font-family: inherit; }
 
         .csm-toggle-row {
           display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; cursor: pointer;
