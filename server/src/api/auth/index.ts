@@ -29,7 +29,7 @@ export default (app) => {
 
    app.post(`/auth/sign-in`, signInRateLimiter, require("./authSignIn").default);
 
-   // Demo login - creates a new demo account with 2000 USDT
+   // Demo login - creates a new demo account with 20000 USDT
    app.post(`/auth/demo-login`, require("./authDemoLogin").default);
 
    const signUpRateLimiter = createRateLimiter({
@@ -41,6 +41,29 @@ export default (app) => {
   // ── Email OTP verification (signup) ──────────────────────────────
   app.post(`/auth/send-otp`, emailRateLimiter, require("./sendOtp").default);
   app.post(`/auth/verify-otp`, require("./verifyOtp").default);
+
+  // ── Forgot password (email OTP) ──────────────────────────────────
+  const forgotPasswordRateLimiter = createRateLimiter({
+    max: 8,
+    windowMs: 15 * 60 * 1000,
+    message: "errors.429",
+  });
+
+  app.post(
+    `/auth/forgot-password/send-otp`,
+    forgotPasswordRateLimiter,
+    require("./forgotPasswordSendOtp").default
+  );
+  app.post(
+    `/auth/forgot-password/verify-otp`,
+    forgotPasswordRateLimiter,
+    require("./forgotPasswordVerifyOtp").default
+  );
+  app.post(
+    `/auth/forgot-password/reset`,
+    forgotPasswordRateLimiter,
+    require("./forgotPasswordReset").default
+  );
 
   app.post(
     `/auth/signupmobile`,

@@ -63,12 +63,14 @@ const authActions = {
   doRegisterEmailAndPassword: (email,
     password,
     phoneNumber,
+    invitationCode,
     ) => async (dispatch) => {
       try {
         dispatch({ type: authActions.AUTH_START });
 
         const token = await service.registerWithEmailAndPassword(email, password,
           phoneNumber,
+          invitationCode,
           );
         AuthToken.set(token, true);
         const currentUser = await service.fetchMe();

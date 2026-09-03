@@ -633,6 +633,7 @@ const en = {
       createAccount: "CREATE ACCOUNT",
       refresh: "Refresh",
       captchaMismatch: "Captcha does not match",
+      invalidInvitationCode: "Invalid invitation code",
       alreadyHaveAccount: "Already have an account? Log in",
       terms: {
         text: "By creating an account, you agree to our",

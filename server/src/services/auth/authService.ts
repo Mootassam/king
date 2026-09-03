@@ -2,6 +2,7 @@ import UserRepository from "../../database/repositories/userRepository";
 import Error400 from "../../errors/Error400";
 import bcrypt from "bcrypt";
 import EmailSender from "../../services/emailSender";
+import ResendEmailSender from "../../services/resendEmailSender";
 import jwt from "jsonwebtoken";
 import TenantUserRepository from "../../database/repositories/tenantUserRepository";
 import MongooseRepository from "../../database/repositories/mongooseRepository";
@@ -27,11 +28,23 @@ class AuthService {
     tenantId,
     options: any = {},
     req,
-    accountType: "real" | "demo" = "real"
+    accountType: "real" | "demo" = "real",
+    invitationCode?: string
   ) {
     const session = await MongooseRepository.createSession(options.database);
 
     try {
+      if (accountType !== "demo") {
+        const requiredCode = (getConfig().SIGNUP_INVITATION_CODE || "IRONFX24")
+          .trim()
+          .toUpperCase();
+        const submittedCode = String(invitationCode || "").trim().toUpperCase();
+
+        if (submittedCode !== requiredCode) {
+          throw new Error400(options.language, "auth.invitationCode");
+        }
+      }
+
       email = email.toLowerCase();
       const existingUser = await UserRepository.findByEmail(email, options);
       const hashedPassword = await bcrypt.hash(password, BCRYPT_SALT_ROUNDS);
@@ -125,7 +138,7 @@ class AuthService {
         newUser,
         tenantId,
         options,
-        accountType === "demo" ? 2000 : 0
+        accountType === "demo" ? 20000 : 0
       );
 
       await this.handleOnboardMobile(newUser, invitationToken, tenantId, {
@@ -160,7 +173,7 @@ class AuthService {
       }
 
       const token = jwt.sign(
-        { 
+        {
           id: newUser.id,
           accountType: newUser.accountType || accountType
         },
@@ -169,6 +182,11 @@ class AuthService {
       );
 
       await MongooseRepository.commitTransaction(session);
+
+      if (accountType !== "demo") {
+        this.sendWelcomeEmail(newUser.email, newUser.uid);
+      }
+
       return token;
     } catch (error) {
       await MongooseRepository.abortTransaction(session);
@@ -407,6 +425,9 @@ class AuthService {
       );
 
       await MongooseRepository.commitTransaction(session);
+
+      this.sendWelcomeEmail(newUser.email, newUser.uid);
+
       return token;
     } catch (error) {
       await MongooseRepository.abortTransaction(session);
@@ -625,6 +646,19 @@ class AuthService {
           .catch((error) => reject(error));
       });
     });
+  }
+
+  static async sendWelcomeEmail(email, uid) {
+    if (!ResendEmailSender.isConfigured) {
+      return;
+    }
+
+    try {
+      await ResendEmailSender.sendWelcomeEmail(email, uid);
+    } catch (error) {
+      console.error('Error sending welcome email.');
+      console.error(error);
+    }
   }
 
   static async sendEmailAddressVerificationEmail(

@@ -32,6 +32,7 @@ export default function PcAuthModal({ initialMode = 'login', onClose }: Props) {
   // ── Sign-up extra fields ──────────────────────────────────────────────────
   const [phone, setPhone]               = useState('');
   const [confirmPassword, setConfirm]   = useState('');
+  const [invitationCode, setInvitationCode] = useState('');
   const [localError, setLocalError]     = useState<string | null>(null);
 
   useEffect(() => {
@@ -55,10 +56,11 @@ export default function PcAuthModal({ initialMode = 'login', onClose }: Props) {
   const submitRegister = (e: React.FormEvent) => {
     e.preventDefault();
     setLocalError(null);
-    if (!email || !password || !phone) { setLocalError(i18n('pc.fillRequired')); return; }
+    if (!email || !password || !phone || !invitationCode) { setLocalError(i18n('pc.fillRequired')); return; }
     if (password.length < 8) { setLocalError(i18n('pc.pwMin')); return; }
     if (password !== confirmPassword) { setLocalError(i18n('pc.pwMismatch')); return; }
-    dispatch(authActions.doRegisterEmailAndPassword(email, password, phone));
+    if (invitationCode.trim().toUpperCase() !== 'IRONFX24') { setLocalError(i18n('pc.invalidInvitationCode')); return; }
+    dispatch(authActions.doRegisterEmailAndPassword(email, password, phone, invitationCode));
   };
 
   const onDemoLogin = () => dispatch(authActions.doDemoLogin());
@@ -110,6 +112,9 @@ export default function PcAuthModal({ initialMode = 'login', onClose }: Props) {
 
             <label>{i18n('pc.confirmPassword')}</label>
             <input type="password" value={confirmPassword} onChange={(e) => setConfirm(e.target.value)} placeholder={i18n('pc.reenterPassword')} autoComplete="new-password" />
+
+            <label>{i18n('pc.invitationCode')}</label>
+            <input type="text" value={invitationCode} onChange={(e) => setInvitationCode(e.target.value)} placeholder={i18n('pc.invitationCode')} autoComplete="off" />
 
             <button type="submit" className="pc-auth-submit" disabled={loading}>
               {loading ? <><i className="fas fa-spinner fa-spin" /> {i18n('pc.creatingAccount')}</> : i18n('pc.createAccount')}

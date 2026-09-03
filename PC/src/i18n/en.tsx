@@ -633,6 +633,7 @@ const en = {
       createAccount: "CREATE ACCOUNT",
       refresh: "Refresh",
       captchaMismatch: "Captcha does not match",
+      invalidInvitationCode: "Invalid invitation code",
       alreadyHaveAccount: "Already have an account? Log in",
       terms: {
         text: "By creating an account, you agree to our",
@@ -2680,6 +2681,7 @@ const en = {
     fillRequired: "Please fill all required fields.", emailPwRequired: "Email and password are required.",
     pwMin: "Password must be at least 8 characters.", pwMismatch: "Passwords do not match.",
     captchaMismatch: "Captcha does not match.",
+    invitationCode: "Invitation Code", invalidInvitationCode: "Invalid invitation code.",
     kyc: "KYC Verification", bindAccount: "Bind Account", orders: "Orders", deposit: "Deposit",
     withdraw: "Withdraw", history: "History", notifications: "Notifications",
     onlineService: "Online Service", aboutUs: "About Us", help: "Help",

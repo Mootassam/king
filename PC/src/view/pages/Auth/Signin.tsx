@@ -113,7 +113,7 @@ function Signin() {
             />
 
             <div className="forgot-link">
-              <Link to="/online-service">
+              <Link to="/auth/forgot-password">
                 {i18n("auth.signin.forgetPassword")}
               </Link>
             </div>

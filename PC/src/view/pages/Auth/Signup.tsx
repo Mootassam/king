@@ -45,6 +45,14 @@ function Signup() {
     phoneNumber: yupFormSchemas.string(i18n("pages.signup.labels.phoneNumber"), {
       required: true,
     }),
+    invitationCode: yup
+      .string()
+      .required(i18n("pages.signup.labels.invitationCode"))
+      .test(
+        "invitation-code-valid",
+        i18n("pages.signup.invalidInvitationCode"),
+        (value) => String(value || "").trim().toUpperCase() === "IRONFX24"
+      ),
     captcha: yup
       .string()
       .required(i18n("pages.signup.labels.captcha"))
@@ -61,6 +69,7 @@ function Signup() {
       password: "",
       newPasswordConfirmation: "",
       phoneNumber: "",
+      invitationCode: "",
       captcha: "",
     },
   });
@@ -79,12 +88,13 @@ function Signup() {
 
   const onSubmit = useCallback(
     (data) => {
-      const { email, password, phoneNumber } = data;
+      const { email, password, phoneNumber, invitationCode } = data;
       dispatch(
         actions.doRegisterEmailAndPassword(
           email,
           password,
           phoneNumber,
+          invitationCode,
         )
       );
     },
@@ -139,6 +149,18 @@ function Signup() {
                 placeholder={i18n("pages.signup.placeholders.phoneNumber")}
                 className="input-field"
                 autoComplete="tel"
+              />
+            </div>
+
+            {/* Invitation Code */}
+            <div className="form-group">
+              <label className="form-label">{i18n("pages.signup.labels.invitationCode")}</label>
+              <InputFormItem
+                type="text"
+                name="invitationCode"
+                placeholder={i18n("pages.signup.placeholders.invitationCode")}
+                className="input-field"
+                autoComplete="off"
               />
             </div>
 

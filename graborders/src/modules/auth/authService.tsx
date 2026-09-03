@@ -20,7 +20,7 @@ export default class AuthService {
     email,
     password,
     phoneNumber,
-
+    invitationCode,
   ) {
     const invitationToken = AuthInvitationToken.get();
 
@@ -30,6 +30,7 @@ export default class AuthService {
       email,
       password,
       phoneNumber,
+      invitationCode,
       invitationToken,
       tenantId: tenantId,
     });
@@ -130,6 +131,22 @@ export default class AuthService {
       tenantId: AuthCurrentTenant.get(),
     });
 
+    return response.data;
+  }
+
+  // ── Forgot password (email OTP) ──────────────────────────────────
+  static async sendForgotPasswordOtp(email) {
+    const response = await authAxios.post("/auth/forgot-password/send-otp", { email });
+    return response.data;
+  }
+
+  static async verifyForgotPasswordOtp(email, code) {
+    const response = await authAxios.post("/auth/forgot-password/verify-otp", { email, code });
+    return response.data;
+  }
+
+  static async resetPasswordWithOtp(email, newPassword) {
+    const response = await authAxios.post("/auth/forgot-password/reset", { email, newPassword });
     return response.data;
   }
 
