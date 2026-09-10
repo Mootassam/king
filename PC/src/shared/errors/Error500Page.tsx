@@ -83,7 +83,7 @@ export class Error500Page extends Component {
         }
         
         .error-message {
-            color: #AAAAAA;
+            color: var(--kt-text-muted);
             font-size: 16px;
             line-height: 1.5;
             margin-bottom: 30px;
@@ -180,7 +180,7 @@ export class Error500Page extends Component {
         
         .support-text {
             margin-top: 30px;
-            color: #777;
+            color: var(--kt-text-tertiary);
             font-size: 14px;
         }
         

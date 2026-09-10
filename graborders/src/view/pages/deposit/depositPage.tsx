@@ -108,8 +108,8 @@ function DepositPage() {
                 }
 
                 body {
-                    background-color: #f5f7fa;
-                    color: #333;
+                    background-color: var(--kt-bg-card-alt);
+                    color: var(--kt-text-secondary);
                     line-height: 1.6;
                     overflow-x: hidden;
                 }
@@ -158,7 +158,7 @@ function DepositPage() {
 
                 /* Content Card - Matching HelpCenter */
                 .content-card {
-                    background: white;
+                    background: var(--kt-bg-card);
                     border-radius: 40px 40px 0 0;
                     padding: 20px;
                     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -172,7 +172,7 @@ function DepositPage() {
                 .section-title {
                     font-size: 16px;
                     font-weight: 600;
-                    color: #222;
+                    color: var(--kt-text-primary);
                     margin-bottom: 20px;
                     line-height: 1.4;
                 }
@@ -191,7 +191,7 @@ function DepositPage() {
                     align-items: center;
                     justify-content: center;
                     padding: 16px 8px;
-                    background: #f8f9fa;
+                    background: var(--kt-bg-card-alt);
                     border-radius: 12px;
                     cursor: pointer;
                     transition: all 0.3s ease;
@@ -211,7 +211,7 @@ function DepositPage() {
                     width: 44px;
                     height: 44px;
                     border-radius: 50%;
-                    background: #f8f9fa;
+                    background: var(--kt-bg-card-alt);
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -242,7 +242,7 @@ function DepositPage() {
                 .crypto-name {
                     font-size: 12px;
                     font-weight: 500;
-                    color: #333;
+                    color: var(--kt-text-secondary);
                     text-align: center;
                 }
 
@@ -261,7 +261,7 @@ function DepositPage() {
                     display: flex;
                     align-items: center;
                     padding: 16px;
-                    background: #f8f9fa;
+                    background: var(--kt-bg-card-alt);
                     border-radius: 12px;
                     cursor: pointer;
                     transition: all 0.3s ease;
@@ -289,11 +289,11 @@ function DepositPage() {
                     flex: 1;
                     font-size: 15px;
                     font-weight: 500;
-                    color: #222;
+                    color: var(--kt-text-primary);
                 }
 
                 .offsite-arrow {
-                    color: #999;
+                    color: var(--kt-text-muted);
                     font-size: 14px;
                 }
 
@@ -306,7 +306,7 @@ function DepositPage() {
                     display: flex;
                     align-items: center;
                     padding: 16px;
-                    background: #f8f9fa;
+                    background: var(--kt-bg-card-alt);
                     border-radius: 12px;
                     cursor: pointer;
                     transition: all 0.3s ease;
@@ -335,7 +335,7 @@ function DepositPage() {
                 .otc-name {
                     flex: 1;
                     font-size: 13px;
-                    color: #222;
+                    color: var(--kt-text-primary);
                 }
 
                 /* Responsive adjustments */

@@ -198,13 +198,13 @@ export default function PcProfileModal({ onClose }: Props) {
 
       <style>{`
         .pc-profile-modal {
-          background: #fff; border-radius: 16px; width: 1000px; max-width: 96vw;
+          background: var(--kt-bg-card); border-radius: 16px; width: 1000px; max-width: 96vw;
           height: 660px; max-height: 92vh; position: relative; display: flex;
           overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.28);
         }
-        .pc-modal-x { position: absolute; top: 12px; right: 16px; border: none; background: none; font-size: 18px; color: #9ca3af; cursor: pointer; z-index: 5; }
+        .pc-modal-x { position: absolute; top: 12px; right: 16px; border: none; background: none; font-size: 18px; color: var(--kt-text-muted); cursor: pointer; z-index: 5; }
         .pc-profile-side {
-          width: 250px; flex-shrink: 0; background: #f7f8fa; border-right: 1px solid #e5e7eb;
+          width: 250px; flex-shrink: 0; background: var(--kt-bg-card-alt); border-right: 1px solid var(--kt-border);
           padding: 22px 14px; display: flex; flex-direction: column;
         }
         .pc-profile-user { text-align: center; margin-bottom: 14px; }
@@ -212,8 +212,8 @@ export default function PcProfileModal({ onClose }: Props) {
           width: 56px; height: 56px; border-radius: 50%; background: #0064FA; color: #fff;
           font-size: 24px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;
         }
-        .pc-profile-email { font-size: 12px; color: #6b7280; word-break: break-all; margin-bottom: 4px; }
-        .pc-profile-uid { font-size: 11.5px; color: #9ca3af; margin-bottom: 8px; }
+        .pc-profile-email { font-size: 12px; color: var(--kt-text-muted); word-break: break-all; margin-bottom: 4px; }
+        .pc-profile-uid { font-size: 11.5px; color: var(--kt-text-muted); margin-bottom: 8px; }
         .pc-kyc-badge {
           display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700;
           border: 1.5px solid; border-radius: 20px; padding: 3px 12px;
@@ -225,19 +225,19 @@ export default function PcProfileModal({ onClose }: Props) {
         .pc-profile-menu { display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
         .pc-profile-menu button {
           display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: none;
-          background: none; border-radius: 8px; cursor: pointer; font-size: 14px; color: #374151;
+          background: none; border-radius: 8px; cursor: pointer; font-size: 14px; color: var(--kt-text-secondary);
           text-align: left; transition: background .15s; width: 100%;
         }
-        .pc-profile-menu button i:first-child { width: 18px; color: #6b7280; }
-        .pc-profile-menu button:hover:not(.disabled):not(.pc-profile-logout) { background: #eef1f5; }
+        .pc-profile-menu button i:first-child { width: 18px; color: var(--kt-text-muted); }
+        .pc-profile-menu button:hover:not(.disabled):not(.pc-profile-logout) { background: var(--kt-border); }
         .pc-profile-menu button.active { background: #e8f0ff; color: #0064FA; font-weight: 600; }
         .pc-profile-menu button.active i:first-child { color: #0064FA; }
         .pc-profile-menu button.disabled { opacity: 0.45; cursor: not-allowed; }
-        .pc-lock { margin-left: auto; font-size: 11px; color: #9ca3af; }
+        .pc-lock { margin-left: auto; font-size: 11px; color: var(--kt-text-muted); }
         .pc-profile-logout { margin-top: auto; color: #ef4444 !important; }
         .pc-profile-logout i { color: #ef4444 !important; }
 
-        .pc-profile-content { flex: 1; overflow-y: auto; background: #fff; position: relative; }
+        .pc-profile-content { flex: 1; overflow-y: auto; background: var(--kt-bg-card); position: relative; }
         .pc-profile-content .container,
         .pc-profile-content .market-detail-container,
         .pc-profile-content .op-page,
@@ -245,8 +245,8 @@ export default function PcProfileModal({ onClose }: Props) {
         .pc-profile-content .withdraw-container { max-width: 100% !important; min-height: auto !important; }
 
         /* In-modal back bar (only on sub-pages) */
-        .pc-nav-bar { position: sticky; top: 0; z-index: 6; background: #fff; border-bottom: 1px solid #eef1f5; padding: 8px 14px; }
-        .pc-nav-back { display: inline-flex; align-items: center; gap: 8px; border: none; background: #f0f2f5; color: #0064FA; font-weight: 700; font-size: 13px; padding: 7px 14px; border-radius: 8px; cursor: pointer; }
+        .pc-nav-bar { position: sticky; top: 0; z-index: 6; background: var(--kt-bg-card); border-bottom: 1px solid var(--kt-border); padding: 8px 14px; }
+        .pc-nav-back { display: inline-flex; align-items: center; gap: 8px; border: none; background: var(--kt-bg-card-alt); color: #0064FA; font-weight: 700; font-size: 13px; padding: 7px 14px; border-radius: 8px; cursor: pointer; }
         .pc-nav-back:hover { background: #e8f0ff; }
         .pc-nav-back-ico { font-size: 16px; line-height: 1; }
 

@@ -9,6 +9,7 @@ import assetsActions from "src/modules/assets/list/assetsListActions";
 import assetsListSelectors from "src/modules/assets/list/assetsListSelectors";
 import { i18n } from "../../../i18n";
 import I18nSelect from "src/view/layout/I18nSelect";
+import { useTheme } from "src/modules/theme/themeContext";
 
 const MENU_ITEMS = [
   {
@@ -64,6 +65,7 @@ const MENU_ITEMS = [
 function Profile() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { theme, toggleTheme } = useTheme();
 
   const currentUser = useSelector(authSelectors.selectCurrentUser);
   const kycStatus = useSelector(kycSelectors.selectKycStatus);
@@ -288,6 +290,22 @@ function Profile() {
       {/* ── Menu list ── */}
       <div className="menu-section">
         <ul className="menu-list">
+          <li className="menu-item theme-toggle-row" onClick={toggleTheme}>
+            <div className="menu-icon-box">
+              <i className={theme === "dark" ? "fas fa-moon" : "fas fa-sun"} />
+            </div>
+            <span className="menu-label">{i18n("pages.profile.menu.darkMode")}</span>
+            <div className="menu-action">
+              <label className="theme-switch" onClick={(e) => e.stopPropagation()}>
+                <input
+                  type="checkbox"
+                  checked={theme === "dark"}
+                  onChange={toggleTheme}
+                />
+                <span className="theme-slider" />
+              </label>
+            </div>
+          </li>
           {currentUser?.accountType !== "demo" && (
             <li className="menu-item kyc-line">
               <div className="menu-icon-box kyc-icon">
@@ -356,6 +374,12 @@ function Profile() {
           --radius-sm: 12px;
           --radius: 16px;
           --radius-lg: 20px;
+        }
+
+        [data-theme='dark'] {
+          --text-dark: var(--kt-text-primary);
+          --text-muted: var(--kt-text-muted);
+          --bg-page: var(--kt-bg-page);
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -509,7 +533,7 @@ function Profile() {
           display: flex;
           align-items: center;
           padding: 8px 12px;
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: var(--radius);
           box-shadow: var(--shadow-sm);
           text-decoration: none;
@@ -518,7 +542,7 @@ function Profile() {
           border: none;
         }
         .menu-item:not(.disabled):hover {
-          background: #f8f9fb;
+          background: var(--kt-bg-card-alt);
         }
 
         .menu-item.disabled {
@@ -557,12 +581,50 @@ function Profile() {
         }
 
         .menu-arrow {
-          color: #cbd5e1;
+          color: var(--kt-text-muted);
           font-size: 13px;
         }
 
         .menu-action {
           margin-left: auto;
+        }
+
+        .theme-switch {
+          position: relative;
+          display: inline-block;
+          width: 40px;
+          height: 22px;
+        }
+        .theme-switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        .theme-slider {
+          position: absolute;
+          inset: 0;
+          background: var(--kt-border);
+          border-radius: 22px;
+          transition: 0.2s;
+          cursor: pointer;
+        }
+        .theme-slider::before {
+          content: '';
+          position: absolute;
+          height: 16px;
+          width: 16px;
+          left: 3px;
+          bottom: 3px;
+          background: var(--kt-bg-card);
+          border-radius: 50%;
+          transition: 0.2s;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        .theme-switch input:checked + .theme-slider {
+          background: #1E6DEB;
+        }
+        .theme-switch input:checked + .theme-slider::before {
+          transform: translateX(18px);
         }
 
         .kyc-button {
@@ -578,8 +640,8 @@ function Profile() {
         }
         .kyc-button:not(:disabled):hover { background: #1554c0; }
         .kyc-button:disabled {
-          background: #e5e7eb;
-          color: #9ca3af;
+          background: var(--kt-border);
+          color: var(--kt-text-muted);
           cursor: default;
         }
         .kyc-button.pulse { animation: pulse 2s infinite; }
@@ -637,14 +699,14 @@ function Profile() {
         .modal-container {
           width: 100%;
           max-width: 400px;
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 20px 20px 0 0;
           padding: 16px 16px 24px;
           animation: slideUp 0.3s ease;
         }
         .modal-handle {
           width: 36px; height: 4px;
-          background: #d1d5db;
+          background: var(--kt-border);
           border-radius: 2px;
           margin: 0 auto 12px;
         }

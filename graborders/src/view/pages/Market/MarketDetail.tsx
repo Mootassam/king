@@ -592,8 +592,8 @@ function MarketDetail() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -670,7 +670,7 @@ function MarketDetail() {
 
         /* Content Card – white, rounded top, same as LoginPassword */
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 30px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -697,7 +697,7 @@ function MarketDetail() {
         .current-price {
           font-size: 28px;
           font-weight: 600;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
         }
 
         .price-info-row {
@@ -708,7 +708,7 @@ function MarketDetail() {
 
         .usd-price {
           font-size: 14px;
-          color: #888;
+          color: var(--kt-text-tertiary);
         }
 
         .price-change {
@@ -722,9 +722,9 @@ function MarketDetail() {
           gap: 6px;
           font-size: 12px;
           font-weight: 600;
-          color: #8a94a6;
-          background: #f0f2f5;
-          border: 1px solid #e2e6ec;
+          color: var(--kt-text-muted);
+          background: var(--kt-bg-card-alt);
+          border: 1px solid var(--kt-border);
           border-radius: 999px;
           padding: 2px 10px;
         }
@@ -740,23 +740,28 @@ function MarketDetail() {
         /* Chart Section */
         .chart-section {
           margin-bottom: 20px;
-          background-color: #0b0e14;
+          background-color: var(--kt-bg-card);
           border-radius: 12px;
           overflow: hidden;
-          border: 1px solid #1c212b;
+          border: 1px solid #e0e3e8;
+        }
+
+        [data-theme='dark'] .chart-section {
+          background-color: #0b0e14;
+          border-color: #1c212b;
         }
 
         /* Tabs Section */
         .tabs-section {
-          background-color: #fff;
+          background-color: var(--kt-bg-card);
           border-radius: 12px;
-          border: 1px solid #e7eaee;
+          border: 1px solid var(--kt-border);
           overflow: hidden;
         }
 
         .tabs-header {
           display: flex;
-          border-bottom: 1px solid #e7eaee;
+          border-bottom: 1px solid var(--kt-border);
         }
 
         .tab {
@@ -765,7 +770,7 @@ function MarketDetail() {
           text-align: center;
           font-size: 13px;
           font-weight: 500;
-          color: #888;
+          color: var(--kt-text-tertiary);
           cursor: pointer;
           transition: all 0.2s;
         }
@@ -777,7 +782,7 @@ function MarketDetail() {
         }
 
         .tab:hover:not(.active) {
-          color: #333;
+          color: var(--kt-text-secondary);
         }
 
         .tab-content {
@@ -798,7 +803,7 @@ function MarketDetail() {
           display: flex;
           margin-bottom: 8px;
           font-size: 11px;
-          color: #888;
+          color: var(--kt-text-tertiary);
           font-weight: 500;
         }
 
@@ -835,7 +840,7 @@ function MarketDetail() {
           flex: 1;
           text-align: left;
           padding: 4px 0;
-          color: #333;
+          color: var(--kt-text-secondary);
         }
 
         .price-cell {
@@ -875,12 +880,12 @@ function MarketDetail() {
         }
 
         .buy-cell, .sell-cell {
-          color: #888;
+          color: var(--kt-text-tertiary);
           font-size: 11px;
         }
 
         .quantity {
-          color: #555;
+          color: var(--kt-text-secondary);
         }
 
         /* Transactions */
@@ -893,8 +898,8 @@ function MarketDetail() {
           justify-content: space-between;
           padding: 8px 0;
           font-size: 11px;
-          color: #888;
-          border-bottom: 1px solid #e7eaee;
+          color: var(--kt-text-tertiary);
+          border-bottom: 1px solid var(--kt-border);
           margin-bottom: 8px;
         }
 
@@ -919,7 +924,7 @@ function MarketDetail() {
 
         .transaction-time {
           flex: 1;
-          color: #888;
+          color: var(--kt-text-tertiary);
         }
 
         .transaction-price {
@@ -938,13 +943,13 @@ function MarketDetail() {
         .transaction-amount {
           flex: 1;
           text-align: right;
-          color: #333;
+          color: var(--kt-text-secondary);
         }
 
         /* Loading Placeholder */
         .loading-placeholder {
           animation: pulse 1.5s ease-in-out infinite;
-          background-color: #e9ebef;
+          background-color: var(--kt-border);
           border-radius: 4px;
         }
 

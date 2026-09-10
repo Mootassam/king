@@ -5,6 +5,7 @@ import ChatService from 'src/modules/chat/chatService';
 import FileUploader from 'src/modules/shared/fileUpload/fileUploader';
 import { getSocket } from 'src/modules/shared/socket/socketClient';
 import Storage from 'src/security/storage';
+import ImageModal from 'src/view/shared/modals/ImageModal';
 import ChatSettingsModal from './ChatSettingsModal';
 
 const AVATAR_COLORS = [
@@ -72,6 +73,7 @@ function CustomerSupportPage() {
   const [showSettings, setShowSettings] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   const selectedIdRef = useRef<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -515,7 +517,12 @@ function CustomerSupportPage() {
                     >
                       <div className="cs-message-bubble">
                         {msg.type === 'image' && msg.attachmentUrl ? (
-                          <img src={msg.attachmentUrl} alt="attachment" className="cs-message-image" />
+                          <img
+                            src={msg.attachmentUrl}
+                            alt="attachment"
+                            className="cs-message-image"
+                            onClick={() => setPreviewImage(msg.attachmentUrl)}
+                          />
                         ) : (
                           <span>{msg.text}</span>
                         )}
@@ -768,7 +775,8 @@ function CustomerSupportPage() {
         }
         .cs-message.is-customer .cs-message-bubble { border-bottom-left-radius: 4px; }
 
-        .cs-message-image { max-width: 220px; max-height: 220px; border-radius: 8px; display: block; }
+        .cs-message-image { max-width: 220px; max-height: 220px; border-radius: 8px; display: block; cursor: pointer; transition: opacity 0.15s; }
+        .cs-message-image:hover { opacity: 0.85; }
 
         .cs-message-meta {
           font-size: 10.5px; color: #b0b6c1; margin-top: 4px; display: flex; align-items: center; gap: 5px;
@@ -819,6 +827,14 @@ function CustomerSupportPage() {
 
       {showSettings && (
         <ChatSettingsModal onClose={() => setShowSettings(false)} />
+      )}
+
+      {previewImage && (
+        <ImageModal
+          src={previewImage}
+          alt="attachment"
+          onClose={() => setPreviewImage(null)}
+        />
       )}
 
       {showDeleteConfirm && selected && (

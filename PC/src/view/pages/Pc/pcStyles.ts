@@ -1,15 +1,20 @@
 export const PC_CSS = `
   .pc-root {
     --primary: #0064FA; --green: #10b981; --red: #ef4444;
-    --bg: #ffffff; --bg-light: #f7f8fa; --border: #e5e7eb; --text: #1a1d23; --muted: #6b7280;
+    --bg: #ffffff; --bg-light: #f7f8fa; --border: var(--kt-border); --text: #1a1d23; --muted: #6b7280;
     font-family: 'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
     height: 100vh; display: flex; flex-direction: column; background: var(--bg-light); color: var(--text);
   }
   .pc-root * { box-sizing: border-box; }
 
+  [data-theme='dark'] .pc-root {
+    --bg: var(--kt-bg-card); --bg-light: var(--kt-bg-page); --text: var(--kt-text-primary); --muted: var(--kt-text-muted);
+    color-scheme: dark;
+  }
+
   /* Header */
   .pc-header {
-    height: 60px; flex-shrink: 0; background: #fff; border-bottom: 1px solid var(--border);
+    height: 60px; flex-shrink: 0; background: var(--kt-bg-card); border-bottom: 1px solid var(--border);
     display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
   }
   .pc-logo { font-size: 18px; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 6px; }
@@ -19,8 +24,8 @@ export const PC_CSS = `
   .pc-asset-chip { display: flex; align-items: center; gap: 8px; background: var(--bg-light); padding: 6px 14px; border-radius: 10px; font-size: 14px; }
   .pc-asset-price { font-weight: 700; color: var(--primary); }
   .pc-header-right { display: flex; align-items: center; gap: 10px; }
-  .pc-lang { padding: 7px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; background: #fff; cursor: pointer; outline: none; }
-  .pc-btn-ghost { padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px; background: #fff; color: var(--text); font-weight: 600; font-size: 14px; cursor: pointer; }
+  .pc-lang { padding: 7px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; background: var(--kt-bg-card); cursor: pointer; outline: none; }
+  .pc-btn-ghost { padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px; background: var(--kt-bg-card); color: var(--text); font-weight: 600; font-size: 14px; cursor: pointer; }
   .pc-btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
   .pc-btn-primary { padding: 8px 18px; border: none; border-radius: 8px; background: var(--primary); color: #fff; font-weight: 700; font-size: 14px; cursor: pointer; }
   .pc-btn-primary:disabled { opacity: .6; cursor: default; }
@@ -29,16 +34,17 @@ export const PC_CSS = `
   .pc-main { flex: 1; display: flex; overflow: hidden; }
 
   /* Left */
-  .pc-left { width: 290px; flex-shrink: 0; background: #fff; border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+  .pc-left { width: 290px; flex-shrink: 0; background: var(--kt-bg-card); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
   .pc-search { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
   .pc-search i { color: var(--muted); font-size: 13px; }
-  .pc-search input { flex: 1; border: none; outline: none; font-size: 14px; }
+  .pc-search input { flex: 1; border: none; outline: none; font-size: 14px; background: transparent; color: var(--text); }
   .pc-filter { padding: 10px 14px; border-bottom: 1px solid var(--border); }
-  .pc-filter select { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; outline: none; cursor: pointer; }
+  .pc-filter select { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; outline: none; cursor: pointer; background: var(--bg); color: var(--text); }
   .pc-market-list { flex: 1; overflow-y: auto; }
-  .pc-market-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; cursor: pointer; border-bottom: 1px solid #f4f5f7; transition: background .12s; }
+  .pc-market-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; cursor: pointer; border-bottom: 1px solid var(--border); transition: background .12s; }
   .pc-market-item:hover { background: var(--bg-light); }
   .pc-market-item.active { background: #e8f0ff; }
+  [data-theme='dark'] .pc-market-item.active { background: rgba(0, 100, 250, 0.16); }
   .pc-market-info { flex: 1; min-width: 0; }
   .pc-market-symbol { font-weight: 700; font-size: 13px; }
   .pc-market-name { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -55,18 +61,19 @@ export const PC_CSS = `
   .pc-chart-name { font-size: 18px; font-weight: 800; }
   .pc-chart-sub { font-size: 12px; color: var(--muted); }
   .pc-chart-price { font-size: 26px; font-weight: 800; font-family: monospace; }
-  .pc-chart-wrap { flex: 1; min-height: 0; border: 1px solid #1c212b; border-radius: 12px; overflow: hidden; background: #0b0e14; display: flex; flex-direction: column; }
+  .pc-chart-wrap { flex: 1; min-height: 0; border: 1px solid #e0e3e8; border-radius: 12px; overflow: hidden; background: var(--kt-bg-card); display: flex; flex-direction: column; }
   .pc-chart-wrap > div { flex: 1; }
+  [data-theme='dark'] .pc-chart-wrap { border-color: #1c212b; background: #0b0e14; }
 
   /* Trade panel */
-  .pc-trade-panel { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; }
+  .pc-trade-panel { background: var(--kt-bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; }
   .pc-trade-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 14px; }
   .pc-trade-row label { color: var(--muted); font-weight: 600; display: flex; align-items: center; gap: 6px; }
-  .pc-trade-row select, .pc-trade-row > input { padding: 8px 12px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; outline: none; width: 160px; text-align: right; }
+  .pc-trade-row select, .pc-trade-row > input { padding: 8px 12px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; outline: none; width: 160px; text-align: right; background: var(--bg); color: var(--text); }
   .pc-trade-row select:focus, .pc-trade-row > input:focus { border-color: var(--primary); }
   .pc-stepper { display: flex; align-items: center; gap: 6px; }
-  .pc-stepper button { width: 30px; height: 30px; border: 1px solid var(--border); background: var(--bg-light); border-radius: 7px; cursor: pointer; font-size: 16px; }
-  .pc-stepper input { width: 84px; text-align: center; border: 1.5px solid var(--border); border-radius: 7px; padding: 6px; font-weight: 600; outline: none; }
+  .pc-stepper button { width: 30px; height: 30px; border: 1px solid var(--border); background: var(--bg-light); color: var(--text); border-radius: 7px; cursor: pointer; font-size: 16px; }
+  .pc-stepper input { width: 84px; text-align: center; border: 1.5px solid var(--border); border-radius: 7px; padding: 6px; font-weight: 600; outline: none; background: var(--bg); color: var(--text); }
   .pc-trade-info { display: flex; justify-content: space-between; align-items: center; padding-top: 6px; border-top: 1px solid var(--border); font-size: 14px; color: var(--muted); }
   .pc-insufficient { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; border-radius: 8px; padding: 9px 12px; font-size: 13px; font-weight: 500; text-align: center; }
   .pc-trade-actions, .pc-binary-actions { display: flex; gap: 12px; }
@@ -76,7 +83,7 @@ export const PC_CSS = `
   .pc-buy:disabled, .pc-sell:disabled { opacity: .5; cursor: default; }
 
   /* Right */
-  .pc-right { width: 320px; flex-shrink: 0; background: #fff; border-left: 1px solid var(--border); padding: 12px; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; }
+  .pc-right { width: 320px; flex-shrink: 0; background: var(--kt-bg-card); border-left: 1px solid var(--border); padding: 12px; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; }
 
   /* Available funds card (centered, blue) */
   .pc-funds { background: var(--primary); color: #fff; border-radius: 12px; padding: 12px; text-align: center; }
@@ -89,7 +96,7 @@ export const PC_CSS = `
   .pc-tp-price { font-size: 19px; font-weight: 700; color: var(--primary); margin: 1px 0 8px; }
   .pc-tp-select {
     width: 100%; padding: 7px 12px; border: 1px solid var(--border); border-radius: 8px;
-    font-size: 13px; color: var(--text); background: #fff; outline: none; cursor: pointer; margin-bottom: 8px;
+    font-size: 13px; color: var(--text); background: var(--kt-bg-card); outline: none; cursor: pointer; margin-bottom: 8px;
     appearance: none; -webkit-appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat; background-position: right 12px center;
@@ -102,22 +109,22 @@ export const PC_CSS = `
   .pc-tp-toggle-row span { font-size: 12px; font-weight: 600; color: var(--text); }
   .pc-switch { position: relative; display: inline-block; width: 38px; height: 20px; }
   .pc-switch input { opacity: 0; width: 0; height: 0; }
-  .pc-slider { position: absolute; inset: 0; background: #d1d5db; border-radius: 20px; transition: .2s; cursor: pointer; }
-  .pc-slider::before { content: ''; position: absolute; height: 15px; width: 15px; left: 3px; bottom: 2.5px; background: #fff; border-radius: 50%; transition: .2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+  .pc-slider { position: absolute; inset: 0; background: var(--kt-border); border-radius: 20px; transition: .2s; cursor: pointer; }
+  .pc-slider::before { content: ''; position: absolute; height: 15px; width: 15px; left: 3px; bottom: 2.5px; background: var(--kt-bg-card); border-radius: 50%; transition: .2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
   .pc-switch input:checked + .pc-slider { background: var(--primary); }
   .pc-switch input:checked + .pc-slider::before { transform: translateX(18px); }
 
   /* Stepper (full-width) */
   .pc-stepper.full { display: flex; align-items: stretch; gap: 0; margin-bottom: 9px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
   .pc-stepper.full button {
-    width: 38px; border: none; background: var(--bg-light); color: #374151; font-size: 17px; cursor: pointer; flex-shrink: 0;
+    width: 38px; border: none; background: var(--bg-light); color: var(--text); font-size: 17px; cursor: pointer; flex-shrink: 0;
   }
   .pc-stepper.full button:disabled { opacity: .5; cursor: default; }
   .pc-stepper.full input {
     flex: 1; min-width: 0; border: none; border-left: 1px solid var(--border); border-right: 1px solid var(--border);
-    text-align: center; font-size: 13px; font-weight: 600; color: var(--text); outline: none; padding: 7px 6px;
+    text-align: center; font-size: 13px; font-weight: 600; color: var(--text); outline: none; padding: 7px 6px; background: var(--bg);
   }
-  .pc-stepper.full input:disabled { background: var(--bg-light); color: #9ca3af; }
+  .pc-stepper.full input:disabled { background: var(--bg-light); color: var(--kt-text-muted); }
   .pc-stepper.full input::-webkit-outer-spin-button, .pc-stepper.full input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
   /* Info rows */
@@ -142,11 +149,11 @@ export const PC_CSS = `
 
   /* Modals shared */
   .pc-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); backdrop-filter: blur(4px); z-index: 10000; display: flex; align-items: center; justify-content: center; }
-  .pc-confirm { background: #fff; border-radius: 14px; width: 360px; max-width: 92vw; padding: 22px; }
+  .pc-confirm { background: var(--kt-bg-card); border-radius: 14px; width: 360px; max-width: 92vw; padding: 22px; }
   .pc-confirm-title { font-size: 17px; font-weight: 800; margin-bottom: 16px; text-align: center; }
   .pc-confirm-actions { display: flex; gap: 10px; margin-top: 18px; }
   .pc-confirm-actions button { flex: 1; }
 
   /* Toast */
-  .pc-toast { position: fixed; top: 76px; right: 20px; background: #fff; border-left: 4px solid var(--green); box-shadow: 0 8px 32px rgba(0,0,0,0.15); border-radius: 10px; padding: 14px 18px; font-weight: 600; font-size: 14px; z-index: 11000; }
+  .pc-toast { position: fixed; top: 76px; right: 20px; background: var(--kt-bg-card); border-left: 4px solid var(--green); box-shadow: 0 8px 32px rgba(0,0,0,0.15); border-radius: 10px; padding: 14px 18px; font-weight: 600; font-size: 14px; z-index: 11000; }
 `;

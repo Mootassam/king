@@ -411,7 +411,7 @@ const validateStake = () => {
         }
 
         .stacking-label {
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           font-size: 14px;
           margin-bottom: 15px;
         }
@@ -444,7 +444,7 @@ const validateStake = () => {
         }
 
         .completed-rewards-label {
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           font-size: 13px;
           font-weight: 500;
         }
@@ -466,7 +466,7 @@ const validateStake = () => {
         }
 
         .completed-rewards-subtext {
-          color: #666;
+          color: var(--kt-text-secondary);
           font-size: 12px;
         }
 
@@ -571,7 +571,7 @@ const validateStake = () => {
         }
 
         .stacking-detail-label {
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           font-size: 14px;
         }
 
@@ -705,7 +705,7 @@ const validateStake = () => {
         }
 
         .stacking-stake-label {
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           font-size: 12px;
         }
 
@@ -771,7 +771,7 @@ const validateStake = () => {
           justify-content: center;
           padding: 15px 30px;
           text-align: center;
-          color: #666;
+          color: var(--kt-text-secondary);
           background-color: #1a1a1a;
           border-radius: 16px;
           margin: 20px 15px;
@@ -794,7 +794,7 @@ const validateStake = () => {
         .empty-stacking-state .empty-message {
           font-size: 14px;
           line-height: 1.5;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           margin-bottom: 20px;
           max-width: 300px;
         }
@@ -850,7 +850,7 @@ const validateStake = () => {
         }
 
         .stacking-close-modal {
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           font-size: 20px;
           cursor: pointer;
         }
@@ -861,7 +861,7 @@ const validateStake = () => {
 
         .stacking-input-label {
           display: block;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           margin-bottom: 8px;
           font-size: 14px;
         }
@@ -879,7 +879,7 @@ const validateStake = () => {
 
         .stacking-balance-info {
           text-align: right;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           font-size: 12px;
           margin-top: 5px;
         }
@@ -921,7 +921,7 @@ const validateStake = () => {
 
         .stacking-modal-button-disabled {
           background-color: #2a2a2a !important;
-          color: #aaaaaa !important;
+          color: var(--kt-text-muted) !important;
           cursor: not-allowed !important;
         }
 

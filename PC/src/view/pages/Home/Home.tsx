@@ -173,7 +173,7 @@ function Home() {
                   <h4 className="news-title">{truncateText(article.title, 55)}</h4>
                   <p className="news-desc">{truncateText(article.description, 70)}</p>
                   <div className="news-meta">
-                    <span>ironfxx News</span>
+                    <span>indiaallvorafx News</span>
                     {article.pubDate && <span>{formatDate(article.pubDate)}</span>}
                   </div>
                 </div>
@@ -192,7 +192,7 @@ function Home() {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
         body {
-          background-color: #f5f7fa;
+          background-color: var(--kt-bg-card-alt);
         }
         .home-container {
           
@@ -214,7 +214,7 @@ function Home() {
         .ps-icon {
           width: 38px;
           height: 38px;
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 10px;
           color: #106cf5;
           font-weight: 800;
@@ -232,7 +232,7 @@ function Home() {
 
         /* White content card – matches LoginPassword / MarketDetail */
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 25px 20px 60px;
           box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
@@ -249,7 +249,7 @@ function Home() {
         .section-title {
           font-size: 18px;
           font-weight: 600;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
         }
         .view-all {
           color: #106cf5;
@@ -268,12 +268,12 @@ function Home() {
           gap: 12px;
         }
         .news-card {
-          background: #fff;
+          background: var(--kt-bg-card);
           border-radius: 12px;
           overflow: hidden;
-          border: 1px solid #e7eaee;
+          border: 1px solid var(--kt-border);
           text-decoration: none;
-          color: #333;
+          color: var(--kt-text-secondary);
           transition: 0.2s;
           display: flex;
           flex-direction: column;
@@ -286,7 +286,7 @@ function Home() {
           width: 100%;
           height: 110px;
           overflow: hidden;
-          background: #f0f2f5;
+          background: var(--kt-bg-card-alt);
           position: relative;
         }
         .news-img-container img {
@@ -317,11 +317,11 @@ function Home() {
           font-weight: 600;
           margin-bottom: 6px;
           line-height: 1.4;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
         }
         .news-desc {
           font-size: 11px;
-          color: #777;
+          color: var(--kt-text-tertiary);
           line-height: 1.4;
           margin-bottom: 10px;
           flex: 1;
@@ -330,13 +330,13 @@ function Home() {
           display: flex;
           justify-content: space-between;
           font-size: 10px;
-          color: #aaa;
+          color: var(--kt-text-muted);
         }
 
         /* Skeletons */
         .skeleton .skeleton-img {
           height: 110px;
-          background: linear-gradient(90deg, #f0f2f5 25%, #e5e8ec 50%, #f0f2f5 75%);
+          background: linear-gradient(90deg, #f0f2f5 25%, var(--kt-border) 50%, #f0f2f5 75%);
           background-size: 200% 100%;
           animation: shimmer 1.4s infinite;
         }

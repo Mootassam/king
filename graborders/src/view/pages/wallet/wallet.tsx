@@ -326,7 +326,7 @@ function Wallet() {
           align-items: center;
           gap: 8px;
           font-size: 14px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
         }
         .valuation-label i {
           cursor: pointer;
@@ -345,7 +345,7 @@ function Wallet() {
         }
         .usd-equivalent {
           font-size: 14px;
-          color: #777777;
+          color: var(--kt-text-tertiary);
         }
 
         /* Quick Actions */
@@ -426,7 +426,7 @@ function Wallet() {
         }
         .asset-symbol {
           font-size: 12px;
-          color: #777777;
+          color: var(--kt-text-tertiary);
         }
         
         /* Asset details row – horizontal layout */
@@ -448,7 +448,7 @@ function Wallet() {
 
         .asset-detail-item .asset-label {
           font-size: 12px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
         }
 
         .asset-detail-item .asset-value {

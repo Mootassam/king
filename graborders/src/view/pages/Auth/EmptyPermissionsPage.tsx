@@ -60,7 +60,7 @@ function EmptyPermissionsPage() {
         }
         
         .empty__text p {
-          color: #AAAAAA;
+          color: var(--kt-text-muted);
           font-size: 16px;
           line-height: 1.6;
           margin-bottom: 30px;
@@ -118,7 +118,7 @@ function EmptyPermissionsPage() {
         }
         
         .contact-info p {
-          color: #777777;
+          color: var(--kt-text-tertiary);
           font-size: 14px;
           margin-bottom: 8px;
         }

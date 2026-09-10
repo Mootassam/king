@@ -605,7 +605,7 @@ const FuturesModal: React.FC<FuturesModalProps> = ({
   .close-btn {
       background: none;
       border: none;
-      color: #AAAAAA;
+      color: var(--kt-text-muted);
       font-size: 20px;
       cursor: pointer;
       padding: 5px;
@@ -644,7 +644,7 @@ const FuturesModal: React.FC<FuturesModalProps> = ({
 
   .section-title {
       font-size: 14px;
-      color: #AAAAAA;
+      color: var(--kt-text-muted);
       margin-bottom: 10px;
       display: flex;
       justify-content: space-between;
@@ -698,7 +698,7 @@ const FuturesModal: React.FC<FuturesModalProps> = ({
   .amount-btn {
       background: none;
       border: none;
-      color: #AAAAAA;
+      color: var(--kt-text-muted);
       font-size: 20px;
       width: 40px;
       height: 40px;
@@ -733,7 +733,7 @@ const FuturesModal: React.FC<FuturesModalProps> = ({
 
   .balance-info {
       font-size: 14px;
-      color: #AAAAAA;
+      color: var(--kt-text-muted);
       text-align: right;
       margin-top: 5px;
   }
@@ -741,7 +741,7 @@ const FuturesModal: React.FC<FuturesModalProps> = ({
   .profit-info {
       text-align: center;
       font-size: 14px;
-      color: #AAAAAA;
+      color: var(--kt-text-muted);
       margin: 20px 0;
   }
 
@@ -765,7 +765,7 @@ const FuturesModal: React.FC<FuturesModalProps> = ({
 
   .confirm-btn:disabled {
       background-color: #3a3a3a;
-      color: #777;
+      color: var(--kt-text-tertiary);
       cursor: not-allowed;
   }
 
@@ -819,7 +819,7 @@ const FuturesModal: React.FC<FuturesModalProps> = ({
 
   .progress-label {
       font-size: 12px;
-      color: #AAAAAA;
+      color: var(--kt-text-muted);
   }
 
   /* Trade Details */
@@ -845,7 +845,7 @@ const FuturesModal: React.FC<FuturesModalProps> = ({
   }
 
   .trade-details-row span:first-child {
-      color: #AAAAAA;
+      color: var(--kt-text-muted);
   }
 
   .trade-details-row span:last-child {

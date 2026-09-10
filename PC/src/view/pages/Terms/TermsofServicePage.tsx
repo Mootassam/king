@@ -104,7 +104,7 @@ function TermsofServicePage() {
                 }
 
                 .modal-message {
-                    color: #CCCCCC;
+                    color: var(--kt-text-muted);
                     font-size: 16px;
                     line-height: 1.5;
                     margin-bottom: 30px;
@@ -486,7 +486,7 @@ function TermsofServicePage() {
                 .section-content {
                     font-size: 14px;
                     line-height: 1.6;
-                    color: #CCCCCC;
+                    color: var(--kt-text-muted);
                 }
                 
                 .section-content p {
@@ -523,7 +523,7 @@ function TermsofServicePage() {
                 
                 .agreement-label {
                     font-size: 14px;
-                    color: #CCCCCC;
+                    color: var(--kt-text-muted);
                 }
                 
                 /* Buttons */
@@ -550,7 +550,7 @@ function TermsofServicePage() {
                 
                 .accept-button:disabled {
                     background-color: #5e5e5e;
-                    color: #a0a0a0;
+                    color: var(--kt-text-muted);
                     cursor: not-allowed;
                 }
                 
@@ -567,7 +567,7 @@ function TermsofServicePage() {
                 .footer {
                     text-align: center;
                     margin-top: 30px;
-                    color: #777777;
+                    color: var(--kt-text-tertiary);
                     font-size: 12px;
                 }
             `}</style>

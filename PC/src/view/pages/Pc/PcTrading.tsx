@@ -14,6 +14,7 @@ import PcAuthModal from './PcAuthModal';
 import PcProfileModal from './PcProfileModal';
 import { PC_CSS } from './pcStyles';
 import ChatWidget from 'src/view/shared/chat/ChatWidget';
+import ThemeToggle from 'src/view/shared/theme/ThemeToggle';
 
 const CONTRACT_SIZE = 100;
 
@@ -250,7 +251,7 @@ export default function PcTrading() {
       {/* ===== HEADER ===== */}
       <header className="pc-header">
         <div className="pc-header-left">
-<img src="/logo.svg" alt="" />
+<img src="/logo.jpg" alt="" />
         </div>
 
         <div className="pc-header-center">
@@ -258,6 +259,7 @@ export default function PcTrading() {
         </div>
 
         <div className="pc-header-right">
+          <ThemeToggle />
           <select className="pc-lang" value={lang} onChange={(e) => changeLang(e.target.value)}>
             {getLanguages().map((l: any) => (
               <option key={l.id} value={l.id}>{l.label}</option>
@@ -338,7 +340,7 @@ export default function PcTrading() {
                 <div className="pc-chart-sub">{currentPair.name}</div>
               </div>
             </div>
-            <div className="pc-chart-price" style={{ color: serverInj ? (serverInj.targetPrice >= serverInj.entryPrice ? '#10b981' : '#ef4444') : '#1a1d23' }}>
+            <div className="pc-chart-price" style={{ color: serverInj ? (serverInj.targetPrice >= serverInj.entryPrice ? '#10b981' : '#ef4444') : 'var(--kt-text-primary)' }}>
               {fmtPrice(displayPrice)}
             </div>
           </div>
@@ -436,7 +438,7 @@ export default function PcTrading() {
             <div className="pc-tp-info">
               <div className="pc-tp-info-row"><span>{i18n('pc.eachLots')}</span><b>{eachLotValue}</b></div>
               <div className="pc-tp-info-row"><span>{i18n('pc.handlingFee')}</span><b>{handlingFee}</b></div>
-              <div className="pc-tp-info-row"><span>{i18n('pc.estimatedMargin')}</span><b style={{ color: insufficient ? '#ef4444' : '#1a1d23' }}>{marginStr}</b></div>
+              <div className="pc-tp-info-row"><span>{i18n('pc.estimatedMargin')}</span><b style={{ color: insufficient ? '#ef4444' : 'var(--kt-text-primary)' }}>{marginStr}</b></div>
             </div>
 
             {insufficient && <div className="pc-insufficient">⚠ {i18n('pc.insufficient')} (${marginStr})</div>}

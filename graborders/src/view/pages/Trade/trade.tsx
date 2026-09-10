@@ -723,7 +723,7 @@ function Trade() {
   const getFuturesStatusConfig = useCallback((status) => {
     const config = {
       color: '#6c757d',
-      bgColor: '#e9ecef',
+      bgColor: 'var(--kt-border)',
       text: status || i18n("common.unknown")
     };
 
@@ -1449,7 +1449,7 @@ function Trade() {
           justify-content: space-between;
           margin-bottom: 6px;
           font-size: 10px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           font-weight: 500;
         }
         .progress-label {
@@ -1515,7 +1515,7 @@ function Trade() {
         .orders-tab {
           font-size: 12px;
           cursor: pointer;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           padding: 4px 0;
         }
         .orders-tab.active {
@@ -1561,7 +1561,7 @@ function Trade() {
         }
         .buy-tab {
           background-color: #2a2a2a;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
         }
         .buy-tab.active {
           background-color: #39FF14;
@@ -1569,7 +1569,7 @@ function Trade() {
         }
         .sell-tab {
           background-color: #2a2a2a;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
         }
         .sell-tab.active {
           background-color: #f56c6c;
@@ -1582,7 +1582,7 @@ function Trade() {
         }
         .order-type-label {
           font-size: 12px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           margin-bottom: 6px;
           font-weight: 500;
         }
@@ -1603,7 +1603,7 @@ function Trade() {
         .input-label {
           display: block;
           font-size: 12px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           margin-bottom: 6px;
           font-weight: 500;
         }
@@ -1626,7 +1626,7 @@ function Trade() {
         }
         .balance-info {
           font-size: 13px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           margin-bottom: 16px;
           text-align: center;
           padding: 8px;
@@ -1664,7 +1664,7 @@ function Trade() {
           justify-content: space-between;
           margin-bottom: 10px;
           font-size: 12px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           padding: 0 8px;
           font-weight: 500;
         }
@@ -1704,7 +1704,7 @@ function Trade() {
         .order-amount {
           flex: 1;
           text-align: right;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
         }
         .ask-row .order-price {
           color: #f56c6c;
@@ -1813,7 +1813,7 @@ function Trade() {
         }
         .transaction-date {
           font-size: 10px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
         }
 
         /* Order Item */
@@ -1858,17 +1858,17 @@ function Trade() {
         }
         .order-type-badge {
           font-size: 10px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           background-color: #1c1c1c;
           padding: 2px 5px;
           border-radius: 3px;
         }
         .order-date {
           font-size: 11px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
         }
         .order-time {
-          color: #888f99;
+          color: var(--kt-text-muted);
         }
         .order-details {
           display: grid;
@@ -1883,7 +1883,7 @@ function Trade() {
         }
         .detail-label {
           font-size: 11px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
         }
         .order-status {
           font-size: 11px;
@@ -1986,7 +1986,7 @@ function Trade() {
         }
         .timestamp-label {
           font-size: 10px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           margin-bottom: 2px;
         }
         .timestamp-value {
@@ -2006,12 +2006,12 @@ function Trade() {
           margin-bottom: 10px;
         }
         .empty-text {
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           font-size: 12px;
           margin-bottom: 5px;
         }
         .empty-subtext {
-          color: #777777;
+          color: var(--kt-text-tertiary);
           font-size: 12px;
         }
 
@@ -2099,7 +2099,7 @@ function Trade() {
           background: none;
           border: none;
           font-size: 18px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           cursor: pointer;
           width: 32px;
           height: 32px;
@@ -2136,7 +2136,7 @@ function Trade() {
         }
         .pnl-title {
           font-size: 12px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           margin-bottom: 4px;
         }
         .pnl-amount {
@@ -2177,7 +2177,7 @@ function Trade() {
         .timestamp-time {
           display: block;
           font-size: 11px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           margin-top: 2px;
         }
 

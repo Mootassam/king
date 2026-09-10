@@ -10,7 +10,7 @@ COPY . /app/
 RUN npm install
 
 # Set environment variables
-ENV BACKEND_URL="https://indiaironfx.com/api"
+ENV BACKEND_URL="https://indiaallvorafx.cc/api"
 
 # Expose your app port
 EXPOSE 8082

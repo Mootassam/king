@@ -130,8 +130,8 @@ function LoginPassword() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -181,7 +181,7 @@ function LoginPassword() {
 
         /* Content Card - Matching Profile Page */
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 30px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -205,7 +205,7 @@ function LoginPassword() {
         .form-label {
           display: block;
           font-size: 12px;
-          color: #666;
+          color: var(--kt-text-secondary);
           margin-bottom: 6px;
           font-weight: 500;
         }
@@ -219,12 +219,12 @@ function LoginPassword() {
           width: 100%;
           padding: 8px 12px;
           font-size: 12px;
-          border: 1px solid #e7eaee;
+          border: 1px solid var(--kt-border);
           border-radius: 8px;
-          background: #fff;
+          background: var(--kt-bg-card);
           transition: all 0.3s ease;
           outline: none;
-          color: #333;
+          color: var(--kt-text-secondary);
           height: 40px;
         }
 
@@ -234,7 +234,7 @@ function LoginPassword() {
         }
 
         .form-input::placeholder {
-          color: #aaa;
+          color: var(--kt-text-muted);
           font-size: 12px;
         }
 

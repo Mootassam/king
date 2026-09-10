@@ -324,8 +324,8 @@ function History() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -374,7 +374,7 @@ function History() {
 
         /* Content Card - Matching Profile Page */
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 30px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -410,9 +410,9 @@ function History() {
         .filter-option {
           padding: 8px 16px;
           border-radius: 20px;
-          border: 1px solid #e7eaee;
-          background-color: #f8f9fa;
-          color: #555;
+          border: 1px solid var(--kt-border);
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           font-size: 13px;
           font-weight: 500;
           white-space: nowrap;
@@ -438,15 +438,15 @@ function History() {
           justify-content: space-between;
           align-items: center;
           padding: 15px;
-          background-color: #f8f9fa;
+          background-color: var(--kt-bg-card-alt);
           border-radius: 12px;
-          border: 1px solid #e7eaee;
+          border: 1px solid var(--kt-border);
           cursor: pointer;
           transition: all 0.2s ease;
         }
 
         .transaction-item:hover {
-          background-color: #f0f2f5;
+          background-color: var(--kt-bg-card-alt);
           transform: translateY(-2px);
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
@@ -477,11 +477,11 @@ function History() {
           font-weight: 600;
           margin-bottom: 4px;
           font-size: 14px;
-          color: #222;
+          color: var(--kt-text-primary);
         }
 
         .transaction-date {
-          color: #888f99;
+          color: var(--kt-text-muted);
           font-size: 12px;
         }
 
@@ -524,13 +524,13 @@ function History() {
           justify-content: center;
           min-height: 200px;
           text-align: center;
-          color: #888f99;
+          color: var(--kt-text-muted);
           padding: 40px 20px;
         }
 
         .no-data-message i {
           font-size: 48px;
-          color: #e7eaee;
+          color: var(--kt-border);
           margin-bottom: 16px;
         }
 

@@ -295,7 +295,7 @@ function Signup() {
 
         /* ── White content card ── */
         .signup-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 30px 24px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -306,7 +306,7 @@ function Signup() {
           text-align: center;
           font-size: 18px;
           font-weight: 600;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
           margin-bottom: 24px;
         }
 
@@ -318,20 +318,20 @@ function Signup() {
           display: block;
           font-size: 12px;
           font-weight: 600;
-          color: #555;
+          color: var(--kt-text-secondary);
           text-transform: uppercase;
           letter-spacing: 0.03em;
           margin-bottom: 6px;
         }
 
         .input-field {
-          background-color: #ffffff;
-          border: 1px solid #edeef1;
+          background-color: var(--kt-bg-card);
+          border: 1px solid var(--kt-border);
           border-radius: 8px;
           height: 46px;
           width: 100%;
           padding: 0 14px;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
           font-size: 14px;
           outline: none;
           box-sizing: border-box;
@@ -343,7 +343,7 @@ function Signup() {
           box-shadow: 0 0 0 3px rgba(16, 108, 245, 0.06);
         }
         .input-field::placeholder {
-          color: #aaa;
+          color: var(--kt-text-muted);
         }
 
         .captcha-wrapper {
@@ -352,8 +352,8 @@ function Signup() {
         }
 
         .captcha-display {
-          background-color: #f8f9fb;
-          border: 1px solid #edeef1;
+          background-color: var(--kt-bg-card-alt);
+          border: 1px solid var(--kt-border);
           border-radius: 8px;
           height: 46px;
           display: flex;
@@ -373,7 +373,7 @@ function Signup() {
           font-size: 20px;
           font-weight: 700;
           letter-spacing: 4px;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
           user-select: none;
         }
 

@@ -96,7 +96,7 @@ export class Error500Page extends Component {
 
           /* White content card – identical to Market / Futures */
           .content-card {
-            background: white;
+            background: var(--kt-bg-card);
             border-radius: 40px 40px 0 0;
             padding: 30px 20px 100px;
             box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -105,7 +105,7 @@ export class Error500Page extends Component {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #1a1a1a;
+            color: var(--kt-text-primary);
           }
 
           /* Error Content */
@@ -167,14 +167,14 @@ export class Error500Page extends Component {
           .error-title {
             font-size: 24px;
             font-weight: 600;
-            color: #1a1a1a;
+            color: var(--kt-text-primary);
             margin-bottom: 12px;
           }
 
           /* Error Message */
           .error-message {
             font-size: 16px;
-            color: #777;
+            color: var(--kt-text-tertiary);
             max-width: 300px;
             margin-bottom: 30px;
             line-height: 1.5;

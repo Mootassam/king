@@ -36,7 +36,7 @@ const CustomModal = ({ visible, title, onClose, children }) => {
           animation: fadeIn 0.3s ease;
         }
         .modal-container {
-          background-color: #ffffff;
+          background-color: var(--kt-bg-card);
           border-radius: 16px;
           width: 90%;
           
@@ -47,14 +47,14 @@ const CustomModal = ({ visible, title, onClose, children }) => {
         }
         .modal-header {
           padding: 16px 20px;
-          border-bottom: 1px solid #e7eaee;
+          border-bottom: 1px solid var(--kt-border);
           display: flex;
           align-items: center;
           justify-content: space-between;
         }
         .modal-header h3 {
           margin: 0;
-          color: #222;
+          color: var(--kt-text-primary);
           font-size: 18px;
           font-weight: 600;
         }
@@ -63,7 +63,7 @@ const CustomModal = ({ visible, title, onClose, children }) => {
           border: none;
           font-size: 24px;
           cursor: pointer;
-          color: #999;
+          color: var(--kt-text-muted);
           transition: color 0.2s;
         }
         .modal-close:hover {
@@ -517,8 +517,8 @@ function Withdraw() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
         }
 
         .withdraw-container {
@@ -564,7 +564,7 @@ function Withdraw() {
 
         .content-card {
           flex: 1;
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 25px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -581,7 +581,7 @@ function Withdraw() {
           gap: 4px;
           font-size: 14px;
           font-weight: 500;
-          color: #666;
+          color: var(--kt-text-secondary);
           margin-bottom: 6px;
         }
 
@@ -592,11 +592,11 @@ function Withdraw() {
         }
 
         .withdraw-input {
-          background-color: #fff;
-          border: 1px solid #e7eaee;
+          background-color: var(--kt-bg-card);
+          border: 1px solid var(--kt-border);
           border-radius: 8px;
           padding: 12px 16px;
-          color: #333;
+          color: var(--kt-text-secondary);
           font-size: 14px;
           width: 100%;
           outline: none;
@@ -607,7 +607,7 @@ function Withdraw() {
           box-shadow: 0 0 0 2px rgba(16, 108, 245, 0.1);
         }
         .withdraw-input::placeholder {
-          color: #aaa;
+          color: var(--kt-text-muted);
         }
 
         .balance-info {
@@ -618,7 +618,7 @@ function Withdraw() {
           margin-bottom: 24px;
           font-size: 16px;
           font-weight: 500;
-          color: #222;
+          color: var(--kt-text-primary);
           display: flex;
           align-items: center;
           gap: 8px;
@@ -639,8 +639,8 @@ function Withdraw() {
 
         .method-card {
           flex: 1;
-          background: #f8f9fa;
-          border: 1px solid #e7eaee;
+          background: var(--kt-bg-card-alt);
+          border: 1px solid var(--kt-border);
           border-radius: 12px;
           padding: 16px 8px;
           text-align: center;
@@ -666,7 +666,7 @@ function Withdraw() {
 
         .method-label {
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 6px;
           font-size: 14px;
         }
@@ -689,24 +689,24 @@ function Withdraw() {
 
         .method-network-hint {
           font-size: 11px;
-          color: #999;
+          color: var(--kt-text-muted);
         }
 
         .preview-box {
-          background: #f8f9fa;
+          background: var(--kt-bg-card-alt);
           border: 1px solid #106cf5;
           border-radius: 8px;
           padding: 12px;
           margin-bottom: 20px;
           font-size: 13px;
-          color: #333;
+          color: var(--kt-text-secondary);
         }
         .preview-box i {
           color: #106cf5;
           margin-right: 8px;
         }
         .preview-detail {
-          color: #666;
+          color: var(--kt-text-secondary);
           font-size: 12px;
         }
 
@@ -780,7 +780,7 @@ function Withdraw() {
           border: 1px solid #e6f0ff;
           border-radius: 8px;
           font-size: 13px;
-          color: #555;
+          color: var(--kt-text-secondary);
           display: flex;
           align-items: flex-start;
           gap: 8px;
@@ -802,7 +802,7 @@ function Withdraw() {
         /* Modal content inside CustomModal (unchanged structure, just visual) */
         .modal-content-centered {
           text-align: center;
-          color: #333;
+          color: var(--kt-text-secondary);
         }
         .modal-warning-icon {
           font-size: 48px;
@@ -810,12 +810,12 @@ function Withdraw() {
           margin-bottom: 16px;
         }
         .modal-subtitle {
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 12px;
           font-size: 18px;
         }
         .modal-description {
-          color: #666;
+          color: var(--kt-text-secondary);
           margin-bottom: 20px;
           font-size: 14px;
         }
@@ -828,14 +828,14 @@ function Withdraw() {
         .missing-fields-list li {
           margin-bottom: 8px;
           padding: 8px 12px;
-          background-color: #f8f9fa;
+          background-color: var(--kt-bg-card-alt);
           border-radius: 6px;
           font-size: 13px;
           display: flex;
           align-items: center;
           gap: 8px;
-          color: #333;
-          border: 1px solid #e7eaee;
+          color: var(--kt-text-secondary);
+          border: 1px solid var(--kt-border);
         }
         .missing-fields-list i {
           color: #f44336;
@@ -848,9 +848,9 @@ function Withdraw() {
         }
         .modal-cancel-btn {
           flex: 1;
-          background: #f8f9fa;
-          border: 1px solid #e7eaee;
-          color: #666;
+          background: var(--kt-bg-card-alt);
+          border: 1px solid var(--kt-border);
+          color: var(--kt-text-secondary);
           padding: 10px;
           border-radius: 6px;
           font-size: 14px;
@@ -917,7 +917,7 @@ function Withdraw() {
         }
 
         .wd-success-card {
-          background: #ffffff;
+          background: var(--kt-bg-card);
           border-radius: 24px;
           width: 88%;
           max-width: 360px;
@@ -960,18 +960,18 @@ function Withdraw() {
         .wd-success-title {
           font-size: 20px;
           font-weight: 700;
-          color: #111;
+          color: var(--kt-text-primary);
           text-align: center;
         }
 
         .wd-success-msg {
           font-size: 14px;
-          color: #555;
+          color: var(--kt-text-secondary);
           text-align: center;
           line-height: 1.7;
         }
         .wd-success-msg strong {
-          color: #111;
+          color: var(--kt-text-primary);
           font-weight: 700;
         }
 

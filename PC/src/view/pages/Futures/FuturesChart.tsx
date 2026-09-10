@@ -195,13 +195,13 @@ const FuturesChart: React.FC<FuturesChartProps> = ({ symbol = "EURUSD" }) => {
         vertical: { color: "rgba(0,0,0,0.02)" },
       },
       xAxis: {
-        axisLine: { color: "#e0e0e0" },
-        tickLine: { color: "#e0e0e0" },
+        axisLine: { color: "var(--kt-border)" },
+        tickLine: { color: "var(--kt-border)" },
         tickText: { color: "#666666" },
       },
       yAxis: {
-        axisLine: { color: "#e0e0e0" },
-        tickLine: { color: "#e0e0e0" },
+        axisLine: { color: "var(--kt-border)" },
+        tickLine: { color: "var(--kt-border)" },
         tickText: { color: "#666666" },
       },
       crosshair: {
@@ -406,7 +406,7 @@ const FuturesChart: React.FC<FuturesChartProps> = ({ symbol = "EURUSD" }) => {
               borderRadius: 6,
               background: "#fff",
               color: "#333",
-              border: "1px solid #e0e0e0",
+              border: "1px solid var(--kt-border)",
               fontSize: "12px",
               cursor: "pointer",
               outline: "none",
@@ -430,7 +430,7 @@ const FuturesChart: React.FC<FuturesChartProps> = ({ symbol = "EURUSD" }) => {
           borderRadius: "8px",
           overflow: "hidden",
           background: "#ffffff",
-          border: "1px solid #e7eaee",
+          border: "1px solid var(--kt-border)",
         }}
       />
 

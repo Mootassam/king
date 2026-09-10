@@ -78,9 +78,14 @@ function TabBottomNavigator() {
           --primary: #0064FA;
           --primary-light: #e8f0ff;
           --text-secondary: #6b7280;
-          --border: #e5e7eb;
+          --border: var(--kt-border);
           --bg-white: #ffffff;
           --shadow-sm: 0 -1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        [data-theme='dark'] {
+          --text-secondary: var(--kt-text-muted);
+          --bg-white: var(--kt-bg-card);
         }
 
         .bottom-nav {
@@ -90,7 +95,7 @@ function TabBottomNavigator() {
           right: 0;
           
           margin: 0 auto;
-          background-color: #ffffff;
+          background-color: var(--kt-bg-card);
           display: flex;
           justify-content: space-around;
           align-items: center;

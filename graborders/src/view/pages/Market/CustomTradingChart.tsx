@@ -1,6 +1,43 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createChart, CandlestickSeries } from 'lightweight-charts';
 import { isMarketOpen } from 'src/view/shared/marketHours';
+import { useTheme } from 'src/modules/theme/themeContext';
+
+// ── Chart color presets ──────────────────────────────────────────────────────
+
+const CHART_THEMES = {
+  dark: {
+    background: '#0b0e14',
+    text: '#8b94a3',
+    grid: '#161b22',
+    crosshair: '#3a4150',
+    crosshairLabelBg: '#1c212b',
+    border: '#1c212b',
+  },
+  light: {
+    background: '#ffffff',
+    text: '#5b6472',
+    grid: '#eef0f3',
+    crosshair: '#c7cdd6',
+    crosshairLabelBg: '#f0f2f5',
+    border: '#e0e3e8',
+  },
+};
+
+function chartOptionsFor(theme: 'light' | 'dark') {
+  const c = CHART_THEMES[theme];
+  return {
+    layout: { background: { color: c.background }, textColor: c.text, fontSize: 12 },
+    grid: { vertLines: { color: c.grid }, horzLines: { color: c.grid } },
+    crosshair: {
+      mode: 1,
+      vertLine: { color: c.crosshair, labelBackgroundColor: c.crosshairLabelBg },
+      horzLine: { color: c.crosshair, labelBackgroundColor: c.crosshairLabelBg },
+    },
+    rightPriceScale: { borderColor: c.border, scaleMargins: { top: 0.08, bottom: 0.08 } },
+    timeScale: { borderColor: c.border },
+  };
+}
 
 // ── Public types ──────────────────────────────────────────────────────────────
 
@@ -225,6 +262,9 @@ export default function CustomTradingChart({
 }: Props) {
 
   const [tf, setTF] = useState<TF>('1m');
+  const { theme } = useTheme();
+  const themeRef = useRef(theme);
+  themeRef.current = theme;
 
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef     = useRef<any>(null);
@@ -318,16 +358,10 @@ export default function CustomTradingChart({
     const chart = createChart(containerRef.current, {
       width:  containerRef.current.clientWidth,
       height,
-      layout: { background: { color: '#0b0e14' }, textColor: '#8b94a3', fontSize: 12 },
-      grid:   { vertLines: { color: '#161b22' }, horzLines: { color: '#161b22' } },
-      crosshair: {
-        mode: 1,
-        vertLine: { color: '#3a4150', labelBackgroundColor: '#1c212b' },
-        horzLine: { color: '#3a4150', labelBackgroundColor: '#1c212b' },
-      },
-      rightPriceScale: { borderColor: '#1c212b', scaleMargins: { top: 0.08, bottom: 0.08 } },
+      ...chartOptionsFor(themeRef.current),
       timeScale: {
-        borderColor: '#1c212b', timeVisible: true, secondsVisible: false,
+        ...chartOptionsFor(themeRef.current).timeScale,
+        timeVisible: true, secondsVisible: false,
         rightOffset: 6, lockVisibleTimeRangeOnResize: true,
       },
       handleScroll: true,
@@ -368,6 +402,12 @@ export default function CustomTradingChart({
       seriesRef.current = null;
     };
   }, [height]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Re-color the chart in place when the app theme is toggled — no need to
+  // recreate the chart (and lose scroll/zoom position or live data).
+  useEffect(() => {
+    chartRef.current?.applyOptions(chartOptionsFor(theme));
+  }, [theme]);
 
   // ── Tick loop ───────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -425,24 +465,26 @@ export default function CustomTradingChart({
   }, []);
 
   // ── Render ────────────────────────────────────────────────────────────────
+  const c = CHART_THEMES[theme];
+
   return (
-    <div style={{ position: 'relative', width: '100%', background: '#0b0e14', borderRadius: 12, overflow: 'hidden' }}>
+    <div style={{ position: 'relative', width: '100%', background: c.background, borderRadius: 12, overflow: 'hidden' }}>
 
       {/* Timeframe toolbar */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 2, padding: '6px 10px 4px', background: '#0b0e14', borderBottom: '1px solid #1c212b' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 2, padding: '6px 10px 4px', background: c.background, borderBottom: `1px solid ${c.border}` }}>
         {(['1m', '30m', '1h', 'D'] as TF[]).map(t => (
           <button key={t} onClick={() => setTF(t)} style={{
             padding: '4px 10px', borderRadius: 6, border: 'none',
             background: tf === t ? '#106cf5' : 'transparent',
-            color:      tf === t ? '#fff'    : '#8b94a3',
+            color:      tf === t ? '#fff'    : c.text,
             fontSize: 12, fontWeight: tf === t ? 700 : 500,
             cursor: 'pointer', transition: 'all 0.15s',
           }}>
             {t}
           </button>
         ))}
-        <div style={{ width: 1, height: 14, background: '#1c212b', margin: '0 6px' }} />
-        <span style={{ fontSize: 11, color: '#5b6472', userSelect: 'none', fontWeight: 600 }}>{symbol}</span>
+        <div style={{ width: 1, height: 14, background: c.border, margin: '0 6px' }} />
+        <span style={{ fontSize: 11, color: c.text, userSelect: 'none', fontWeight: 600 }}>{symbol}</span>
       </div>
 
       {/* Chart canvas */}

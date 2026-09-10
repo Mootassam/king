@@ -363,7 +363,7 @@ function ForgotPassword() {
         }
 
         .fp-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 34px 24px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -374,26 +374,26 @@ function ForgotPassword() {
           text-align: center;
           font-size: 18px;
           font-weight: 600;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
           margin-bottom: 10px;
         }
 
         .fp-subtext {
           text-align: center;
           font-size: 13px;
-          color: #777;
+          color: var(--kt-text-tertiary);
           line-height: 1.5;
           margin-bottom: 24px;
         }
 
         .fp-input {
-          background-color: #ffffff;
-          border: 1px solid #edeef1;
+          background-color: var(--kt-bg-card);
+          border: 1px solid var(--kt-border);
           border-radius: 8px;
           height: 48px;
           width: 100%;
           padding: 0 14px;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
           font-size: 14px;
           outline: none;
           margin-bottom: 14px;
@@ -406,7 +406,7 @@ function ForgotPassword() {
           box-shadow: 0 0 0 3px rgba(16, 108, 245, 0.06);
         }
         .fp-input::placeholder {
-          color: #aaa;
+          color: var(--kt-text-muted);
         }
 
         .fp-code-input {
@@ -463,13 +463,13 @@ function ForgotPassword() {
           text-decoration: underline;
         }
         .fp-resend-disabled {
-          color: #999;
+          color: var(--kt-text-muted);
         }
 
         .fp-bottom-text {
           text-align: center;
           font-size: 14px;
-          color: #777;
+          color: var(--kt-text-tertiary);
           text-decoration: none;
           display: block;
           margin-top: 24px;

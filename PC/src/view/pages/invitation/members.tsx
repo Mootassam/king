@@ -188,7 +188,7 @@ function members() {
         }
         
         .member-date {
-            color: #AAAAAA;
+            color: var(--kt-text-muted);
             font-size: 13px;
         }
         

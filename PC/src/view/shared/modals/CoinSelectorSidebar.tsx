@@ -185,14 +185,14 @@ const CoinSelectorSidebar: React.FC<CoinSelectorSidebarProps> = ({
                         width: 90%;
                         max-width: 280px;
                         height: 100%;
-                        background: #ffffff;
+                        background: var(--kt-bg-card);
                         z-index: 1001;
                         display: flex;
                         flex-direction: column;
                         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
                         animation: slideFromLeft 0.2s ease;
                         overflow: hidden;
-                        border-right: 1px solid #edeef1;
+                        border-right: 1px solid var(--kt-border);
                     }
 
                     .sidebar-header {
@@ -200,27 +200,27 @@ const CoinSelectorSidebar: React.FC<CoinSelectorSidebarProps> = ({
                         justify-content: space-between;
                         align-items: center;
                         padding: 20px;
-                        border-bottom: 1px solid #edeef1;
-                        background: #ffffff;
+                        border-bottom: 1px solid var(--kt-border);
+                        background: var(--kt-bg-card);
                     }
 
                     .sidebar-title {
                         font-size: 17px;
                         font-weight: 600;
-                        color: #1a1a1a;
+                        color: var(--kt-text-primary);
                     }
 
                     .close-sidebar {
                         width: 32px;
                         height: 32px;
                         border-radius: 50%;
-                        background: #f0f2f5;
+                        background: var(--kt-bg-card-alt);
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         cursor: pointer;
                         transition: all 0.2s ease;
-                        color: #777777;
+                        color: var(--kt-text-tertiary);
                     }
 
                     .close-sidebar:hover {
@@ -231,7 +231,7 @@ const CoinSelectorSidebar: React.FC<CoinSelectorSidebarProps> = ({
                     .search-container {
                         position: relative;
                         padding: 16px 20px;
-                        border-bottom: 1px solid #edeef1;
+                        border-bottom: 1px solid var(--kt-border);
                     }
 
                     .search-icon {
@@ -239,30 +239,30 @@ const CoinSelectorSidebar: React.FC<CoinSelectorSidebarProps> = ({
                         left: 36px;
                         top: 50%;
                         transform: translateY(-50%);
-                        color: #999999;
+                        color: var(--kt-text-muted);
                         font-size: 14px;
                     }
 
                     .search-input {
                         width: 100%;
                         padding: 10px 40px 10px 36px;
-                        border: 1px solid #edeef1;
+                        border: 1px solid var(--kt-border);
                         border-radius: 10px;
                         font-size: 14px;
-                        background: #f8f9fb;
-                        color: #1a1a1a;
+                        background: var(--kt-bg-card-alt);
+                        color: var(--kt-text-primary);
                         transition: all 0.2s ease;
                     }
 
                     .search-input:focus {
                         outline: none;
                         border-color: #106cf5;
-                        background: #ffffff;
+                        background: var(--kt-bg-card);
                         box-shadow: 0 0 0 3px rgba(16, 108, 245, 0.1);
                     }
 
                     .search-input::placeholder {
-                        color: #aaaaaa;
+                        color: var(--kt-text-muted);
                     }
 
                     .clear-search {
@@ -272,7 +272,7 @@ const CoinSelectorSidebar: React.FC<CoinSelectorSidebarProps> = ({
                         transform: translateY(-50%);
                         background: none;
                         border: none;
-                        color: #999999;
+                        color: var(--kt-text-muted);
                         cursor: pointer;
                         padding: 4px;
                         border-radius: 4px;
@@ -280,7 +280,7 @@ const CoinSelectorSidebar: React.FC<CoinSelectorSidebarProps> = ({
                     }
 
                     .clear-search:hover {
-                        background: #f0f2f5;
+                        background: var(--kt-bg-card-alt);
                         color: #106cf5;
                     }
 
@@ -301,7 +301,7 @@ const CoinSelectorSidebar: React.FC<CoinSelectorSidebarProps> = ({
                     }
 
                     .pair-item:hover {
-                        background: #f8f9fb;
+                        background: var(--kt-bg-card-alt);
                     }
 
                     .pair-item.selected {
@@ -321,12 +321,12 @@ const CoinSelectorSidebar: React.FC<CoinSelectorSidebarProps> = ({
                     .pair-name {
                         font-size: 14px;
                         font-weight: 500;
-                        color: #1a1a1a;
+                        color: var(--kt-text-primary);
                     }
 
                     .pair-symbol {
                         font-size: 12px;
-                        color: #888888;
+                        color: var(--kt-text-tertiary);
                         font-weight: 400;
                     }
 
@@ -336,7 +336,7 @@ const CoinSelectorSidebar: React.FC<CoinSelectorSidebarProps> = ({
                         align-items: center;
                         justify-content: center;
                         padding: 60px 20px;
-                        color: #999999;
+                        color: var(--kt-text-muted);
                         text-align: center;
                         font-size: 14px;
                     }

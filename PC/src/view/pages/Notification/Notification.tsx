@@ -188,8 +188,8 @@ function Notification() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -238,7 +238,7 @@ function Notification() {
 
         /* Content Card - Matching About Page */
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 25px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -248,7 +248,7 @@ function Notification() {
         /* Filter Tabs */
         .filter-tabs {
           display: flex;
-          background: #f8f9fa;
+          background: var(--kt-bg-card-alt);
           border-radius: 12px;
           padding: 4px;
           margin-bottom: 25px;
@@ -261,7 +261,7 @@ function Notification() {
           background: transparent;
           font-size: 13px;
           font-weight: 500;
-          color: #666;
+          color: var(--kt-text-secondary);
           cursor: pointer;
           border-radius: 8px;
           transition: all 0.3s ease;
@@ -272,7 +272,7 @@ function Notification() {
         }
 
         .filter-tab.active {
-          background: white;
+          background: var(--kt-bg-card);
           color: #106cf5;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
           font-weight: 600;
@@ -301,9 +301,9 @@ function Notification() {
           display: flex;
           align-items: flex-start;
           padding: 16px;
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 12px;
-          border: 1px solid #e7eaee;
+          border: 1px solid var(--kt-border);
           cursor: pointer;
           transition: all 0.3s ease;
           position: relative;
@@ -316,7 +316,7 @@ function Notification() {
         }
 
         .notification-item.unread {
-          background: #f8fbff;
+          background: var(--kt-bg-card-alt);
           border-color: #d1e3ff;
         }
 
@@ -345,14 +345,14 @@ function Notification() {
         .notification-title {
           font-size: 14px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 4px;
           line-height: 1.4;
         }
 
         .notification-message {
           font-size: 13px;
-          color: #555;
+          color: var(--kt-text-secondary);
           margin-bottom: 8px;
           line-height: 1.5;
           word-break: break-word;
@@ -360,7 +360,7 @@ function Notification() {
 
         .notification-time {
           font-size: 12px;
-          color: #888f99;
+          color: var(--kt-text-muted);
           font-weight: 500;
         }
 
@@ -387,19 +387,19 @@ function Notification() {
         .empty-icon {
           font-size: 64px;
           margin-bottom: 20px;
-          color: #e7eaee;
+          color: var(--kt-border);
         }
 
         .empty-title {
           font-size: 18px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 10px;
         }
 
         .empty-message {
           font-size: 14px;
-          color: #888f99;
+          color: var(--kt-text-muted);
           line-height: 1.5;
           max-width: 250px;
         }

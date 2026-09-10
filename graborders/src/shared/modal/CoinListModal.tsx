@@ -361,7 +361,7 @@ const CoinListModal = ({ isOpen, onClose, onSelectCoin }) => {
         .close-btn {
           background: none;
           border: none;
-          color: #AAAAAA;
+          color: var(--kt-text-muted);
           font-size: 20px;
           cursor: pointer;
           padding: 5px;
@@ -386,7 +386,7 @@ const CoinListModal = ({ isOpen, onClose, onSelectCoin }) => {
         .search-icon {
           position: absolute;
           left: 12px;
-          color: #AAAAAA;
+          color: var(--kt-text-muted);
         }
         
         .search-input {
@@ -409,7 +409,7 @@ const CoinListModal = ({ isOpen, onClose, onSelectCoin }) => {
           right: 12px;
           background: none;
           border: none;
-          color: #AAAAAA;
+          color: var(--kt-text-muted);
           cursor: pointer;
         }
         
@@ -421,7 +421,7 @@ const CoinListModal = ({ isOpen, onClose, onSelectCoin }) => {
         .loading-state, .error-state {
           padding: 40px 20px;
           text-align: center;
-          color: #AAAAAA;
+          color: var(--kt-text-muted);
         }
         
         .loading-state i, .error-state i {
@@ -494,7 +494,7 @@ const CoinListModal = ({ isOpen, onClose, onSelectCoin }) => {
         
         .coin-name {
           font-size: 12px;
-          color: #AAAAAA;
+          color: var(--kt-text-muted);
         }
         
         .coin-price-info {
@@ -521,7 +521,7 @@ const CoinListModal = ({ isOpen, onClose, onSelectCoin }) => {
         .no-results {
           padding: 40px 20px;
           text-align: center;
-          color: #AAAAAA;
+          color: var(--kt-text-muted);
         }
         
         .no-results i {
@@ -537,7 +537,7 @@ const CoinListModal = ({ isOpen, onClose, onSelectCoin }) => {
         
         .section-label {
           font-size: 14px;
-          color: #AAAAAA;
+          color: var(--kt-text-muted);
           margin-bottom: 10px;
         }
         

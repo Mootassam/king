@@ -64,8 +64,8 @@ function About() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -114,7 +114,7 @@ function About() {
 
         /* Content Card - Matching Profile Page */
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 30px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -134,7 +134,7 @@ function About() {
 
         .company-details {
           font-size: 14px;
-          color: #333;
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           white-space: pre-line;
         }
@@ -145,7 +145,7 @@ function About() {
         .company-details h4,
         .company-details h5,
         .company-details h6 {
-          color: #222;
+          color: var(--kt-text-primary);
           margin-top: 20px;
           margin-bottom: 10px;
           font-weight: 600;
@@ -165,7 +165,7 @@ function About() {
 
         .company-details p {
           margin-bottom: 15px;
-          color: #555;
+          color: var(--kt-text-secondary);
         }
 
         .company-details ul,
@@ -176,12 +176,12 @@ function About() {
 
         .company-details li {
           margin-bottom: 5px;
-          color: #555;
+          color: var(--kt-text-secondary);
         }
 
         .company-details strong,
         .company-details b {
-          color: #222;
+          color: var(--kt-text-primary);
           font-weight: 600;
         }
 
@@ -209,13 +209,13 @@ function About() {
 
         .company-details th,
         .company-details td {
-          border: 1px solid #e7eaee;
+          border: 1px solid var(--kt-border);
           padding: 8px;
           text-align: left;
         }
 
         .company-details th {
-          background-color: #f8f9fa;
+          background-color: var(--kt-bg-card-alt);
           font-weight: 600;
         }
 
@@ -226,12 +226,12 @@ function About() {
           justify-content: center;
           min-height: 200px;
           text-align: center;
-          color: #888f99;
+          color: var(--kt-text-muted);
         }
 
         .no-data-message i {
           font-size: 48px;
-          color: #e7eaee;
+          color: var(--kt-border);
           margin-bottom: 16px;
         }
 

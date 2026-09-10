@@ -105,8 +105,8 @@ function Playstore() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -214,7 +214,7 @@ function Playstore() {
           bottom: 0;
           left: 0;
           right: 0;
-          background: white;
+          background: var(--kt-bg-card);
           padding: 20px;
           box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.15);
           z-index: 1000;
@@ -232,7 +232,7 @@ function Playstore() {
         .download-title {
           font-size: 16px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 20px;
           text-align: center;
         }

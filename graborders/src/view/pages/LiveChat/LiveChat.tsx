@@ -36,6 +36,7 @@ function LiveChat() {
   const [uploading, setUploading] = useState(false);
   const [widgetTitle, setWidgetTitle] = useState(DEFAULT_TITLE);
   const [allowReopen, setAllowReopen] = useState(true);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   const conversationRef = useRef<any>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -279,6 +280,7 @@ function LiveChat() {
                     src={msg.attachmentUrl}
                     alt="attachment"
                     className="svc-image"
+                    onClick={() => setPreviewImage(msg.attachmentUrl)}
                   />
                 ) : (
                   <span>{msg.text}</span>
@@ -336,6 +338,23 @@ function LiveChat() {
         </button>
       </div>
 
+      {previewImage && (
+        <div
+          className="svc-image-lightbox"
+          onClick={() => setPreviewImage(null)}
+        >
+          <button
+            type="button"
+            className="svc-image-lightbox-close"
+            onClick={() => setPreviewImage(null)}
+            aria-label="Close"
+          >
+            <i className="fas fa-times" />
+          </button>
+          <img src={previewImage} alt="attachment" />
+        </div>
+      )}
+
       <style>{`
         * {
           box-sizing: border-box;
@@ -382,7 +401,7 @@ function LiveChat() {
 
         .svc-loading, .svc-system {
           text-align: center;
-          color: #6b7383;
+          color: var(--kt-text-muted);
           font-size: 12px;
           padding: 6px 0;
         }
@@ -438,6 +457,50 @@ function LiveChat() {
           max-height: 200px;
           border-radius: 8px;
           display: block;
+          cursor: pointer;
+          transition: opacity 0.15s;
+        }
+        .svc-image:hover {
+          opacity: 0.85;
+        }
+
+        .svc-image-lightbox {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.9);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 100000;
+          padding: 24px;
+          box-sizing: border-box;
+          cursor: zoom-out;
+        }
+        .svc-image-lightbox img {
+          max-width: 100%;
+          max-height: 100%;
+          border-radius: 4px;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        .svc-image-lightbox-close {
+          position: absolute;
+          top: 20px;
+          right: 24px;
+          background: rgba(255, 255, 255, 0.12);
+          border: none;
+          color: #fff;
+          font-size: 18px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.15s;
+        }
+        .svc-image-lightbox-close:hover {
+          background: rgba(255, 255, 255, 0.24);
         }
 
         .svc-composer {
@@ -452,7 +515,7 @@ function LiveChat() {
         .svc-icon-btn {
           background: transparent;
           border: none;
-          color: #8a93a6;
+          color: var(--kt-text-muted);
           width: 32px;
           height: 32px;
           font-size: 18px;
@@ -474,7 +537,7 @@ function LiveChat() {
           font-size: 14px;
           outline: none;
         }
-        .svc-input::placeholder { color: #6b7383; }
+        .svc-input::placeholder { color: var(--kt-text-muted); }
         .svc-input:disabled { opacity: 0.5; }
 
         .svc-send-btn {

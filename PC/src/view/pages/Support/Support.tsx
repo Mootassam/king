@@ -52,8 +52,8 @@ function HelpCenter() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -103,7 +103,7 @@ function HelpCenter() {
 
         /* Content Card - Matching Profile Page */
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 20px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -118,7 +118,7 @@ function HelpCenter() {
           display: flex;
           align-items: center;
           padding: 12px 0;
-          border-bottom: 1px solid #f0f0f0;
+          border-bottom: 1px solid var(--kt-border);
           cursor: pointer;
           transition: background-color 0.3s ease;
         }
@@ -143,7 +143,7 @@ function HelpCenter() {
           flex: 1;
           font-size: 14px;
           font-weight: 500;
-          color: #222;
+          color: var(--kt-text-primary);
           line-height: 1.4;
         }
 

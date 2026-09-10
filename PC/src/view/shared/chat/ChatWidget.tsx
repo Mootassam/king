@@ -35,6 +35,7 @@ function ChatWidget() {
   const [unread, setUnread] = useState(0);
   const [widgetTitle, setWidgetTitle] = useState(DEFAULT_TITLE);
   const [allowReopen, setAllowReopen] = useState(true);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   const conversationRef = useRef<any>(null);
   const openRef = useRef(false);
@@ -345,6 +346,7 @@ function ChatWidget() {
                         src={msg.attachmentUrl}
                         alt="attachment"
                         className="kc-chat-image"
+                        onClick={() => setPreviewImage(msg.attachmentUrl)}
                       />
                     ) : (
                       <span>{msg.text}</span>
@@ -403,6 +405,23 @@ function ChatWidget() {
               <i className="fas fa-paper-plane" />
             </button>
           </div>
+        </div>
+      )}
+
+      {previewImage && (
+        <div
+          className="kc-image-lightbox"
+          onClick={() => setPreviewImage(null)}
+        >
+          <button
+            type="button"
+            className="kc-image-lightbox-close"
+            onClick={() => setPreviewImage(null)}
+            aria-label="Close"
+          >
+            <i className="fas fa-times" />
+          </button>
+          <img src={previewImage} alt="attachment" />
         </div>
       )}
 
@@ -516,7 +535,7 @@ function ChatWidget() {
 
         .kc-chat-loading, .kc-chat-system {
           text-align: center;
-          color: #6b7383;
+          color: var(--kt-text-muted);
           font-size: 12px;
           padding: 6px 0;
         }
@@ -572,6 +591,50 @@ function ChatWidget() {
           max-height: 180px;
           border-radius: 8px;
           display: block;
+          cursor: pointer;
+          transition: opacity 0.15s;
+        }
+        .kc-chat-image:hover {
+          opacity: 0.85;
+        }
+
+        .kc-image-lightbox {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.9);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 100000;
+          padding: 24px;
+          box-sizing: border-box;
+          cursor: zoom-out;
+        }
+        .kc-image-lightbox img {
+          max-width: 100%;
+          max-height: 100%;
+          border-radius: 4px;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        .kc-image-lightbox-close {
+          position: absolute;
+          top: 20px;
+          right: 24px;
+          background: rgba(255, 255, 255, 0.12);
+          border: none;
+          color: #fff;
+          font-size: 18px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.15s;
+        }
+        .kc-image-lightbox-close:hover {
+          background: rgba(255, 255, 255, 0.24);
         }
 
         .kc-chat-composer {
@@ -583,7 +646,7 @@ function ChatWidget() {
           border-top: 1px solid rgba(255,255,255,0.06);
           flex-shrink: 0;
         }
-        .kc-chat-composer .kc-chat-icon-btn { color: #8a93a6; font-size: 16px; width: 30px; height: 30px; }
+        .kc-chat-composer .kc-chat-icon-btn { color: var(--kt-text-muted); font-size: 16px; width: 30px; height: 30px; }
         .kc-chat-composer .kc-chat-icon-btn:hover { color: #fff; }
         .kc-chat-composer .kc-chat-icon-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
@@ -597,7 +660,7 @@ function ChatWidget() {
           font-size: 13px;
           outline: none;
         }
-        .kc-chat-input::placeholder { color: #6b7383; }
+        .kc-chat-input::placeholder { color: var(--kt-text-muted); }
         .kc-chat-input:disabled { opacity: 0.5; }
 
         .kc-chat-send-btn {

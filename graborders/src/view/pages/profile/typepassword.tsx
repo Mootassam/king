@@ -68,8 +68,8 @@ function TypePassword() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -119,7 +119,7 @@ function TypePassword() {
 
         /* Content Card - Matching Profile Page */
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 30px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -145,7 +145,7 @@ function TypePassword() {
           display: flex;
           align-items: center;
           padding: 12px;
-          border: 1px solid #e7eaee;
+          border: 1px solid var(--kt-border);
           border-radius: 7px;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
@@ -185,18 +185,18 @@ function TypePassword() {
         .option-title {
           font-size: 15px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 4px;
         }
 
         .option-desc {
           font-size: 14px;
-          color: #888f99;
+          color: var(--kt-text-muted);
           line-height: 1.3;
         }
 
         .option-arrow {
-          color: #ccc;
+          color: var(--kt-text-muted);
           font-size: 14px;
           margin-left: 12px;
           transition: transform 0.3s ease;

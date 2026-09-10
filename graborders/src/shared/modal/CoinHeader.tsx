@@ -297,7 +297,7 @@ function CoinHeader() {
           display: flex;
           justify-content: space-between;
           font-size: 12px;
-          color: #AAAAAA;
+          color: var(--kt-text-muted);
           flex-wrap: wrap;
         }
         

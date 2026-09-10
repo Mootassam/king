@@ -322,7 +322,7 @@ function WalletSettings() {
           border-color: #39FF14;
         }
         .withdraw-input::placeholder {
-          color: #777777;
+          color: var(--kt-text-tertiary);
         }
 
         .submit-btn:hover {
@@ -331,7 +331,7 @@ function WalletSettings() {
 
         .note-text {
           font-size: 13px;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
           line-height: 1.5;
         }
 

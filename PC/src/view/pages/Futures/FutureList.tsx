@@ -87,7 +87,7 @@ function FutureList(props) {
                 }
                 
                 .order-status.closed {
-                    color: #777;
+                    color: var(--kt-text-tertiary);
                 }
             `}</style>
         </div>

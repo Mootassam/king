@@ -456,8 +456,8 @@ function Transfer() {
                 }
 
                 body {
-                    background-color: #f5f7fa;
-                    color: #333;
+                    background-color: var(--kt-bg-card-alt);
+                    color: var(--kt-text-secondary);
                     line-height: 1.6;
                     overflow-x: hidden;
                 }
@@ -510,7 +510,7 @@ function Transfer() {
 
                 /* Content Section */
                 .content-card {
-                    background: white;
+                    background: var(--kt-bg-card);
                     border-radius: 40px 40px 0 0;
                     height: calc(100% - 60px);
                     padding: 30px 20px 100px;
@@ -521,7 +521,7 @@ function Transfer() {
                     font-size: 16px;
                     font-weight: 600;
                     margin-bottom: 15px;
-                    color: #333;
+                    color: var(--kt-text-secondary);
                 }
 
                 /* Currency Selector */
@@ -538,7 +538,7 @@ function Transfer() {
 
                 .selector-label {
                     font-size: 12px;
-                    color: #666;
+                    color: var(--kt-text-secondary);
                     font-weight: 500;
                 }
 
@@ -546,9 +546,9 @@ function Transfer() {
                     display: flex;
                     align-items: center;
                     padding: 15px;
-                    border: 1px solid #e0e0e0;
+                    border: 1px solid var(--kt-border);
                     border-radius: 8px;
-                    background: white;
+                    background: var(--kt-bg-card);
                     cursor: pointer;
                     position: relative;
                 }
@@ -567,12 +567,12 @@ function Transfer() {
                 .currency-name {
                     font-size: 14px;
                     font-weight: 600;
-                    color: #333;
+                    color: var(--kt-text-secondary);
                     flex: 1;
                 }
 
                 .selector-arrow {
-                    color: #999;
+                    color: var(--kt-text-muted);
                     font-size: 12px;
                 }
 
@@ -592,10 +592,10 @@ function Transfer() {
                 }
 
                 .wallet-card {
-                    background: white;
+                    background: var(--kt-bg-card);
                     width: 100%;
                     padding: 20px;
-                    border: 1px solid #e0e0e0;
+                    border: 1px solid var(--kt-border);
                     position: relative;
                 }
 
@@ -608,12 +608,12 @@ function Transfer() {
                 }
 
                 .wallet-row:first-child {
-                    border-bottom: 1px solid #f0f0f0;
+                    border-bottom: 1px solid var(--kt-border);
                 }
 
                 .wallet-label {
                     font-size: 12px;
-                    color: #666;
+                    color: var(--kt-text-secondary);
                     min-width: 40px;
                 }
 
@@ -632,7 +632,7 @@ function Transfer() {
 
                 .wallet-arrow {
                     font-size: 13px;
-                    color: #666;
+                    color: var(--kt-text-secondary);
                 }
 
                 /* Account Dropdown */
@@ -640,8 +640,8 @@ function Transfer() {
                     position: absolute;
                     top: 100%;
                     right: 0;
-                    background: white;
-                    border: 1px solid #e0e0e0;
+                    background: var(--kt-bg-card);
+                    border: 1px solid var(--kt-border);
                     border-radius: 8px;
                     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
                     z-index: 10;
@@ -657,7 +657,7 @@ function Transfer() {
                 }
 
                 .account-item:hover {
-                    background: #f5f5f5;
+                    background: var(--kt-bg-card-alt);
                 }
 
                 .account-item.selected {
@@ -675,11 +675,11 @@ function Transfer() {
                     width: 24px;
                     height: 24px;
                     border-radius: 50%;
-                    background: #f0f0f0;
+                    background: var(--kt-border);
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    color: #666;
+                    color: var(--kt-text-secondary);
                     font-size: 12px;
                 }
 
@@ -710,9 +710,9 @@ function Transfer() {
                 .input-field {
                     width: 100%;
                     padding: 16px;
-                    border: 1px solid #e0e0e0;
+                    border: 1px solid var(--kt-border);
                     border-radius: 8px;
-                    background: white;
+                    background: var(--kt-bg-card);
                     font-size: 16px;
                     transition: border-color 0.3s ease;
                 }
@@ -734,7 +734,7 @@ function Transfer() {
 
                 .token-symbol {
                     font-size: 12px;
-                    color: #666;
+                    color: var(--kt-text-secondary);
                 }
 
                 .max-button {
@@ -760,7 +760,7 @@ function Transfer() {
 
                 .balance-info {
                     font-size: 13px;
-                    color: #666;
+                    color: var(--kt-text-secondary);
                     text-align: right;
                 }
 
@@ -808,7 +808,7 @@ function Transfer() {
                 }
 
                 .modal-content {
-                    background: white;
+                    background: var(--kt-bg-card);
                     border-radius: 16px;
                     width: 90%;
                     max-width: 350px;
@@ -819,7 +819,7 @@ function Transfer() {
 
                 .modal-header {
                     padding: 20px;
-                    border-bottom: 1px solid #e9ecef;
+                    border-bottom: 1px solid var(--kt-border);
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -828,14 +828,14 @@ function Transfer() {
                 .modal-title {
                     font-size: 18px;
                     font-weight: 600;
-                    color: #333;
+                    color: var(--kt-text-secondary);
                 }
 
                 .modal-close {
                     background: none;
                     border: none;
                     font-size: 18px;
-                    color: #999;
+                    color: var(--kt-text-muted);
                     cursor: pointer;
                     padding: 5px;
                 }
@@ -849,7 +849,7 @@ function Transfer() {
 
                 .currency-item {
                     padding: 12px 20px;
-                    border-bottom: 1px solid #f0f0f0;
+                    border-bottom: 1px solid var(--kt-border);
                     cursor: pointer;
                     transition: background-color 0.2s;
                     display: flex;
@@ -858,7 +858,7 @@ function Transfer() {
                 }
 
                 .currency-item:hover {
-                    background: #f8f9fa;
+                    background: var(--kt-bg-card-alt);
                 }
 
                 .currency-item.selected {
@@ -872,13 +872,13 @@ function Transfer() {
                 .currency-item .item-code {
                     font-size: 14px;
                     font-weight: 600;
-                    color: #222;
+                    color: var(--kt-text-primary);
                     margin-bottom: 2px;
                 }
 
                 .currency-item .item-name {
                     font-size: 12px;
-                    color: #888f99;
+                    color: var(--kt-text-muted);
                 }
 
                 .check-icon {

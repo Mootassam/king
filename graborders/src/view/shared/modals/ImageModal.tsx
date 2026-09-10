@@ -38,7 +38,7 @@ const ImageModalWrapper = styled.div`
     width: 80%;
     max-width: 700px;
     text-align: center;
-    color: #ccc;
+    color: var(--kt-text-muted);
     padding: 10px 0;
     height: 150px;
   }
@@ -72,7 +72,7 @@ const ImageModalWrapper = styled.div`
 
   .close:hover,
   .close:focus {
-    color: #bbb;
+    color: var(--kt-text-muted);
     text-decoration: none;
     cursor: pointer;
   }

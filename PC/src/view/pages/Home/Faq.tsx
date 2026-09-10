@@ -514,7 +514,7 @@ const Faq: React.FC = () => {
 
 .hero-subtitle {
   font-size: 16px;
-  color: #AAAAAA;
+  color: var(--kt-text-muted);
   line-height: 1.5;
 }
 
@@ -576,7 +576,7 @@ const Faq: React.FC = () => {
 
 .faq-answer {
   font-size: 14px;
-  color: #AAAAAA;
+  color: var(--kt-text-muted);
   line-height: 1.5;
   margin-left: 26px;
 }
@@ -588,7 +588,7 @@ const Faq: React.FC = () => {
 
 .step-items {
   font-size: 14px;
-  color: #AAAAAA;
+  color: var(--kt-text-muted);
   line-height: 1.5;
   margin-bottom: 5px;
   display: flex;
@@ -713,7 +713,7 @@ const Faq: React.FC = () => {
 
 .action-description {
   font-size: 13px;
-  color: #AAAAAA;
+  color: var(--kt-text-muted);
 }
 
 /* Search Bar */
@@ -732,7 +732,7 @@ const Faq: React.FC = () => {
 }
 
 .search-bar::placeholder {
-  color: #AAAAAA;
+  color: var(--kt-text-muted);
 }
 
 .search-bar:focus {
@@ -765,7 +765,7 @@ const Faq: React.FC = () => {
 .footer {
   text-align: center;
   padding: 20px 0;
-  color: #AAAAAA;
+  color: var(--kt-text-muted);
   font-size: 12px;
   border-top: 1px solid #2A2A2A;
   margin-top: 20px;

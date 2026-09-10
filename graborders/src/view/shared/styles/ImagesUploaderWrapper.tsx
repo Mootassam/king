@@ -9,13 +9,13 @@ const ImagesUploaderWrapper = styled.div`
 }
 
 .upload-area {
-  border: 2px dashed #e7eaee;
+  border: 2px dashed var(--kt-border);
   border-radius: 12px;
   padding: 40px 20px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: #f8f9fa;
+  background: var(--kt-bg-card-alt);
   position: relative;
 }
 
@@ -40,22 +40,22 @@ const ImagesUploaderWrapper = styled.div`
 .upload-text {
   font-size: 16px;
   font-weight: 600;
-  color: #222;
+  color: var(--kt-text-primary);
   margin-bottom: 8px;
 }
 
 .upload-subtext {
   font-size: 12px;
-  color: #888f99;
+  color: var(--kt-text-muted);
   font-weight: 400;
 }
 
 /* Upload card for showing uploaded image */
 .upload-card {
-  border: 1px solid #e7eaee;
+  border: 1px solid var(--kt-border);
   border-radius: 12px;
   padding: 16px;
-  background: #fff;
+  background: var(--kt-bg-card);
   transition: all 0.3s ease;
 }
 
@@ -72,7 +72,7 @@ const ImagesUploaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f8f9fa;
+  background: var(--kt-bg-card-alt);
 }
 
 .uploaded-img {
@@ -176,7 +176,7 @@ const ImagesUploaderWrapper = styled.div`
   left: 0;
   right: 0;
   height: 4px;
-  background: #e7eaee;
+  background: var(--kt-border);
   overflow: hidden;
   border-radius: 12px 12px 0 0;
 }

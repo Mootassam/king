@@ -85,7 +85,7 @@ const CurrencyModal = ({ isOpen, onClose, selectedCurrency, onSelectCurrency }) 
         }
 
         .currency-modal-container {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 24px 24px 0 0;
           width: 100%;
           
@@ -100,14 +100,14 @@ const CurrencyModal = ({ isOpen, onClose, selectedCurrency, onSelectCurrency }) 
 
         .currency-modal-header {
           padding: 16px 20px 8px 20px;
-          border-bottom: 1px solid #eef2f7;
+          border-bottom: 1px solid var(--kt-border);
           position: relative;
         }
 
         .currency-modal-drag-handle {
           width: 40px;
           height: 4px;
-          background: #ddd;
+          background: var(--kt-border);
           border-radius: 2px;
           margin: 0 auto 12px auto;
         }
@@ -122,15 +122,15 @@ const CurrencyModal = ({ isOpen, onClose, selectedCurrency, onSelectCurrency }) 
         .currency-modal-title {
           font-size: 17px;
           font-weight: 700;
-          color: #222;
+          color: var(--kt-text-primary);
           flex: 1;
           padding-right: 10px;
         }
 
         .currency-modal-close-btn {
-          background: #f5f7fa;
+          background: var(--kt-bg-card-alt);
           border: none;
-          color: #666;
+          color: var(--kt-text-secondary);
           font-size: 16px;
           cursor: pointer;
           padding: 8px;
@@ -145,8 +145,8 @@ const CurrencyModal = ({ isOpen, onClose, selectedCurrency, onSelectCurrency }) 
         }
 
         .currency-modal-close-btn:hover {
-          background: #eef2f7;
-          color: #333;
+          background: var(--kt-border);
+          color: var(--kt-text-secondary);
         }
 
         .currency-modal-content {
@@ -218,13 +218,13 @@ const CurrencyModal = ({ isOpen, onClose, selectedCurrency, onSelectCurrency }) 
         .currency-modal-code {
           font-size: 16px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 2px;
         }
 
         .currency-modal-name {
           font-size: 13px;
-          color: #666;
+          color: var(--kt-text-secondary);
           font-weight: 400;
         }
 

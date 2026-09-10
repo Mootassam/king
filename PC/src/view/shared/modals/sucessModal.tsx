@@ -99,7 +99,7 @@ const SuccessModalComponent: React.FC<SuccessModalProps> = ({
         }
 
         .success-modal-container {
-          background: white;
+          background: var(--kt-bg-card);
           width: 100%;
           max-width: 420px;
           border-radius: 24px;
@@ -157,12 +157,12 @@ const SuccessModalComponent: React.FC<SuccessModalProps> = ({
         .coin-type {
           font-size: 16px;
           font-weight: 500;
-          color: #718096;
+          color: var(--kt-text-muted);
           margin-left: 4px;
         }
 
         .success-message {
-          color: #64748b;
+          color: var(--kt-text-muted);
           font-size: 15px;
           line-height: 1.5;
           margin-bottom: 32px;

@@ -307,8 +307,8 @@ function Invitation() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -358,7 +358,7 @@ function Invitation() {
 
         /* Content Card - Matching Profile Page */
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 30px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -373,20 +373,20 @@ function Invitation() {
         .section-title {
           font-size: 18px;
           font-weight: 700;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 8px;
         }
 
         .section-subtitle {
           font-size: 13px;
-          color: #888f99;
+          color: var(--kt-text-muted);
           line-height: 1.4;
           margin-bottom: 20px;
         }
 
         .referral-label {
           font-size: 14px;
-          color: #666;
+          color: var(--kt-text-secondary);
           margin-bottom: 8px;
           font-weight: 500;
         }
@@ -400,13 +400,13 @@ function Invitation() {
 
         .referral-code-value {
           flex: 1;
-          background: #f8f9fa;
-          border: 1px solid #e7eaee;
+          background: var(--kt-bg-card-alt);
+          border: 1px solid var(--kt-border);
           border-radius: 8px;
           padding: 12px 15px;
           font-size: 14px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           letter-spacing: 1px;
         }
 
@@ -442,7 +442,7 @@ function Invitation() {
 
         .share-label {
           font-size: 14px;
-          color: #666;
+          color: var(--kt-text-secondary);
           margin-bottom: 12px;
           font-weight: 500;
         }
@@ -456,15 +456,15 @@ function Invitation() {
           width: 50px;
           height: 50px;
           border-radius: 12px;
-          background: #f8f9fa;
+          background: var(--kt-bg-card-alt);
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 20px;
-          color: #666;
+          color: var(--kt-text-secondary);
           cursor: pointer;
           transition: all 0.3s ease;
-          border: 1px solid #e7eaee;
+          border: 1px solid var(--kt-border);
         }
 
         .share-button:hover {
@@ -522,8 +522,8 @@ function Invitation() {
         }
 
         .generation-item {
-          background: #fff;
-          border: 1px solid #e7eaee;
+          background: var(--kt-bg-card);
+          border: 1px solid var(--kt-border);
           border-radius: 12px;
           padding: 16px;
           transition: all 0.3s ease;
@@ -541,7 +541,7 @@ function Invitation() {
           margin-bottom: 16px;
           font-size: 15px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
         }
 
         .generation-header i {
@@ -555,7 +555,7 @@ function Invitation() {
 
         .stat-box {
           flex: 1;
-          background: #f8f9fa;
+          background: var(--kt-bg-card-alt);
           border-radius: 8px;
           padding: 16px;
           text-align: center;
@@ -595,7 +595,7 @@ function Invitation() {
 
         .stat-label {
           font-size: 12px;
-          color: #666;
+          color: var(--kt-text-secondary);
         }
 
         /* Loading and Empty States */
@@ -605,7 +605,7 @@ function Invitation() {
           align-items: center;
           justify-content: center;
           padding: 40px;
-          color: #888f99;
+          color: var(--kt-text-muted);
         }
 
         .loading-state i {
@@ -619,7 +619,7 @@ function Invitation() {
           align-items: center;
           justify-content: center;
           padding: 40px;
-          color: #888f99;
+          color: var(--kt-text-muted);
           text-align: center;
         }
 
@@ -681,7 +681,7 @@ function Invitation() {
         }
 
         .modal-content {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 16px;
           width: 100%;
           max-width: 400px;
@@ -695,13 +695,13 @@ function Invitation() {
           justify-content: space-between;
           align-items: center;
           padding: 20px;
-          border-bottom: 1px solid #e7eaee;
+          border-bottom: 1px solid var(--kt-border);
         }
 
         .modal-title {
           font-size: 16px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin: 0;
         }
 
@@ -709,7 +709,7 @@ function Invitation() {
           background: none;
           border: none;
           font-size: 18px;
-          color: #999;
+          color: var(--kt-text-muted);
           cursor: pointer;
           padding: 0;
           width: 24px;
@@ -722,8 +722,8 @@ function Invitation() {
         }
 
         .modal-close-btn:hover {
-          background: #f5f5f5;
-          color: #666;
+          background: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
         }
 
         .modal-body {
@@ -752,7 +752,7 @@ function Invitation() {
           align-items: center;
           justify-content: center;
           padding: 40px;
-          color: #888f99;
+          color: var(--kt-text-muted);
           text-align: center;
         }
 
@@ -773,7 +773,7 @@ function Invitation() {
           justify-content: space-between;
           align-items: center;
           padding: 12px 0;
-          border-bottom: 1px solid #f0f0f0;
+          border-bottom: 1px solid var(--kt-border);
         }
 
         .member-item:last-child {
@@ -787,13 +787,13 @@ function Invitation() {
         .member-email {
           font-size: 14px;
           font-weight: 500;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 4px;
         }
 
         .member-date {
           font-size: 12px;
-          color: #888f99;
+          color: var(--kt-text-muted);
         }
 
         .member-status {

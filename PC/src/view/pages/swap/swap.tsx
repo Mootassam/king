@@ -85,8 +85,8 @@ function swap() {
         }
 
         body {
-            background-color: #f5f7fa;
-            color: #333;
+            background-color: var(--kt-bg-card-alt);
+            color: var(--kt-text-secondary);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -137,12 +137,12 @@ function swap() {
         .swap-container {
             padding: 20px;
             border-radius: 40px 40px 0 0;
-            background: white;
+            background: var(--kt-bg-card);
             height: 100%
         }
 
         .swap-card {
-            background: white;
+            background: var(--kt-bg-card);
             border-radius: 16px;
             padding: 20px;
             /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); */
@@ -159,13 +159,13 @@ function swap() {
 
         .section-title {
             font-size: 12px;
-            color: #666;
+            color: var(--kt-text-secondary);
             font-weight: 500;
         }
 
         .available-balance {
             font-size: 12px;
-            color: #999;
+            color: var(--kt-text-muted);
         }
 
         /* Token Selector */
@@ -174,7 +174,7 @@ function swap() {
             align-items: center;
             justify-content: space-between;
             padding: 10px 15px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid var(--kt-border);
             border-radius: 12px;
             margin-bottom: 12px;
             cursor: pointer;
@@ -211,11 +211,11 @@ function swap() {
         .token-name {
             font-size: 14px;
             font-weight: 600;
-            color: #333;
+            color: var(--kt-text-secondary);
         }
 
         .selector-arrow {
-            color: #999;
+            color: var(--kt-text-muted);
             font-size: 12px;
         }
 
@@ -228,9 +228,9 @@ function swap() {
         .input-field {
             width: 100%;
             padding: 16px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid var(--kt-border);
             border-radius: 12px;
-            background: white;
+            background: var(--kt-bg-card);
             font-size: 12px;
             transition: border-color 0.3s ease;
         }
@@ -241,7 +241,7 @@ function swap() {
         }
 
         .input-field::placeholder {
-            color: #999;
+            color: var(--kt-text-muted);
         }
 
         .input-actions {
@@ -256,7 +256,7 @@ function swap() {
 
         .token-symbol {
             font-size: 14px;
-            color: #666;
+            color: var(--kt-text-secondary);
         }
 
         .max-button {
@@ -279,11 +279,11 @@ function swap() {
         .output-field {
             width: 100%;
             padding: 10px 15px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid var(--kt-border);
             border-radius: 12px;
-            background: #f8f9fa;
+            background: var(--kt-bg-card-alt);
             font-size: 16px;
-            color: #333;
+            color: var(--kt-text-secondary);
             text-align: right;
         }
 
@@ -298,8 +298,8 @@ function swap() {
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: white;
-            border: 1px solid #e0e0e0;
+            background: var(--kt-bg-card);
+            border: 1px solid var(--kt-border);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -314,7 +314,7 @@ function swap() {
         }
 
         .swap-button i {
-            color: #666;
+            color: var(--kt-text-secondary);
             font-size: 16px;
         }
 
@@ -323,7 +323,7 @@ function swap() {
             text-align: center;
             margin: 20px 0;
             font-size: 14px;
-            color: #666;
+            color: var(--kt-text-secondary);
         }
 
         /* Confirm Button */

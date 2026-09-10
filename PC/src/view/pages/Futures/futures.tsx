@@ -1151,7 +1151,7 @@ function Futures() {
         }
 
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 30px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -1178,8 +1178,8 @@ function Futures() {
           font-size: 14px;
           font-weight: 500;
           cursor: pointer;
-          background: #f0f2f5;
-          color: #555;
+          background: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           transition: all 0.2s;
         }
 
@@ -1191,7 +1191,7 @@ function Futures() {
 
         /* ✅ Trading form */
         .trading-form {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 12px;
           padding: 0 4px;
           display: flex;
@@ -1208,19 +1208,19 @@ function Futures() {
 
         .form-label {
           flex: 0 0 100px;
-          color: #555;
+          color: var(--kt-text-secondary);
           font-weight: 500;
         }
 
         .multiplier-select {
           margin-left: auto;
-          background: #f0f2f5;
+          background: var(--kt-bg-card-alt);
           border: 1.5px solid #e0e3e8;
           border-radius: 8px;
           padding: 7px 28px 7px 14px;
           font-size: 14px;
           font-weight: 600;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
           cursor: pointer;
           outline: none;
           appearance: none;
@@ -1234,7 +1234,7 @@ function Futures() {
 
         .multiplier-select:focus {
           border-color: #106cf5;
-          background-color: #fff;
+          background-color: var(--kt-bg-card);
         }
 
         .checkbox-container {
@@ -1261,15 +1261,15 @@ function Futures() {
         .step-btn {
           width: 28px;
           height: 28px;
-          border: 1px solid #ddd;
-          background: #f8f9fb;
+          border: 1px solid var(--kt-border);
+          background: var(--kt-bg-card-alt);
           border-radius: 6px;
           font-size: 16px;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          color: #333;
+          color: var(--kt-text-secondary);
           transition: all 0.2s;
         }
 
@@ -1287,12 +1287,12 @@ function Futures() {
           min-width: 60px;
           text-align: center;
           font-weight: 600;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
           font-size: 14px;
           border: 1.5px solid #e0e3e8;
           border-radius: 7px;
           padding: 5px 6px;
-          background: #f8f9fb;
+          background: var(--kt-bg-card-alt);
           outline: none;
           transition: border-color 0.2s, background 0.2s;
           -moz-appearance: textfield;
@@ -1304,18 +1304,18 @@ function Futures() {
         }
         .step-value:focus {
           border-color: #106cf5;
-          background: #fff;
+          background: var(--kt-bg-card);
           box-shadow: 0 0 0 2px rgba(16, 108, 245, 0.12);
         }
         .step-value:disabled {
           opacity: 0.4;
           cursor: not-allowed;
-          background: #f0f2f5;
+          background: var(--kt-bg-card-alt);
         }
 
         .form-divider {
           height: 1px;
-          background: #edeef1;
+          background: var(--kt-border);
           margin: 4px 0;
         }
 
@@ -1334,11 +1334,11 @@ function Futures() {
         }
 
         .info-label {
-          color: #777;
+          color: var(--kt-text-tertiary);
         }
 
         .info-value {
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
           font-weight: 500;
         }
 
@@ -1370,8 +1370,8 @@ function Futures() {
         }
 
         .order-card {
-          background: #f8f9fb;
-          border: 1px solid #edeef1;
+          background: var(--kt-bg-card-alt);
+          border: 1px solid var(--kt-border);
           border-radius: 8px;
           padding: 14px;
           margin-bottom: 8px;
@@ -1379,7 +1379,7 @@ function Futures() {
           transition: background 0.15s, transform 0.1s;
         }
         .order-card:hover {
-          background: #f0f2f5;
+          background: var(--kt-bg-card-alt);
           transform: translateY(-1px);
         }
 
@@ -1392,7 +1392,7 @@ function Futures() {
 
         .order-pair {
           font-weight: 600;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
           font-size: 15px;
         }
 
@@ -1407,7 +1407,7 @@ function Futures() {
 
         .order-status.open { color: #36f936; font-size: 12px; margin-bottom: 8px; }
 
-        .order-details { border-top: 1px solid #edeef1; padding-top: 10px; }
+        .order-details { border-top: 1px solid var(--kt-border); padding-top: 10px; }
 
         .order-row {
           display: flex;
@@ -1416,19 +1416,19 @@ function Futures() {
           font-size: 13px;
         }
 
-        .order-label { color: #777; }
-        .order-value { font-weight: 500; color: #1a1a1a; }
+        .order-label { color: var(--kt-text-tertiary); }
+        .order-value { font-weight: 500; color: var(--kt-text-primary); }
 
         .no-orders {
           text-align: center;
           padding: 30px 0;
-          color: #999;
+          color: var(--kt-text-muted);
         }
 
         /* Loading placeholder */
         .loading-placeholder {
           animation: shimmer 1.4s infinite linear;
-          background: linear-gradient(90deg, #f0f2f5 25%, #e5e8ec 50%, #f0f2f5 75%);
+          background: linear-gradient(90deg, #f0f2f5 25%, var(--kt-border) 50%, #f0f2f5 75%);
           background-size: 200% 100%;
           border-radius: 4px;
           display: inline-block;
@@ -1474,7 +1474,7 @@ function Futures() {
         .modal-header h2 { font-size: 18px; font-weight: 600; }
 
         .modal-close {
-          background: none; border: none; color: #aaa; font-size: 20px; cursor: pointer;
+          background: none; border: none; color: var(--kt-text-muted); font-size: 20px; cursor: pointer;
         }
 
         .modal-close:hover { color: #36f936; }
@@ -1503,7 +1503,7 @@ function Futures() {
         .order-detail-section { margin-bottom: 20px; }
 
         .order-detail-section h3 {
-          font-size: 14px; color: #aaaaaa; margin-bottom: 12px; text-transform: uppercase;
+          font-size: 14px; color: var(--kt-text-muted); margin-bottom: 12px; text-transform: uppercase;
           letter-spacing: 0.5px;
         }
 
@@ -1522,13 +1522,13 @@ function Futures() {
 
         .detail-status { font-size: 14px; margin-bottom: 15px; }
         .detail-status.open { color: #36f936; }
-        .detail-status.closed { color: #999; }
+        .detail-status.closed { color: var(--kt-text-muted); }
 
         .detail-row {
           display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px;
         }
 
-        .detail-label { color: #aaaaaa; }
+        .detail-label { color: var(--kt-text-muted); }
         .detail-value { font-weight: 500; color: #ffffff; }
         .detail-value.profit { color: #36f936; }
         .detail-value.loss { color: #ff4d4d; }
@@ -1549,7 +1549,7 @@ function Futures() {
           transform: translateX(-50%);
           width: 100%;
           
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 24px 24px 0 0;
           padding: 20px 24px 40px;
           z-index: 8000;
@@ -1558,20 +1558,20 @@ function Futures() {
 
         .confirm-handle {
           width: 40px; height: 4px;
-          background: #ddd; border-radius: 2px;
+          background: var(--kt-border); border-radius: 2px;
           margin: 0 auto 20px;
         }
 
         .confirm-title {
           font-size: 18px;
           font-weight: 700;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
           text-align: center;
           margin-bottom: 20px;
         }
 
         .confirm-summary {
-          background: #f8f9fb;
+          background: var(--kt-bg-card-alt);
           border-radius: 12px;
           padding: 16px;
           display: flex;
@@ -1588,11 +1588,11 @@ function Futures() {
         .confirm-dir.buy  { color: #36c836; }
         .confirm-dir.sell { color: #ff4d4d; }
 
-        .confirm-pair   { font-weight: 600; color: #1a1a1a; }
-        .confirm-meta   { color: #666; }
+        .confirm-pair   { font-weight: 600; color: var(--kt-text-primary); }
+        .confirm-meta   { color: var(--kt-text-secondary); }
         .confirm-price  { color: #106cf5; font-weight: 600; }
-        .confirm-margin { color: #555; font-size: 13px; }
-        .confirm-margin strong { color: #1a1a1a; }
+        .confirm-margin { color: var(--kt-text-secondary); font-size: 13px; }
+        .confirm-margin strong { color: var(--kt-text-primary); }
 
         .balance-insufficient-msg {
           background: #fff3f3;
@@ -1637,7 +1637,7 @@ function Futures() {
         .confirm-btn-secondary {
           width: 100%;
           padding: 15px;
-          background: white;
+          background: var(--kt-bg-card);
           color: #106cf5;
           border: 1.5px solid #106cf5;
           border-radius: 12px;
@@ -1661,7 +1661,7 @@ function Futures() {
           transform: translateX(-50%);
           width: calc(100% - 32px);
           max-width: 368px;
-          background: #fff;
+          background: var(--kt-bg-card);
           border-radius: 16px;
           padding: 16px 18px;
           display: flex;
@@ -1698,7 +1698,7 @@ function Futures() {
         .success-toast-title {
           font-size: 15px;
           font-weight: 700;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
         }
 
         .success-toast-sub {
@@ -1709,7 +1709,7 @@ function Futures() {
 
         .success-toast-note {
           font-size: 12px;
-          color: #666;
+          color: var(--kt-text-secondary);
           margin-top: 2px;
           line-height: 1.4;
         }

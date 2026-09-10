@@ -655,7 +655,7 @@ function AssetsDetail() {
                 }
                 
                 .no-transactions-container p {
-                    color: #AAAAAA;
+                    color: var(--kt-text-muted);
                     margin-bottom: 30px;
                     line-height: 1.5;
                     max-width: 300px;
@@ -706,7 +706,7 @@ function AssetsDetail() {
                 }
                 
                 .filter-button {
-                    color: #CCCCCC;
+                    color: var(--kt-text-muted);
                     font-size: 14px;
                     cursor: pointer;
                     display: flex;
@@ -762,7 +762,7 @@ function AssetsDetail() {
                 }
                 
                 .transaction-date {
-                    color: #AAAAAA;
+                    color: var(--kt-text-muted);
                     font-size: 12px;
                 }
                 
@@ -880,7 +880,7 @@ function AssetsDetail() {
                 .close {
                     font-size: 24px;
                     cursor: pointer;
-                    color: #AAAAAA;
+                    color: var(--kt-text-muted);
                 }
                 
                 .close:hover {
@@ -898,7 +898,7 @@ function AssetsDetail() {
                 .filter-group label {
                     display: block;
                     margin-bottom: 5px;
-                    color: #CCCCCC;
+                    color: var(--kt-text-muted);
                     font-size: 14px;
                 }
                 

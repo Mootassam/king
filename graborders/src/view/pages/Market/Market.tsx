@@ -17,8 +17,8 @@ const styles = `
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: #f5f7fa;
-    color: #333;
+    background: var(--kt-bg-card-alt);
+    color: var(--kt-text-secondary);
     line-height: 1.6;
     overflow-x: hidden;
   }
@@ -52,7 +52,7 @@ const styles = `
   }
 
   .content-card {
-    background: white;
+    background: var(--kt-bg-card);
     border-radius: 40px 40px 0 0;
     padding: 24px 16px 100px;
     box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
@@ -74,7 +74,7 @@ const styles = `
     align-items: center;
     justify-content: space-between;
     animation: shimmer 1.4s infinite linear;
-    background: linear-gradient(90deg, #f0f2f5 25%, #e5e8ec 50%, #f0f2f5 75%);
+    background: linear-gradient(90deg, #f0f2f5 25%, var(--kt-border) 50%, #f0f2f5 75%);
     background-size: 200% 100%;
   }
 
@@ -94,17 +94,17 @@ const styles = `
   .row-link { text-decoration: none; color: inherit; display: block; }
 
   .currency-row {
-    background: #f8f9fb;
+    background: var(--kt-bg-card-alt);
     border-radius: 8px;
     padding: 8px 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: background 0.15s, transform 0.1s;
-    border: 1px solid #edeef1;
+    border: 1px solid var(--kt-border);
   }
 
-  .currency-row:hover { background: #f0f2f5; transform: translateY(-1px); }
+  .currency-row:hover { background: var(--kt-bg-card-alt); transform: translateY(-1px); }
 
   .left-section  { display: flex; align-items: center; gap: 10px; }
   .right-section { display: flex; align-items: center; gap: 10px; }
@@ -112,14 +112,14 @@ const styles = `
   .symbol-name {
     font-size: 14px;
     font-weight: 600;
-    color: #1a1a1a;
+    color: var(--kt-text-primary);
     white-space: nowrap;
   }
 
   .price-value {
     font-size: 13px;
     font-weight: 600;
-    color: #1a1a1a;
+    color: var(--kt-text-primary);
     white-space: nowrap;
     min-width: 72px;
     text-align: right;

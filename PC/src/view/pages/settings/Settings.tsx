@@ -324,8 +324,8 @@ function Settings() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -375,7 +375,7 @@ function Settings() {
 
         /* Content Card - Matching Profile Page */
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 20px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -404,11 +404,11 @@ function Settings() {
           display: flex;
           align-items: center;
           padding: 12px;
-          border: 1px solid #e7eaee;
+          border: 1px solid var(--kt-border);
           border-radius: 7px;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
-          background: #fff;
+          background: var(--kt-bg-card);
         }
 
         .settings-option:hover .option-content-wrapper {
@@ -423,14 +423,14 @@ function Settings() {
 
         .version-option:hover .option-content-wrapper {
           transform: none;
-          border-color: #e7eaee;
+          border-color: var(--kt-border);
           box-shadow: none;
         }
 
         .option-icon {
           margin-right: 16px;
           font-size: 18px;
-          color: #666;
+          color: var(--kt-text-secondary);
           width: 24px;
           text-align: center;
         }
@@ -442,17 +442,17 @@ function Settings() {
         .option-title {
           font-size: 14px;
           font-weight: 500;
-          color: #222;
+          color: var(--kt-text-primary);
         }
 
         .color-scheme-name {
           font-size: 12px;
-          color: #666;
+          color: var(--kt-text-secondary);
           font-weight: 400;
         }
 
         .option-arrow {
-          color: #ccc;
+          color: var(--kt-text-muted);
           font-size: 12px;
           margin-left: 12px;
           transition: transform 0.3s ease;
@@ -467,7 +467,7 @@ function Settings() {
         .signout-section {
           margin-top: 30px;
           padding: 20px 0;
-          border-top: 1px solid #e7eaee;
+          border-top: 1px solid var(--kt-border);
         }
 
         .signout-button {
@@ -514,7 +514,7 @@ function Settings() {
         }
 
         .modal-container {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 20px;
           width: 90%;
           
@@ -528,7 +528,7 @@ function Settings() {
 
         .modal-header {
           padding: 20px 20px 15px 20px;
-          border-bottom: 1px solid #eef2f7;
+          border-bottom: 1px solid var(--kt-border);
           position: relative;
         }
 
@@ -541,13 +541,13 @@ function Settings() {
         .modal-title {
           font-size: 18px;
           font-weight: 700;
-          color: #222;
+          color: var(--kt-text-primary);
         }
 
         .modal-close-btn {
-          background: #f5f7fa;
+          background: var(--kt-bg-card-alt);
           border: none;
-          color: #666;
+          color: var(--kt-text-secondary);
           font-size: 16px;
           cursor: pointer;
           padding: 8px;
@@ -561,8 +561,8 @@ function Settings() {
         }
 
         .modal-close-btn:hover {
-          background: #eef2f7;
-          color: #333;
+          background: var(--kt-border);
+          color: var(--kt-text-secondary);
         }
 
         .modal-content {
@@ -578,12 +578,12 @@ function Settings() {
         }
 
         .color-scheme-card {
-          border: 2px solid #e7eaee;
+          border: 2px solid var(--kt-border);
     border-radius: 16px;
     padding: 20px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: #fff;
+    background: var(--kt-bg-card);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -659,12 +659,12 @@ function Settings() {
         .scheme-image {
           width: 80px;
           height: 80px;
-          background: #f5f7fa;
+          background: var(--kt-bg-card-alt);
           border-radius: 12px;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #666;
+          color: var(--kt-text-secondary);
           font-size: 12px;
         }
 
@@ -681,13 +681,13 @@ function Settings() {
         .scheme-name {
           font-size: 14px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 4px;
         }
 
         .scheme-description {
           font-size: 14px;
-          color: #666;
+          color: var(--kt-text-secondary);
           margin-bottom: 8px;
         }
 
@@ -709,7 +709,7 @@ function Settings() {
 
         /* Existing Modal Styles for Language */
         .modal-container-bottom {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 24px 24px 0 0;
           width: 100%;
           
@@ -724,22 +724,22 @@ function Settings() {
 
         .modal-header-bottom {
           padding: 16px 20px 8px 20px;
-          border-bottom: 1px solid #eef2f7;
+          border-bottom: 1px solid var(--kt-border);
           position: relative;
         }
 
         .modal-drag-handle {
           width: 40px;
           height: 4px;
-          background: #ddd;
+          background: var(--kt-border);
           border-radius: 2px;
           margin: 0 auto 12px auto;
         }
 
         .modal-close-btn-bottom {
-          background: #f5f7fa;
+          background: var(--kt-bg-card-alt);
           border: none;
-          color: #666;
+          color: var(--kt-text-secondary);
           font-size: 16px;
           cursor: pointer;
           padding: 8px;

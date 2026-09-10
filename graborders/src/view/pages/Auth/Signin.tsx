@@ -85,7 +85,7 @@ function Signin() {
         <div className="logo-container">
           <img
             className="logo-img"
-            src="/logo.svg"
+            src="/logo.jpg"
             alt="FXCC Logo"
           />
         </div>
@@ -253,7 +253,7 @@ function Signin() {
 
         /* ── White content card ── */
         .signin-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 30px 24px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -273,19 +273,19 @@ function Signin() {
         .form-heading {
           text-align: center;
           font-size: 15px;
-          color: #555;
+          color: var(--kt-text-secondary);
           margin-bottom: 28px;
           font-weight: 500;
         }
 
         .input-field {
-          background-color: #ffffff;
-          border: 1px solid #edeef1;
+          background-color: var(--kt-bg-card);
+          border: 1px solid var(--kt-border);
           border-radius: 8px;
           height: 48px;
           width: 100%;
           padding: 0 14px;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
           font-size: 14px;
           outline: none;
           margin-bottom: 14px;
@@ -298,7 +298,7 @@ function Signin() {
           box-shadow: 0 0 0 3px rgba(16, 108, 245, 0.06);
         }
         .input-field::placeholder {
-          color: #aaa;
+          color: var(--kt-text-muted);
         }
 
         .forgot-link {
@@ -339,7 +339,7 @@ function Signin() {
         }
 
         .demo-login-button {
-          background: white;
+          background: var(--kt-bg-card);
           color: #106cf5;
           font-weight: 600;
           height: 50px;
@@ -371,7 +371,7 @@ function Signin() {
         .bottom-text {
           text-align: center;
           font-size: 14px;
-          color: #777;
+          color: var(--kt-text-tertiary);
           text-decoration: none;
           display: block;
           margin-top: 10px;
@@ -409,14 +409,14 @@ function Signin() {
           z-index: 1000;
         }
         .modal-container-bottom {
-          background-color: #ffffff;
+          background-color: var(--kt-bg-card);
           width: 100%;
           max-width: 400px;
           border-top-left-radius: 16px;
           border-top-right-radius: 16px;
           padding: 20px 16px 24px;
           box-sizing: border-box;
-          color: #1a1a1a;
+          color: var(--kt-text-primary);
           box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
         }
         .modal-header-bottom {
@@ -425,7 +425,7 @@ function Signin() {
         .modal-drag-handle {
           width: 36px;
           height: 4px;
-          background-color: #d1d5db;
+          background-color: var(--kt-border);
           border-radius: 2px;
           margin: 0 auto 14px;
         }
@@ -441,7 +441,7 @@ function Signin() {
         .modal-close-btn-bottom {
           background: none;
           border: none;
-          color: #777;
+          color: var(--kt-text-tertiary);
           font-size: 18px;
           cursor: pointer;
           padding: 4px 8px;
@@ -449,8 +449,8 @@ function Signin() {
           transition: 0.2s;
         }
         .modal-close-btn-bottom:hover {
-          background: #f0f2f5;
-          color: #1a1a1a;
+          background: var(--kt-bg-card-alt);
+          color: var(--kt-text-primary);
         }
         .modal-content-bottom {
           overflow-y: auto;

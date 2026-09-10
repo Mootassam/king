@@ -60,7 +60,7 @@ const en = {
   },
 
   app: {
-    title: "ironfxx",
+    title: "indiaallvorafx",
   },
 
   api: {
@@ -492,7 +492,8 @@ const en = {
         downloadApp: "Download",
         logout: "Sign Out",
         preferences: "Preferences",
-        clearCache: "Clear cache"
+        clearCache: "Clear cache",
+        darkMode: "Dark Mode"
       },
       cache: {
         clearing: "Clearing cache...",
@@ -659,7 +660,7 @@ const en = {
       }
     },
     home: {
-      logoAlt: "ironfxx Logo",
+      logoAlt: "indiaallvorafx Logo",
       headerAlt: "Crypto Trading Platform",
       slogan: "Profit With Confidence",
       promoAlt: "Promo banner {0}",
@@ -703,8 +704,8 @@ const en = {
       },
 
       nftExploration: {
-        title: "Explore NFTs with ironfxx",
-        description: "Step into the world of NFTs with ironfxx, your all-in-one digital asset trading wallet. Designed for both beginners and professional traders, ironfxx lets you explore, buy, sell, and",
+        title: "Explore NFTs with indiaallvorafx",
+        description: "Step into the world of NFTs with indiaallvorafx, your all-in-one digital asset trading wallet. Designed for both beginners and professional traders, indiaallvorafx lets you explore, buy, sell, and",
       },
 
       stats: {
@@ -815,15 +816,15 @@ const en = {
       announcements: {
         maintenanceNotice: "Maintenance notice",
         contractServerUpgrade: "Contract server upgrade and maintenance announcement on January 15, 2023",
-        binexOptionsMaintenance: "ironfxx Options Trading System Maintenance Announcement",
-        clientVersionUpgrade: "Important! ironfxx's announcement on the latest client version upgrade",
-        platformTradingAnnouncement: "ironfxx platform trading latest announcement",
-        platformUpgradeOptimization: "ironfxx Platform Version Upgrade Optimization Update Announcement",
-        march15Upgrade: "March 15, 2023 ironfxx platform contract server upgrade maintenance optimization announcement",
-        optionsTradingMaintenance: "ironfxx platform options trading system maintenance and optimization announcement",
-        latestVersionUpgrade: "ironfxx Platform Important Announcement on the Upgrade and Optimization of the Latest Version of the Client",
-        userSecurityReminder: "Warm reminder about ironfxx user information security",
-        perpetualContractUpgrade: "ironfxx platform announcement on the optimization and upgrade of the perpetual contract system",
+        binexOptionsMaintenance: "indiaallvorafx Options Trading System Maintenance Announcement",
+        clientVersionUpgrade: "Important! indiaallvorafx's announcement on the latest client version upgrade",
+        platformTradingAnnouncement: "indiaallvorafx platform trading latest announcement",
+        platformUpgradeOptimization: "indiaallvorafx Platform Version Upgrade Optimization Update Announcement",
+        march15Upgrade: "March 15, 2023 indiaallvorafx platform contract server upgrade maintenance optimization announcement",
+        optionsTradingMaintenance: "indiaallvorafx platform options trading system maintenance and optimization announcement",
+        latestVersionUpgrade: "indiaallvorafx Platform Important Announcement on the Upgrade and Optimization of the Latest Version of the Client",
+        userSecurityReminder: "Warm reminder about indiaallvorafx user information security",
+        perpetualContractUpgrade: "indiaallvorafx platform announcement on the optimization and upgrade of the perpetual contract system",
         maintenanceCompletion: "Announcement on the completion of platform system maintenance and optimization",
         bitcoinWithdrawal: "Announcement on Bitcoin Withdrawal",
         tradingPairsUpgrade: "Announcement on the upgrade of some trading currency pairs on the platform",
@@ -839,7 +840,7 @@ const en = {
         decUSDLaunch: "DEC/USD Trading Launch Announcement",
         USDIntroduction: "USD Introduction",
         ethereumNetworkMaintenance: "Ethereum network maintenance notice",
-        projectReviewStandards: "ironfxx Project review standards",
+        projectReviewStandards: "indiaallvorafx Project review standards",
         liquidityMiningUpgrade: "Liquidity Mining Upgrade",
         liquidityMiningFee: "Liquidity mining fee adjustment",
         delistingTradingPairs: "Delisting trading pairs",
@@ -894,7 +895,7 @@ const en = {
     privacy: {
       title: "Privacy Portal",
       hero: {
-        title: "ironfxx Privacy Portal",
+        title: "indiaallvorafx Privacy Portal",
         subtitle: "Protecting your data and privacy with strict guidelines, legal compliance, and industry best practices."
       },
       principles: {
@@ -929,7 +930,7 @@ const en = {
       personalData: {
         title: "What Is Personal Data?",
         definition: "Personal data refers to any information that identifies an individual.",
-        examples: "Examples include: name, ironfxx ID, email address, location data, transaction history, and device information."
+        examples: "Examples include: name, indiaallvorafx ID, email address, location data, transaction history, and device information."
       },
       dataUsage: {
         title: "How We Use Your Data",
@@ -964,7 +965,7 @@ const en = {
       },
       dataSharing: {
         title: "Data Sharing",
-        content: "We may share your data with other ironfxx entities or trusted third parties under strict contractual safeguards, only when necessary for the purposes outlined in our Privacy Notice."
+        content: "We may share your data with other indiaallvorafx entities or trusted third parties under strict contractual safeguards, only when necessary for the purposes outlined in our Privacy Notice."
       },
       cookies: {
         title: "Cookies & Tracking",
@@ -995,21 +996,21 @@ const en = {
     termsOfUse: {
       title: "Terms of Use",
       hero: {
-        title: "ironfxx Terms of Use"
+        title: "indiaallvorafx Terms of Use"
       },
       agreement: {
         title: "Agreement",
-        content: "This is a binding agreement between you (the user) and ironfxx. It covers all ironfxx Services you access or use."
+        content: "This is a binding agreement between you (the user) and indiaallvorafx. It covers all indiaallvorafx Services you access or use."
       },
       riskWarning: {
         title: "Risk Warning",
-        content: "Digital assets are volatile and can fluctuate significantly in value. ironfxx is not a broker, financial advisor, or investment advisor. You must conduct your own due diligence before making any financial decisions."
+        content: "Digital assets are volatile and can fluctuate significantly in value. indiaallvorafx is not a broker, financial advisor, or investment advisor. You must conduct your own due diligence before making any financial decisions."
       },
       aboutServices: {
         title: "About Our Services",
         aboutBINEX: {
-          title: "About ironfxx",
-          content: "ironfxx provides digital asset exchange, custody services, and related financial services through our platform."
+          title: "About indiaallvorafx",
+          content: "indiaallvorafx provides digital asset exchange, custody services, and related financial services through our platform."
         },
         eligibility: {
           title: "Eligibility",
@@ -1017,14 +1018,14 @@ const en = {
         },
         communication: {
           title: "Communication",
-          content: "You must keep your contact information updated. ironfxx will contact you via email, SMS, or phone regarding your account and our services."
+          content: "You must keep your contact information updated. indiaallvorafx will contact you via email, SMS, or phone regarding your account and our services."
         }
       },
       services: {
         title: "Our Services",
         servicesProvided: {
           title: "Services Provided",
-          content: "ironfxx offers digital asset trading, secure custody solutions, and customer support through both automated bots and human representatives. User chat functionality is also available."
+          content: "indiaallvorafx offers digital asset trading, secure custody solutions, and customer support through both automated bots and human representatives. User chat functionality is also available."
         },
         fees: {
           title: "Fees",
@@ -1054,7 +1055,7 @@ const en = {
         },
         transactionCancellation: {
           title: "Transaction Cancellation",
-          content: "ironfxx reserves the right to cancel or amend transactions in cases of suspected fraud, errors, or violations of these Terms."
+          content: "indiaallvorafx reserves the right to cancel or amend transactions in cases of suspected fraud, errors, or violations of these Terms."
         },
         unauthorizedTransactions: {
           title: "Unauthorized Transactions",
@@ -1065,11 +1066,11 @@ const en = {
         title: "Digital Assets",
         supportedAssets: {
           title: "Supported Assets",
-          content: "You may only transact with digital assets explicitly supported by ironfxx. Attempting to deposit unsupported assets may result in permanent loss."
+          content: "You may only transact with digital assets explicitly supported by indiaallvorafx. Attempting to deposit unsupported assets may result in permanent loss."
         },
         forksAirdrops: {
           title: "Forks & Airdrops",
-          content: "ironfxx does not guarantee support for blockchain forks, airdrops, or other similar events. Support decisions are made at our sole discretion."
+          content: "indiaallvorafx does not guarantee support for blockchain forks, airdrops, or other similar events. Support decisions are made at our sole discretion."
         }
       },
       accountSecurity: {
@@ -1081,37 +1082,37 @@ const en = {
       },
       privacy: {
         title: "Privacy",
-        content: "Your privacy is governed by the ironfxx Privacy Notice, which explains how we collect, use, and protect your personal information."
+        content: "Your privacy is governed by the indiaallvorafx Privacy Notice, which explains how we collect, use, and protect your personal information."
       },
       termination: {
         title: "Account Termination",
         terminationSuspension: {
           title: "Termination/Suspension",
-          content: "ironfxx may restrict, suspend, or terminate accounts for fraud, law violations, suspicious activity, or Terms violations. Users may close accounts unless frozen or dormant."
+          content: "indiaallvorafx may restrict, suspend, or terminate accounts for fraud, law violations, suspicious activity, or Terms violations. Users may close accounts unless frozen or dormant."
         }
       },
       prohibitedUse: {
         title: "Prohibited Use",
-        content: "You may not use ironfxx services for fraud, market manipulation, illegal activities, unauthorized access, or any purpose that violates applicable laws or these Terms."
+        content: "You may not use indiaallvorafx services for fraud, market manipulation, illegal activities, unauthorized access, or any purpose that violates applicable laws or these Terms."
       },
       liability: {
         title: "Liability & Intellectual Property",
         liability: {
           title: "Liability",
-          content: "ironfxx is not responsible for losses except in cases of proven gross negligence or fraud. We are not liable for market fluctuations, technical issues, or third-party actions."
+          content: "indiaallvorafx is not responsible for losses except in cases of proven gross negligence or fraud. We are not liable for market fluctuations, technical issues, or third-party actions."
         },
         intellectualProperty: {
           title: "Intellectual Property",
-          content: "ironfxx retains all intellectual property rights to our platform, technology, and branding. Users receive a limited license to use our services as outlined in these Terms."
+          content: "indiaallvorafx retains all intellectual property rights to our platform, technology, and branding. Users receive a limited license to use our services as outlined in these Terms."
         },
         indemnity: {
           title: "Indemnity",
-          content: "You agree to indemnify and hold ironfxx harmless against any claims, losses, or damages resulting from your misuse of our services or violation of these Terms."
+          content: "You agree to indemnify and hold indiaallvorafx harmless against any claims, losses, or damages resulting from your misuse of our services or violation of these Terms."
         }
       },
       importantNotice: {
         title: "Important Notice",
-        content: "By using ironfxx services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use. If you do not agree, you must discontinue use of our services immediately."
+        content: "By using indiaallvorafx services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use. If you do not agree, you must discontinue use of our services immediately."
       },
       actionCards: {
         security: {
@@ -1132,7 +1133,7 @@ const en = {
         }
       },
       footer: {
-        copyright: "© 2025 ironfxx. All rights reserved.",
+        copyright: "© 2025 indiaallvorafx. All rights reserved.",
         lastUpdated: "Last updated: 6 May 2025"
       }
     },
@@ -1217,7 +1218,7 @@ const en = {
     invitation: {
       title: "Invite Friends",
       earnTogether: "Earn Together",
-      description: "Invite friends to join ironfxx and earn rewards when they sign up and start trading.",
+      description: "Invite friends to join indiaallvorafx and earn rewards when they sign up and start trading.",
       yourReferralCode: "YOUR REFERRAL CODE",
       loading: "Loading...",
       copied: "COPIED!",
@@ -1318,7 +1319,7 @@ const en = {
         lostDevice: "If your device is lost or stolen, immediately revoke session access from your account settings.",
         phishing: "If you've fallen victim to a phishing attempt, freeze your account and contact support immediately.",
         supportTitle: "24/7 Security Support",
-        supportEmail: "ironfxx.helpdesk01@gmail.com"
+        supportEmail: "indiaallvorafx.helpdesk01@gmail.com"
       },
       resources: {
         title: "Security Resources",
@@ -1372,7 +1373,7 @@ const en = {
         },
         accountActivated: {
           title: "KYC Verification",
-          message: "Hello {0} your KYC documents have been verified you can now enjoy unlimited features on ironfxx"
+          message: "Hello {0} your KYC documents have been verified you can now enjoy unlimited features on indiaallvorafx"
         },
         custom: {
           title: "Notification",
@@ -1673,7 +1674,7 @@ const en = {
       title: "FAQ Center",
       hero: {
         title: "Frequently Asked Questions",
-        subtitle: "Find answers to common questions about using ironfxx"
+        subtitle: "Find answers to common questions about using indiaallvorafx"
       },
       search: {
         placeholder: "Search for answers..."
@@ -1695,7 +1696,7 @@ const en = {
         verificationProcess: "Upload a government-issued ID and a selfie photo. Verification is usually approved within hours."
       },
       steps: {
-        goToWebsite: "Go to https://trade-ironfxx.com",
+        goToWebsite: "Go to https://trade-indiaallvorafx.com",
         clickSignUp: 'Click "Sign Up"',
         enterDetails: "Enter your details",
         verifyEmail: "Verify your email address",
@@ -1745,7 +1746,7 @@ const en = {
         profitLossExplanation: "Calculated based on price difference multiplied by your leverage and position size."
       },
       benefits: {
-        title: "Why Choose ironfxx Futures?",
+        title: "Why Choose indiaallvorafx Futures?",
         hedge: "Hedge against market volatility",
         multiplyProfits: "Multiply profits with leverage",
         tradeBothMarkets: "Trade both rising and falling markets",
@@ -1758,8 +1759,8 @@ const en = {
         joinDiscussions: "Join discussions"
       },
       footer: {
-        copyright: "© 2025 ironfxx. All rights reserved.",
-        needHelp: "Need more help? Contact ironfxx.helpdesk01@gmail.com"
+        copyright: "© 2025 indiaallvorafx. All rights reserved.",
+        needHelp: "Need more help? Contact indiaallvorafx.helpdesk01@gmail.com"
       }
     },
 

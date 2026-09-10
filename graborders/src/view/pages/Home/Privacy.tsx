@@ -296,7 +296,7 @@ function Privacy() {
         
         .hero-subtitle {
             font-size: 16px;
-            color: #AAAAAA;
+            color: var(--kt-text-muted);
             line-height: 1.5;
         }
         
@@ -361,7 +361,7 @@ function Privacy() {
         
         .principle-description {
             font-size: 14px;
-            color: #AAAAAA;
+            color: var(--kt-text-muted);
             line-height: 1.5;
         }
         
@@ -392,7 +392,7 @@ function Privacy() {
         
         .rights-note {
             font-size: 14px;
-            color: #AAAAAA;
+            color: var(--kt-text-muted);
             font-style: italic;
         }
         
@@ -422,7 +422,7 @@ function Privacy() {
         
         .definition-examples {
             font-size: 14px;
-            color: #AAAAAA;
+            color: var(--kt-text-muted);
             font-style: italic;
         }
         
@@ -460,7 +460,7 @@ function Privacy() {
         
         .usage-description {
             font-size: 14px;
-            color: #AAAAAA;
+            color: var(--kt-text-muted);
             line-height: 1.5;
         }
         
@@ -582,7 +582,7 @@ function Privacy() {
         
         .action-description {
             font-size: 13px;
-            color: #AAAAAA;
+            color: var(--kt-text-muted);
         }
         
         /* Notification */

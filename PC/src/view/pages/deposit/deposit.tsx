@@ -426,7 +426,7 @@ function Deposit() {
                     const parent = img.parentElement;
                     if (parent) {
                       parent.textContent = (symbol && symbol.charAt(0)) || "C";
-                      parent.style.background = "#f0f0f0";
+                      parent.style.background = "var(--kt-border)";
                       parent.style.color = "#333";
                       parent.style.fontSize = "12px";
                       parent.style.fontWeight = "bold";
@@ -657,8 +657,8 @@ function Deposit() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -741,12 +741,12 @@ function Deposit() {
         .info-value {
           font-size: 12px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
         }
 
         .rate-loading {
           font-size: 11px;
-          color: #666;
+          color: var(--kt-text-secondary);
           text-align: center;
           margin-top: 4px;
         }
@@ -762,7 +762,7 @@ function Deposit() {
         .section-label {
           font-size: 14px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 8px;
         }
 
@@ -770,10 +770,10 @@ function Deposit() {
           display: flex;
           align-items: center;
           gap: 12px;
-          background: white;
+          background: var(--kt-bg-card);
           padding: 12px;
           border-radius: 12px;
-          border: 1px solid #e0e0e0;
+          border: 1px solid var(--kt-border);
           margin-bottom: 8px;
         }
 
@@ -784,7 +784,7 @@ function Deposit() {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #f8f9fa;
+          background: var(--kt-bg-card-alt);
           overflow: hidden;
           flex-shrink: 0;
         }
@@ -802,18 +802,18 @@ function Deposit() {
         .currency-name {
           font-size: 13px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 2px;
         }
 
         .currency-rate {
           font-size: 11px;
-          color: #666;
+          color: var(--kt-text-secondary);
         }
 
         .section-note {
           font-size: 12px;
-          color: #666;
+          color: var(--kt-text-secondary);
           font-style: italic;
         }
 
@@ -824,11 +824,11 @@ function Deposit() {
         .network-select {
           width: 100%;
           padding: 14px 16px;
-          border: 1px solid #e0e0e0;
+          border: 1px solid var(--kt-border);
           border-radius: 12px;
           font-size: 14px;
-          background-color: white;
-          color: #333;
+          background-color: var(--kt-bg-card);
+          color: var(--kt-text-secondary);
           appearance: none;
           cursor: pointer;
           transition: all 0.3s ease;
@@ -845,12 +845,12 @@ function Deposit() {
           right: 16px;
           top: 50%;
           transform: translateY(-50%);
-          color: #666;
+          color: var(--kt-text-secondary);
           pointer-events: none;
         }
 
         .qr-container {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 16px;
           padding: 24px;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -860,7 +860,7 @@ function Deposit() {
           display: flex;
           justify-content: center;
           padding: 10px;
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 8px;
         }
 
@@ -875,14 +875,14 @@ function Deposit() {
         .address-label {
           font-size: 14px;
           font-weight: 600;
-          color: #666;
+          color: var(--kt-text-secondary);
           margin-bottom: 12px;
         }
 
         .address-text {
           font-size: 13px;
-          color: #333;
-          background: #f8f9fa;
+          color: var(--kt-text-secondary);
+          background: var(--kt-bg-card-alt);
           padding: 12px;
           border-radius: 8px;
           margin-bottom: 16px;
@@ -921,7 +921,7 @@ function Deposit() {
         }
 
         .save-btn {
-          background: white;
+          background: var(--kt-bg-card);
           color: #106cf5;
           border: 1px solid #106cf5;
         }
@@ -946,11 +946,11 @@ function Deposit() {
         .form-input {
           width: 100%;
           padding: 14px 16px;
-          border: 1px solid #e0e0e0;
+          border: 1px solid var(--kt-border);
           border-radius: 12px;
           font-size: 14px;
-          background-color: white;
-          color: #333;
+          background-color: var(--kt-bg-card);
+          color: var(--kt-text-secondary);
           transition: all 0.3s ease;
         }
 
@@ -966,8 +966,8 @@ function Deposit() {
           top: 50%;
           transform: translateY(-50%);
           font-size: 12px;
-          color: #666;
-          background: white;
+          color: var(--kt-text-secondary);
+          background: var(--kt-bg-card);
           padding: 2px 6px;
           border-radius: 4px;
         }
@@ -980,7 +980,7 @@ function Deposit() {
 
         .min-amount-note {
           font-size: 12px;
-          color: #666;
+          color: var(--kt-text-secondary);
           margin-top: 8px;
           font-style: italic;
         }
@@ -1040,7 +1040,7 @@ function Deposit() {
         }
 
         .modal-content {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 20px;
           width: 90%;
           
@@ -1060,7 +1060,7 @@ function Deposit() {
 
         .modal-header {
           padding: 20px;
-          border-bottom: 1px solid #e0e0e0;
+          border-bottom: 1px solid var(--kt-border);
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -1069,13 +1069,13 @@ function Deposit() {
         .modal-header h3 {
           margin: 0;
           font-size: 18px;
-          color: #222;
+          color: var(--kt-text-primary);
         }
 
         .modal-close {
           background: none;
           border: none;
-          color: #666;
+          color: var(--kt-text-secondary);
           cursor: pointer;
           font-size: 18px;
           transition: color 0.3s ease;
@@ -1098,14 +1098,14 @@ function Deposit() {
 
         .success-message {
           font-size: 16px;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 15px;
           font-weight: 600;
         }
 
         .success-details {
           font-size: 14px;
-          color: #666;
+          color: var(--kt-text-secondary);
           line-height: 1.5;
         }
 
@@ -1115,7 +1115,7 @@ function Deposit() {
 
         .modal-footer {
           padding: 20px;
-          border-top: 1px solid #e0e0e0;
+          border-top: 1px solid var(--kt-border);
         }
 
         .modal-btn {
@@ -1138,7 +1138,7 @@ function Deposit() {
         .loading-section {
           text-align: center;
           padding: 40px 0;
-          color: #666;
+          color: var(--kt-text-secondary);
         }
 
         .spinner {
@@ -1170,12 +1170,12 @@ function Deposit() {
         .error-note {
           margin-top: 10px;
           font-size: 14px;
-          color: #666;
+          color: var(--kt-text-secondary);
         }
 
         .hint-section {
           margin-top: 24px;
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 16px;
           padding: 20px;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -1184,7 +1184,7 @@ function Deposit() {
         .hint-title {
           font-size: 14px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 12px;
         }
 
@@ -1196,7 +1196,7 @@ function Deposit() {
 
         .hint-item {
           font-size: 10px;
-          color: #666;
+          color: var(--kt-text-secondary);
           line-height: 1.4;
           position: relative;
           padding-left: 12px;

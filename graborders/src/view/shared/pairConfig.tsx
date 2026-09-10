@@ -99,7 +99,7 @@ export const PairIcon: React.FC<PairIconProps> = ({ pair, size = 'sm' }) => {
     borderRadius: '50%',
     objectFit: 'cover',
     border: '1.5px solid #fff',
-    background: '#e9ebef',
+    background: 'var(--kt-border)',
   };
 
   // Badge (metals / crypto)

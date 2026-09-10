@@ -242,7 +242,7 @@ function TransferList() {
         }
 
         .transaction-date {
-          color: #777777;
+          color: var(--kt-text-tertiary);
           font-size: 12px;
         }
 
@@ -285,7 +285,7 @@ function TransferList() {
           justify-content: center;
           min-height: 200px;
           text-align: center;
-          color: #777777;
+          color: var(--kt-text-tertiary);
           padding: 40px 20px;
         }
         .no-data-message i {
@@ -297,7 +297,7 @@ function TransferList() {
           font-size: 14px;
           max-width: 250px;
           line-height: 1.4;
-          color: #aaaaaa;
+          color: var(--kt-text-muted);
         }
 
         /* Responsive adjustments */

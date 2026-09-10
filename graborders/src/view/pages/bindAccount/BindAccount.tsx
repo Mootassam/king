@@ -60,7 +60,7 @@ function BindAccount() {
         }
 
         body {
-          background-color: #f5f7fa;
+          background-color: var(--kt-bg-card-alt);
         }
 
         .bind-account-container {
@@ -108,7 +108,7 @@ function BindAccount() {
         /* Content Card */
         .content-card {
           flex: 1;
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 25px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -119,13 +119,13 @@ function BindAccount() {
         .section-title {
           font-size: 18px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 20px;
         }
         .section-subtitle {
           font-size: 16px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin: 32px 0 20px 0;
         }
 
@@ -137,8 +137,8 @@ function BindAccount() {
 
         /* Card */
         .card {
-          background-color: #f8f9fa;
-          border: 1px solid #e7eaee;
+          background-color: var(--kt-bg-card-alt);
+          border: 1px solid var(--kt-border);
           border-radius: 12px;
           padding: 9px 16px;
           display: flex;
@@ -179,7 +179,7 @@ function BindAccount() {
         .card-label {
           font-size: 16px;
           font-weight: 500;
-          color: #333;
+          color: var(--kt-text-secondary);
         }
 
         /* Popular Badge */
@@ -196,7 +196,7 @@ function BindAccount() {
 
         /* Arrow */
         .card-arrow {
-          color: #999;
+          color: var(--kt-text-muted);
           font-size: 16px;
           transition: color 0.2s, transform 0.2s;
         }

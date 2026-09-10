@@ -375,7 +375,7 @@ function Termeofuse() {
         
         .hero-subtitle {
             font-size: 14px;
-            color: #AAAAAA;
+            color: var(--kt-text-muted);
             line-height: 1.5;
         }
         
@@ -416,7 +416,7 @@ function Termeofuse() {
         
         .item-content {
             font-size: 14px;
-            color: #AAAAAA;
+            color: var(--kt-text-muted);
             line-height: 1.5;
         }
         
@@ -503,14 +503,14 @@ function Termeofuse() {
         
         .action-description {
             font-size: 13px;
-            color: #AAAAAA;
+            color: var(--kt-text-muted);
         }
         
         /* Footer */
         .footer {
             text-align: center;
             padding: 20px 0;
-            color: #AAAAAA;
+            color: var(--kt-text-muted);
             font-size: 12px;
             border-top: 1px solid #2A2A2A;
             margin-top: 20px;

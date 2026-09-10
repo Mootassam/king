@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import RoutesComponent from 'src/view/shared/routes/RoutesComponent';
 import jQuery from 'jquery';
 import 'bootstrap/dist/js/bootstrap';
+import { ThemeProvider } from 'src/modules/theme/themeContext';
+import "./theme.css"
 import "./App.css"
 
 (window as any).$ = (window as any).jQuery = jQuery;
@@ -16,9 +18,11 @@ const store = configureStore();
 const App = (props) => {
   return (
     <Provider store={store}>
-      <ConnectedRouter history={getHistory()}>
-        <RoutesComponent />
-      </ConnectedRouter>
+      <ThemeProvider>
+        <ConnectedRouter history={getHistory()}>
+          <RoutesComponent />
+        </ConnectedRouter>
+      </ThemeProvider>
     </Provider>
   );
 };

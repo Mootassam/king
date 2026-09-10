@@ -15,7 +15,7 @@ const authAxios = Axios.create({
     //  baseURL : "http://localhost:8082/api", 
 
   // Prod Link
-  baseURL: "https://indiaironfx.com/api",
+  baseURL: "https://indiaallvorafx.cc/api",
 
   paramsSerializer: function (params) {
     return Qs.stringify(params, {

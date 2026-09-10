@@ -1,0 +1,37 @@
+/*
+ * Light/dark theme tokens.
+ * Light values match the app's existing (unchanged) design.
+ * Dark values are a new palette, consistent with the dark surfaces already
+ * used by the live-chat widget elsewhere in the app.
+ */
+:root {
+  --kt-bg-page: #f2f4f7;
+  --kt-bg-card: #ffffff;
+  --kt-bg-card-alt: #f5f7fa;
+  --kt-text-primary: #1a1a1a;
+  --kt-text-secondary: #555555;
+  --kt-text-tertiary: #777777;
+  --kt-text-muted: #999999;
+  --kt-border: #e7eaee;
+}
+
+[data-theme='dark'] {
+  --kt-bg-page: #0b0e14;
+  --kt-bg-card: #151a24;
+  --kt-bg-card-alt: #1a2030;
+  --kt-text-primary: #f0f2f5;
+  --kt-text-secondary: #c3cad6;
+  --kt-text-tertiary: #99a2b3;
+  --kt-text-muted: #6b7383;
+  --kt-border: #262d3a;
+}
+
+html,
+body {
+  background: var(--kt-bg-page);
+  color: var(--kt-text-primary);
+}
+
+body {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}

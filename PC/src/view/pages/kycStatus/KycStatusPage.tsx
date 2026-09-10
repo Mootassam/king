@@ -137,8 +137,8 @@ function KycStatusPage() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -193,7 +193,7 @@ function KycStatusPage() {
 
         /* Content Card */
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 25px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -247,12 +247,12 @@ function KycStatusPage() {
           font-size: 22px;
           font-weight: 600;
           margin-bottom: 12px;
-          color: #222;
+          color: var(--kt-text-primary);
         }
 
         .status-message {
           font-size: 14px;
-          color: #666;
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           margin-bottom: 20px;
           max-width: 340px;
@@ -283,8 +283,8 @@ function KycStatusPage() {
 
         /* Features List (for unverified) */
         .status-features {
-          background: #f8f9fa;
-          border: 1px solid #e7eaee;
+          background: var(--kt-bg-card-alt);
+          border: 1px solid var(--kt-border);
           border-radius: 12px;
           padding: 18px;
           margin-bottom: 24px;
@@ -310,9 +310,9 @@ function KycStatusPage() {
           align-items: center;
           gap: 12px;
           padding: 10px 0;
-          border-bottom: 1px solid #e7eaee;
+          border-bottom: 1px solid var(--kt-border);
           font-size: 13px;
-          color: #333;
+          color: var(--kt-text-secondary);
         }
 
         .status-features li:last-child {

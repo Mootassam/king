@@ -123,8 +123,8 @@ function productDetails() {
          }
  
          body {
-           background-color: #f5f7fa;
-           color: #333;
+           background-color: var(--kt-bg-card-alt);
+           color: var(--kt-text-secondary);
            line-height: 1.6;
            overflow-x: hidden;
          }
@@ -173,7 +173,7 @@ function productDetails() {
  
          /* Content Card - Matching Profile Page */
          .content-card {
-           background: white;
+           background: var(--kt-bg-card);
            border-radius: 40px 40px 0 0;
            padding: 20px;
            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -187,7 +187,7 @@ function productDetails() {
          .question-title {
            font-size: 16px;
            font-weight: 600;
-           color: #222;
+           color: var(--kt-text-primary);
            line-height: 1.4;
            margin-bottom: 16px;
            padding-bottom: 12px;
@@ -196,14 +196,14 @@ function productDetails() {
  
          .divider-line {
            height: 1px;
-           background-color: #e7eaee;
+           background-color: var(--kt-border);
            margin-bottom: 16px;
            width: 100%;
          }
  
          .answer-content {
            font-size: 13px;
-           color: #555;
+           color: var(--kt-text-secondary);
            line-height: 1.6;
            white-space: pre-line;
          }

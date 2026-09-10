@@ -203,8 +203,8 @@ function Proof() {
         }
 
         body {
-          background-color: #f5f7fa;
-          color: #333;
+          background-color: var(--kt-bg-card-alt);
+          color: var(--kt-text-secondary);
           line-height: 1.6;
           overflow-x: hidden;
         }
@@ -253,7 +253,7 @@ function Proof() {
 
         /* Content Card - Matching Profile Page */
         .content-card {
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 25px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -287,10 +287,10 @@ function Proof() {
         .section-title {
           font-size: 16px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 16px;
           padding-bottom: 8px;
-          border-bottom: 1px solid #e7eaee;
+          border-bottom: 1px solid var(--kt-border);
         }
 
         .document-type-section {
@@ -300,7 +300,7 @@ function Proof() {
         .input-label {
           display: block;
           font-size: 14px;
-          color: #666;
+          color: var(--kt-text-secondary);
           margin-bottom: 10px;
           font-weight: 500;
         }
@@ -319,11 +319,11 @@ function Proof() {
           display: flex;
           align-items: center;
           padding: 14px 16px;
-          border: 1px solid #e7eaee;
+          border: 1px solid var(--kt-border);
           border-radius: 8px;
           cursor: pointer;
           transition: all 0.3s ease;
-          background: #f8f9fa;
+          background: var(--kt-bg-card-alt);
         }
 
         .document-option:hover {
@@ -339,7 +339,7 @@ function Proof() {
 
         .document-icon {
           font-size: 18px;
-          color: #666;
+          color: var(--kt-text-secondary);
           margin-right: 12px;
           width: 24px;
           text-align: center;
@@ -352,7 +352,7 @@ function Proof() {
         .document-text {
           font-size: 12px;
           font-weight: 500;
-          color: #222;
+          color: var(--kt-text-primary);
         }
 
         .document-option.selected .document-text {
@@ -373,12 +373,12 @@ function Proof() {
           width: 100%;
           padding: 12px 16px;
           font-size: 14px;
-          border: 1px solid #e7eaee;
+          border: 1px solid var(--kt-border);
           border-radius: 8px;
-          background: #fff;
+          background: var(--kt-bg-card);
           transition: all 0.3s ease;
           outline: none;
-          color: #333;
+          color: var(--kt-text-secondary);
         }
 
         .text-input input:focus {
@@ -387,14 +387,14 @@ function Proof() {
         }
 
         .text-input input::placeholder {
-          color: #aaa;
+          color: var(--kt-text-muted);
           font-size: 14px;
         }
 
         .text-input label {
           display: block;
           font-size: 14px;
-          color: #666;
+          color: var(--kt-text-secondary);
           margin-bottom: 6px;
           font-weight: 500;
         }

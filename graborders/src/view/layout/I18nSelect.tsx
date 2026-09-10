@@ -65,8 +65,8 @@ const I18nSelect = ({ isInModal = false }) => {
             height: 100%;
             display: flex;
             flex-direction: column;
-            background-color: #ffffff;
-            color: #333;
+            background-color: var(--kt-bg-card);
+            color: var(--kt-text-secondary);
           }
 
           .languages-list-modal {
@@ -81,7 +81,7 @@ const I18nSelect = ({ isInModal = false }) => {
             width: 4px;
           }
           .languages-list-modal::-webkit-scrollbar-track {
-            background: #f0f0f0;
+            background: var(--kt-border);
             border-radius: 2px;
           }
           .languages-list-modal::-webkit-scrollbar-thumb {
@@ -98,7 +98,7 @@ const I18nSelect = ({ isInModal = false }) => {
             padding: 16px 20px;
             cursor: pointer;
             transition: background-color 0.2s ease;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid var(--kt-border);
           }
           .language-item-modal:last-child {
             border-bottom: none;
@@ -135,12 +135,12 @@ const I18nSelect = ({ isInModal = false }) => {
           .language-name-modal {
             font-size: 16px;
             font-weight: 600;
-            color: #222;
+            color: var(--kt-text-primary);
             margin-bottom: 2px;
           }
           .language-native-modal {
             font-size: 13px;
-            color: #666;
+            color: var(--kt-text-secondary);
             font-weight: 400;
           }
 
@@ -160,7 +160,7 @@ const I18nSelect = ({ isInModal = false }) => {
 
           .language-help-modal {
             padding: 16px 20px;
-            border-top: 1px solid #e7eaee;
+            border-top: 1px solid var(--kt-border);
             background-color: #fafbfc;
             display: flex;
             align-items: flex-start;
@@ -174,7 +174,7 @@ const I18nSelect = ({ isInModal = false }) => {
           }
           .language-help-modal span {
             font-size: 13px;
-            color: #555;
+            color: var(--kt-text-secondary);
             line-height: 1.4;
           }
 
@@ -283,7 +283,7 @@ const I18nSelect = ({ isInModal = false }) => {
         }
 
         body {
-          background-color: #f5f7fa;
+          background-color: var(--kt-bg-card-alt);
         }
 
         .i18n-container {
@@ -329,7 +329,7 @@ const I18nSelect = ({ isInModal = false }) => {
         /* Content Card */
         .content-card {
           flex: 1;
-          background: white;
+          background: var(--kt-bg-card);
           border-radius: 40px 40px 0 0;
           padding: 25px 20px 100px;
           box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
@@ -351,12 +351,12 @@ const I18nSelect = ({ isInModal = false }) => {
         .language-intro h2 {
           font-size: 20px;
           font-weight: 700;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 6px;
         }
         .language-intro p {
           font-size: 14px;
-          color: #666;
+          color: var(--kt-text-secondary);
           line-height: 1.4;
         }
 
@@ -369,7 +369,7 @@ const I18nSelect = ({ isInModal = false }) => {
           width: 4px;
         }
         .languages-list::-webkit-scrollbar-track {
-          background: #f0f0f0;
+          background: var(--kt-border);
           border-radius: 2px;
         }
         .languages-list::-webkit-scrollbar-thumb {
@@ -384,12 +384,12 @@ const I18nSelect = ({ isInModal = false }) => {
           display: flex;
           align-items: center;
           padding: 16px;
-          border: 1px solid #e7eaee;
+          border: 1px solid var(--kt-border);
           border-radius: 8px;
           margin-bottom: 12px;
           cursor: pointer;
           transition: all 0.3s ease;
-          background-color: #f8f9fa;
+          background-color: var(--kt-bg-card-alt);
         }
         .language-item:last-child {
           margin-bottom: 0;
@@ -428,12 +428,12 @@ const I18nSelect = ({ isInModal = false }) => {
         .language-name {
           font-size: 16px;
           font-weight: 600;
-          color: #222;
+          color: var(--kt-text-primary);
           margin-bottom: 4px;
         }
         .language-native {
           font-size: 14px;
-          color: #666;
+          color: var(--kt-text-secondary);
         }
 
         .selected-indicator {
@@ -448,13 +448,13 @@ const I18nSelect = ({ isInModal = false }) => {
 
         .language-help {
           padding: 16px;
-          background-color: #f8f9fa;
-          border: 1px solid #e7eaee;
+          background-color: var(--kt-bg-card-alt);
+          border: 1px solid var(--kt-border);
           border-radius: 8px;
         }
         .language-help p {
           font-size: 14px;
-          color: #555;
+          color: var(--kt-text-secondary);
           display: flex;
           align-items: flex-start;
           gap: 10px;
