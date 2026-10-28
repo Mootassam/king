@@ -10,6 +10,7 @@ import selectors from "src/modules/auth/authSelectors";
 import yupFormSchemas from "src/modules/shared/yup/yupFormSchemas";
 import InputFormItem from "src/shared/form/InputFormItem";
 import I18nSelect from "src/view/layout/I18nSelect";
+import { useTheme } from "src/modules/theme/themeContext";
 import { i18n } from "../../../i18n";
 
 const schema = yup.object().shape({
@@ -29,6 +30,8 @@ function Signin() {
 
   const loading = useSelector(selectors.selectLoading);
   const externalErrorMessage = useSelector(selectors.selectErrorMessage);
+
+  const { theme } = useTheme();
 
   const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
 
@@ -85,7 +88,7 @@ function Signin() {
         <div className="logo-container">
           <img
             className="logo-img"
-            src="/logo.jpg"
+            src={theme === "dark" ? "/logo.jpg" : "/white.png"}
             alt="FXCC Logo"
           />
         </div>
@@ -266,7 +269,7 @@ function Signin() {
           margin-bottom: 20px;
         }
         .logo-img {
-          height: 64px;
+          height: 44px;
           width: auto;
         }
 
