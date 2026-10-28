@@ -20,7 +20,7 @@ services:
   db:
     image: mongo:4.0-xenial
     ports:
-      - 2747:27017
+      - 2757:27017
     restart: unless-stopped
     volumes:
       - phone:/data/db
