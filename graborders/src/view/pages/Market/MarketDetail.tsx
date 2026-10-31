@@ -6,7 +6,7 @@ import { i18n } from "../../../i18n";
 import CoinSelectorSidebar from "src/view/shared/modals/CoinSelectorSidebar";
 import { Link } from "react-router-dom";
 import { PAIRS, getPairInfo, PairIcon } from "src/view/shared/pairConfig";
-import { getTvWsUrl } from "src/view/shared/wsUrl";
+import { createTvSocket } from "src/view/shared/tvSocket";
 import { isMarketOpen } from "src/view/shared/marketHours";
 
 // ----------------------------------------------------------------------
@@ -151,7 +151,7 @@ function MarketDetail() {
       wsRef.current = null;
     }
 
-    const ws = new WebSocket(getTvWsUrl());
+    const ws = createTvSocket();
     wsRef.current = ws;
 
     ws.onopen = () => {

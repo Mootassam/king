@@ -12,7 +12,7 @@ import CustomTradingChart, { PriceInjection } from "../Market/CustomTradingChart
 import useSymbolInjections, { getInjectionDisplayPrice } from "src/view/shared/useSymbolInjections";
 import authSelectors from "src/modules/auth/authSelectors";
 import { getPairInfo, PairIcon } from "src/view/shared/pairConfig";
-import { getTvWsUrl } from "src/view/shared/wsUrl";
+import { createTvSocket } from "src/view/shared/tvSocket";
 import authAxios from "src/modules/shared/axios/authAxios";
 
 // ----------------------------------------------------------------------
@@ -228,7 +228,7 @@ function Futures() {
       wsRef.current.close();
       wsRef.current = null;
     }
-    const ws = new WebSocket(getTvWsUrl());
+    const ws = createTvSocket();
     wsRef.current = ws;
     ws.onopen = () => {
       const session = "qs_" + Math.random().toString(36).substring(2, 12);

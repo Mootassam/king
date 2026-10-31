@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { PAIRS, Pair, PairIcon } from 'src/view/shared/pairConfig';
-import { getTvWsUrl } from 'src/view/shared/wsUrl';
+import { createTvSocket } from 'src/view/shared/tvSocket';
 import useSymbolInjections, { getInjectionDisplayPrice } from 'src/view/shared/useSymbolInjections';
 
 // ----------------------------------------------------------------------
@@ -194,7 +194,7 @@ function useMarketData(): Record<string, LiveData> {
   const connect = useCallback(() => {
     if (wsRef.current) { wsRef.current.close(); wsRef.current = null; }
 
-    const ws = new WebSocket(getTvWsUrl());
+    const ws = createTvSocket();
     wsRef.current = ws;
 
     ws.onopen = () => {

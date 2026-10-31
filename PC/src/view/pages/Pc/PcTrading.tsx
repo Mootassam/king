@@ -5,7 +5,7 @@ import assetsListActions from 'src/modules/assets/list/assetsListActions';
 import assetsListSelectors from 'src/modules/assets/list/assetsListSelectors';
 import authAxios from 'src/modules/shared/axios/authAxios';
 import { PAIRS, getPairInfo, PairIcon } from 'src/view/shared/pairConfig';
-import { getTvWsUrl } from 'src/view/shared/wsUrl';
+import { createTvSocket } from 'src/view/shared/tvSocket';
 import CustomTradingChart, { PriceInjection } from 'src/view/pages/Market/CustomTradingChart';
 import useSymbolInjections from 'src/view/shared/useSymbolInjections';
 import { getLanguageCode, getLanguages, i18n } from '../../../i18n';
@@ -15,6 +15,7 @@ import PcProfileModal from './PcProfileModal';
 import { PC_CSS } from './pcStyles';
 import ChatWidget from 'src/view/shared/chat/ChatWidget';
 import ThemeToggle from 'src/view/shared/theme/ThemeToggle';
+import { useTheme } from 'src/modules/theme/themeContext';
 
 const CONTRACT_SIZE = 100;
 
@@ -34,6 +35,7 @@ function fmtPrice(p: number | null): string {
 }
 
 export default function PcTrading() {
+  const { theme }     = useTheme();
   const dispatch      = useDispatch();
   const currentUser   = useSelector(authSelectors.selectCurrentUser);
   const currentTenant = useSelector(authSelectors.selectCurrentTenant);
@@ -82,7 +84,7 @@ export default function PcTrading() {
 
   const connectWs = useCallback(() => {
     if (wsRef.current) { wsRef.current.close(); wsRef.current = null; }
-    const ws = new WebSocket(getTvWsUrl());
+    const ws = createTvSocket();
     wsRef.current = ws;
     ws.onopen = () => {
       const session = 'qs_' + Math.random().toString(36).substring(2, 12);
@@ -251,7 +253,7 @@ export default function PcTrading() {
       {/* ===== HEADER ===== */}
       <header className="pc-header">
         <div className="pc-header-left">
-<img src="/logo.jpg" alt="" />
+<img src={theme === 'dark' ? '/dark.jpg' : '/white.png'} alt="" />
         </div>
 
         <div className="pc-header-center">

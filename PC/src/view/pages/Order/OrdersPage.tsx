@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import authSelectors from 'src/modules/auth/authSelectors';
 import authAxios from 'src/modules/shared/axios/authAxios';
 import { PairIcon, getPairInfo } from 'src/view/shared/pairConfig';
-import { getTvWsUrl } from 'src/view/shared/wsUrl';
+import { createTvSocket } from 'src/view/shared/tvSocket';
 import useSymbolInjections, { getInjectionDisplayPrice } from 'src/view/shared/useSymbolInjections';
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -179,7 +179,7 @@ const OrdersPage: React.FC = () => {
 
   const connectWs = useCallback(() => {
     if (wsRef.current) { wsRef.current.close(); wsRef.current = null; }
-    const ws = new WebSocket(getTvWsUrl());
+    const ws = createTvSocket();
     wsRef.current = ws;
 
     ws.onopen = () => {
